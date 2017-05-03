@@ -1,0 +1,23 @@
+<ion-item-group class='ionic-list-complex' *ngFor="let group of groups">
+  <ion-item-divider *ngIf="!!group.name" light>{{group.name}}</ion-item-divider>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of group.items">
+      <ion-item [attr.detail-push]="item.detailPush">
+        <ion-icon [name]="item.icon.name" item-left [style.color]="item.icon.color" (click)="itemIconTapped($event, item)"></ion-icon>
+        <div (click)="itemTapped($event, item)">
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+        </div>
+        <button outline item-right (click)="itemSecondIconTapped($event, item)">
+          {{item.secondIcon.text}}
+        </button>
+      </ion-item>
+      <ion-item-options *ngIf="item.options">
+        <button *ngFor="let option of item.options" [class]="option.class">
+           <ion-icon [name]="option.name"></ion-icon>
+           {{option.text}}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-item-group>
