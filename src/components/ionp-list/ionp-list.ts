@@ -16,6 +16,7 @@ export class IonpListGroup {
 
 export class IonpListItem {
   id: string;
+  detail: boolean = true;
   icon: IonpListIcon;
   title: string;
   subTitle: string;

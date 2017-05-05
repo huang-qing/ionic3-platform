@@ -184,6 +184,7 @@ let BasicItems = (function () {
             icon: null,
             input: null,
             sliding: null,
+            detail: i === 1 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -216,6 +217,7 @@ let AvatarItems = (function () {
             icon: getAvatar(),
             input: null,
             sliding: null,
+            detail: true,
             params: {},
             callback: function (item, params) { }
         });
@@ -248,6 +250,7 @@ let ThumbnailItems = (function () {
             icon: getThumbnail(),
             input: null,
             sliding: null,
+            detail: true,
             params: {},
             callback: function (item, params) { }
         });
@@ -280,6 +283,7 @@ let IconItems = (function () {
             icon: getIcon(),
             input: null,
             sliding: null,
+            detail: true,
             params: {},
             callback: function (item, params) { }
         });
@@ -334,6 +338,7 @@ let InputItems = (function () {
             icon: icon,
             input: input,
             sliding: getSliding(),
+            detail: true,
             params: {},
             callback: function (item, params) { }
         });
@@ -373,6 +378,7 @@ let SlidingItems = (function () {
             class: null,
             icon: icon,
             input: null,
+            detail: true,
             sliding: getSliding(),
             params: {},
             callback: function (item, params) { }

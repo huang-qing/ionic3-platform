@@ -90,7 +90,7 @@ ${template.item.right}`;
 
 let listItemTemplate = `
 <!--item-->
-<button ion-item (click)="itemSelected(item)">
+<button ion-item (click)="itemSelected(item)" [attrs]="{'detail-none':!item.detail}">
   ${listItemContentTemplate}
 </button>`;
 
@@ -105,7 +105,7 @@ let listTextItemsTemplate = `
 let listButtonItemsTemplate = `
 <div *ngIf="group.type==='button'">
 <!--item-->
-  <button ion-item (click)="itemSelected(item)"  *ngFor="let item of group.items">
+  <button ion-item (click)="itemSelected(item)"  *ngFor="let item of group.items"  [attrs]="{'detail-none':!item.detail}">
     ${listItemContentTemplate}
   </button>
 </div>`;
