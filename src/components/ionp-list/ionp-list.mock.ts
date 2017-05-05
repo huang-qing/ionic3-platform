@@ -122,7 +122,7 @@ let getInput = function (type): IonpListInput {
             break;
         case 'text':
             text = "placeholder";
-            value = "";
+            value = "Hello";
             break;
         case 'select':
             value = "n64";
@@ -397,7 +397,7 @@ let GROUPS = (function (): IonpListGroup[] {
             'Sliding',
             'Input'
         ],
-        types = [
+        styles = [
             'dividers',
             'dividers',
             'header',
@@ -419,18 +419,31 @@ let GROUPS = (function (): IonpListGroup[] {
         ],
         text,
         type,
+        style,
         items;
 
     for (var i = 0, len = texts.length; i < len; i++) {
         text = texts[i];
-        type = types[i];
+        style = styles[i];
         items = listItems[i];
+        type = 'text';
+
+        //button
+        if (i >= 2 && i < 6) {
+            type = 'button';
+        }
+        //sliding
+        else if (i === 6) {
+            type = 'sliding';
+        }
+
 
         groups.push({
             text: text,
-            type: type,
+            style: style,
             id: i.toString(),
-            items: items
+            items: items,
+            type: type
         });
     }
 

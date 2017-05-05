@@ -8,9 +8,10 @@ export class IonpList {
 
 export class IonpListGroup {
   id: string;
-  type: 'header' | 'dividers' = 'header';
+  style: 'header' | 'dividers' = 'header';
   text: string;
   items: IonpListItem[];
+  type: 'text' | 'button' | 'sliding' = 'text';
 }
 
 export class IonpListItem {

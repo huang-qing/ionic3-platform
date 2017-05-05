@@ -1,11 +1,7 @@
-// .list-complex 
-// {
-//     ion-item-group
-//     {
-//         >ion-list
-//         {
-//             margin-bottom:0;
-//         }
-//     }
-   
-// }
+ion-item {
+  ion-input {
+    input.text-input {
+      text-align: right;
+    }
+  }
+}

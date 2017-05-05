@@ -1,0 +1,46 @@
+<button ion-item (click)="itemSelected(item)" *ngIf="item">
+    <!--left:avatar-->
+    <ion-avatar item-left *ngIf="item?.icon?.type==='avatar'">
+        <img [src]="item.icon.src">
+    </ion-avatar>
+    <!--left:thumbnail-->
+    <ion-thumbnail item-left *ngIf="item?.icon?.type==='thumbnail'">
+        <img [src]="item.icon.src">
+    </ion-thumbnail>
+    <!--left:icon-->
+    <ion-icon [name]="item.icon.name" item-left [color]="item.icon.color" *ngIf="item?.icon?.type==='icon'"></ion-icon>
+
+    <ion-label>
+        <!---Multi-line:title-->
+        <h2 *ngIf="item.title">{{item.title}}</h2>
+        <!---Multi-line:subTitle-->
+        <h3 *ngIf="item.subTitle">{{item.subTitle}}</h3>
+        <!---Multi-line:description-->
+        <p *ngIf="(item.title||item.subTitle)&&item.description">{{item.description}}</p>
+        <!--Single-line:text-->
+        <div *ngIf="(!item.title&&!item.subTitle)&&item.description">
+            {{item.description}}
+        </div>
+    </ion-label>
+
+    <!--right-->
+    <!--note-->
+    <ion-note item-right *ngIf="item?.input?.type==='note'">
+    {{item.input.text}}
+    </ion-note>
+    <!--icon-->
+    <ion-icon [name]='item.input.name' item-right [color]="item.input.color" *ngIf="item?.input?.type==='icon'"></ion-icon>
+    <!--button-->
+    <button ion-button outline item-right *ngIf="item?.input?.type==='button'"> 
+    {{item.input.text}}
+    </button>
+    <!--toggle-->
+    <ion-toggle checked="{{item.input.value}}" *ngIf="item?.input?.type==='toggle'"></ion-toggle>
+    <!--text-->
+    <ion-input type="text" item-right value="aaa" placeholder="{{item.input.text}}" *ngIf="item?.input?.type==='text'"></ion-input>
+    <!--select-->
+    <ion-select [(ngModel)]="item.input.value" *ngIf="item?.input?.type==='select'">
+    <ion-option value="{{option.value}}" *ngFor="let option of item.input.options">{{option.text}}</ion-option>
+    </ion-select>
+
+</button>

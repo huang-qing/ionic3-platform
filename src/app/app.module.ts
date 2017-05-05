@@ -17,6 +17,7 @@ import { ListPage } from '../pages/list/list';
 
 //ionpList
 import { IonpListComponent } from '../components/ionp-list/ionp-list.component';
+import { IonpListItemComponent } from '../components/ionp-list/ionp-list-item.component'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +32,7 @@ import { AttrsDirective } from '../directives/attrs.directive'
     ItemDetailsPage,
     ListPage,
     IonpListComponent,
+    IonpListItemComponent,
     AttrsDirective
   ],
   imports: [
@@ -46,7 +48,8 @@ import { AttrsDirective } from '../directives/attrs.directive'
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    IonpListComponent
+    IonpListComponent,
+    IonpListItemComponent
   ],
   providers: [
     StatusBar,
