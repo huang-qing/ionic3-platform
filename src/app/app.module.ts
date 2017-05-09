@@ -15,6 +15,8 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage as ListDemoPage } from '../pages/demo-list/list';
 
+import { Api } from '../providers';
+
 //ionpList
 import { IonpListComponent } from '../components';
 import { ListPage } from '../pages/list/list.page';
@@ -54,7 +56,8 @@ import { AttrsDirective } from '../directives/attrs.directive'
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Api
   ]
 })
 

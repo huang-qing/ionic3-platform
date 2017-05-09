@@ -6,7 +6,7 @@ import { IonpListMock } from '../components/ionp-list/ionp-list.mock'
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    let ionplist: IonpList = IonpListMock;
-    return { ionplist };
+    let ionplists: IonpList = IonpListMock;
+    return { ionplists };
   }
 }

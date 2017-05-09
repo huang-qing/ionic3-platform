@@ -28,7 +28,4 @@ export class AttrsDirective implements OnInit {
             }
         }
     }
-
-
-
 }

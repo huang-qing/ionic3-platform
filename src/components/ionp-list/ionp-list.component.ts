@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, EventEmitter, Input, Output } from "@angular/core";
 import { IonpList, IonpListItem, IonpListGroup } from './ionp-list';
 import { AttrsDirective } from '../../directives/attrs.directive';
 import { IonpListComponentTemplate } from './ionp-list.html';
@@ -20,6 +20,7 @@ export class IonpListComponent implements OnInit {
   //2.在 app.module.ts 引入 IonpListComponent
   @Input()
   list: IonpList;
+  @Output() onItemSelected = new EventEmitter<IonpListItem>();
   groups: IonpListGroup[];
   items: IonpListItem[];
   params: IonpListItem;
@@ -30,6 +31,12 @@ export class IonpListComponent implements OnInit {
     //this.selectedItem = this.navParams.get('item');
     //this.params = this.navParams.data.item;
     //this.getList();
+  }
+
+  //父组件监听子组件的事件:Parent listens for child event
+  //https://www.angular.cn/docs/ts/latest/cookbook/component-communication.html#!#parent-to-child-on-changes
+  itemSelected(item: IonpListItem) {
+      this.onItemSelected.emit(item);
   }
 
 }

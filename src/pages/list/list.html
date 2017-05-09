@@ -8,5 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ionp-list [list]="list"> </ionp-list>
+  <ionp-list [list]="list"
+     (onItemSelected)="onItemSelected($event)">
+  </ionp-list>
 </ion-content>
