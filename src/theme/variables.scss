@@ -44,13 +44,19 @@ $colors: (
 // Material Design only Sass variables can go here
 
 
+// huangqing:在安卓和windows设备中显示和ios列表中一样的箭头效果
+// --------------------------------------------------
+// Add the forward arrow as an option for md & wp mode
+// https://github.com/driftyco/ionic/issues/5993
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+$item-md-detail-push-show:true;
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-
+$item-wp-detail-push-show:true;
 
 
 // App Theme

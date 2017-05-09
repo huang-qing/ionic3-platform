@@ -62,7 +62,7 @@ let getIcon = function (): IonpListIcon {
         name: ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
         src: "",
         class: "icon-customer",
-        color: COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)],
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
         params: {},
         callback: function (item, params) { }
     }

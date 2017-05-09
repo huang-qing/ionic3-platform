@@ -13,11 +13,11 @@ import { InMemoryDataService } from '../services/in-memory-data.service';
 //ionic demo
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
+import { ListPage as ListDemoPage } from '../pages/demo-list/list';
 
 //ionpList
-import { IonpListComponent } from '../components/ionp-list/ionp-list.component';
-import { IonpListItemComponent } from '../components/ionp-list/ionp-list-item.component'
+import { IonpListComponent } from '../components';
+import { ListPage } from '../pages/list/list.page';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,9 +30,9 @@ import { AttrsDirective } from '../directives/attrs.directive'
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
+    ListDemoPage,
     ListPage,
     IonpListComponent,
-    IonpListItemComponent,
     AttrsDirective
   ],
   imports: [
@@ -47,9 +47,9 @@ import { AttrsDirective } from '../directives/attrs.directive'
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage,
+    ListDemoPage,
     IonpListComponent,
-    IonpListItemComponent
+    ListPage
   ],
   providers: [
     StatusBar,

@@ -20,11 +20,9 @@ export class AttrsDirective implements OnInit {
         var attrs = this.attrs,
             el = this.el;
 
-        console.dir(attrs);
         if (this.attrs) {
             for (var i in attrs) {
                 if (attrs[i] === true) {
-                    console.log(i);
                     el.nativeElement.setAttribute(i,"");
                 }
             }

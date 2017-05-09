@@ -5,3 +5,11 @@ ion-item {
     }
   }
 }
+
+ion-item-group {
+  ion-item-sliding:last-child {
+    >.item .item-inner {
+      border: 0;
+    }
+  }
+}
