@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Http,Response, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/catch';
@@ -16,8 +15,6 @@ import 'rxjs/add/operator/map';
  * 
  * 泛型：
  * https://www.typescriptlang.org/docs/handbook/generics.html
- * 
- * Observable
  */
 @Injectable()
 export class Api {
@@ -42,13 +39,8 @@ export class Api {
     return Observable.throw(errMsg);
   }
 
-  private extractData(res: Response) {
-    let body = res.json();
-    return body.data || {};
-  }
-
   //获取
-  get<T>(endpoint: string, params?: any, options?: RequestOptions): Observable<T> {
+  get<T>(endpoint: string, params?: any, options?: RequestOptions): Promise<T> {
     if (!options) {
       options = new RequestOptions();
     }
@@ -65,24 +57,17 @@ export class Api {
     }
 
     return this.http.get(this.url + '/' + endpoint, options)
-      .map(this.extractData)
+      .toPromise()
+      .then(response => response.json().data as T)
       .catch(this.handleError);
   }
 
   //创建
-  post<T>(endpoint: string, body: any, options?: RequestOptions): Observable<T> {
-
-    // return this.http.post(this.url + '/' + endpoint, body, options)
-    //   .toPromise()
-    //   .then(response => response.json().data as T)
-    //   .catch(this.handleError);
-    if (!options) {
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-      let options = new RequestOptions({ headers: headers });
-    }
+  post<T>(endpoint: string, body: any, options?: RequestOptions): Promise<T> {
 
     return this.http.post(this.url + '/' + endpoint, body, options)
-      .map(this.extractData)
+      .toPromise()
+      .then(response => response.json().data as T)
       .catch(this.handleError);
   }
 

@@ -12,9 +12,9 @@ import { ListService } from './list.service';
 export class ListPage implements OnInit {
 
   list: IonpList;
-
   parentItem: IonpListItem;
   params: IonpListItem;
+  errorMessage:string;
 
   //通过private关键字在构建器中声明并传入
   constructor(
@@ -30,9 +30,13 @@ export class ListPage implements OnInit {
   }
 
   getList() {
-    this.service.getList().then(list => {
-      this.list = list;
-    });
+    // this.service.getList().then(list => {
+    //   this.list = list;
+    // });
+
+    this.service.getList()
+      .subscribe(list => this.list = list,
+      error => this.errorMessage = <any>error);
   }
 
   onItemSelected(item: IonpListItem) {

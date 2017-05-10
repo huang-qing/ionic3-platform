@@ -1,6 +1,7 @@
 import { OnInit, Injectable } from "@angular/core";
 import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+//import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
 import { IonpList, IonpListGroup, IonpListItem } from '../../components';
 import { Api } from '../../providers';
 
@@ -11,9 +12,13 @@ export class ListService implements OnInit {
 
     ngOnInit() { }
 
-    getList(): Promise<IonpList> {
+    getList(): Observable<IonpList> {
         return this.api.get<IonpList>('ionplists');
     }
+
+    // getList(): Promise<IonpList> {
+    //     return this.api.get<IonpList>('ionplists');
+    // }
 }
 
 
