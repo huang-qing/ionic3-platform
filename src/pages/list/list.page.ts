@@ -14,7 +14,7 @@ export class ListPage implements OnInit {
   list: IonpList;
   parentItem: IonpListItem;
   params: IonpListItem;
-  errorMessage:string;
+  errorMessage: string;
 
   //通过private关键字在构建器中声明并传入
   constructor(
@@ -24,25 +24,16 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
     this.parentItem = this.navParams.get('parentItem');
-    //console.log('ngOnInit');
-    //console.dir(this.parentItem);
     this.getList();
   }
 
   getList() {
-    // this.service.getList().then(list => {
-    //   this.list = list;
-    // });
-
     this.service.getList()
       .subscribe(list => this.list = list,
       error => this.errorMessage = <any>error);
   }
 
   onItemSelected(item: IonpListItem) {
-    //console.log('emit');
-    //console.dir(item);
-    //this.onItemSelected.emit(item);
     this.nav.push(ListPage, {
       parentItem: item
     });

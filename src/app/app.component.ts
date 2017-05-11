@@ -1,21 +1,24 @@
+//core
 import { Component, ViewChild } from '@angular/core';
+import { Platform, MenuController, Nav, Config } from 'ionic-angular';
 
-import { Platform, MenuController, Nav } from 'ionic-angular';
-
+//pages
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage as ListDemoPage } from '../pages/demo-list/list';
 import { ListPage } from '../pages/list/list.page';
-//import { IonpListComponent } from '../components/ionp-list/ionp-list.component';
-//import { IonpComponentModule } from '../components/ionp-component.module';
 
-
+//native
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+//i18n
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
@@ -24,19 +27,42 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(
+    translate: TranslateService,
+    config: Config,
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen
   ) {
+
+    // Set the default language for translation strings, and the current language.
+    translate.setDefaultLang('zh-CN');
+    translate.use('zh-CN');
+
+    translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+      config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+    });
+
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListDemoPage },
-      { title: 'List Page', component: ListPage }
+      { title: 'HELLO_IONIC', component: HelloIonicPage },
+      { title: 'MY_FIRST_LIST', component: ListDemoPage },
+      { title: 'LIST_PAGE', component: ListPage }
     ];
+
+    //i18n translate pages title
+    let pagesTitle = this.pages.map(page => {
+      return page.title
+    });
+
+    translate.get(pagesTitle).subscribe(values => {
+      this.pages.forEach(function (value, index, array) {
+        array[index].title = values[value.title];
+      });
+    });
+
   }
 
   initializeApp() {

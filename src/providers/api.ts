@@ -72,10 +72,6 @@ export class Api {
   //创建
   post<T>(endpoint: string, body: any, options?: RequestOptions): Observable<T> {
 
-    // return this.http.post(this.url + '/' + endpoint, body, options)
-    //   .toPromise()
-    //   .then(response => response.json().data as T)
-    //   .catch(this.handleError);
     if (!options) {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });

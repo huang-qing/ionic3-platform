@@ -21,6 +21,7 @@ export class IonpListComponent implements OnInit {
   @Input()
   list: IonpList;
   @Output() onItemSelected = new EventEmitter<IonpListItem>();
+  @Output() onInputTextChanged = new EventEmitter<IonpListItem>();
   groups: IonpListGroup[];
   items: IonpListItem[];
   params: IonpListItem;
@@ -36,7 +37,11 @@ export class IonpListComponent implements OnInit {
   //父组件监听子组件的事件:Parent listens for child event
   //https://www.angular.cn/docs/ts/latest/cookbook/component-communication.html#!#parent-to-child-on-changes
   itemSelected(item: IonpListItem) {
-      this.onItemSelected.emit(item);
+    this.onItemSelected.emit(item);
+  }
+
+  InputTextChanged(item: IonpListItem) {
+    this.onItemSelected.emit(item);
   }
 
 }

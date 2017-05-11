@@ -40,6 +40,10 @@ export class IonpListInput {
   callback: (item: IonpListItem, params: any) => any;
 }
 
+export class IonpText{
+  
+}
+
 export class IonpListIcon {
   type: 'icon' | 'thumbnail' | 'avatar' = 'icon';
   // thumbnail avatar 

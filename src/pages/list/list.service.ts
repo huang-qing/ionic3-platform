@@ -16,9 +16,6 @@ export class ListService implements OnInit {
         return this.api.get<IonpList>('ionplists');
     }
 
-    // getList(): Promise<IonpList> {
-    //     return this.api.get<IonpList>('ionplists');
-    // }
 }
 
 
