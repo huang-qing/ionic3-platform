@@ -1,6 +1,6 @@
 import {
     IonpList, IonpListItem, IonpListGroup, IonpListIcon,
-    IonpListInput, IonpListSlidingOption, IonpListSelectOption
+    IonpListForm, IonpListSlidingOption, IonpListSelectOption
 } from './ionp-list';
 // icon name
 let ICONSNAME = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
@@ -46,6 +46,7 @@ let getThumbnail = function (): IonpListIcon {
     return {
         type: "thumbnail",
         src: THUMBNAIL[Math.floor(Math.random() * THUMBNAIL.length)],
+        style: null,
         name: null,
         color: null,
         class: null,
@@ -59,6 +60,7 @@ let getIcon = function (): IonpListIcon {
 
     return {
         type: 'icon',
+        style: null,
         name: ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
         src: "",
         class: "icon-customer",
@@ -73,6 +75,7 @@ let getAvatar = function (): IonpListIcon {
 
     return {
         type: "avatar",
+        style: null,
         src: AVATARS[Math.floor(Math.random() * AVATARS.length)],
         name: null,
         color: null,
@@ -106,10 +109,11 @@ let SELECTOPTIONS = (function (): IonpListSelectOption[] {
 
 
 //get input
-let getInput = function (type): IonpListInput {
+let getForm = function (type): IonpListForm {
 
     var text = "view",
         value: boolean | string = true,
+        style: any = 'text',
         name = ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
         color = COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)],
         options: IonpListSelectOption[] = [];
@@ -123,6 +127,7 @@ let getInput = function (type): IonpListInput {
         case 'text':
             text = "placeholder";
             value = "Hello";
+            //style = 'number';
             break;
         case 'select':
             value = "n64";
@@ -135,6 +140,7 @@ let getInput = function (type): IonpListInput {
     return {
         type: type,
         text: text,
+        style: style,
         value: value,
         name: name,
         class: null,
@@ -166,6 +172,13 @@ let getSliding = function (): IonpListSlidingOption[] {
     return sliding;
 };
 
+let getGUID = (function () {
+    var i = 1;
+    return function () {
+        return `ionp-list-item-${i++}`;
+    }
+})();
+
 //Basic Items
 let BasicItems = (function () {
     let items: Array<IonpListItem> = [],
@@ -176,7 +189,61 @@ let BasicItems = (function () {
     for (var i = 0; i < 3; i++) {
         descriptioin = descriptions[i];
         items.push({
-            id: null,
+            id: getGUID(),
+            title: null,
+            subTitle: null,
+            description: descriptioin,
+            class: null,
+            icon: null,
+            input: null,
+            sliding: null,
+            detail: i === 1 ? false : true,
+            params: {},
+            callback: function (item, params) { }
+        });
+    }
+
+    return items;
+})();
+
+//Basic Items
+let BasicAItems = (function () {
+    let items: Array<IonpListItem> = [],
+        descriptions = ['Pokémon Yellow', 'Super Metroid', 'Mega Man X'],
+        descriptioin;
+
+    //Basic
+    for (var i = 0; i < 3; i++) {
+        descriptioin = descriptions[i];
+        items.push({
+            id: getGUID(),
+            title: null,
+            subTitle: null,
+            description: descriptioin,
+            class: null,
+            icon: null,
+            input: null,
+            sliding: null,
+            detail: i === 1 ? false : true,
+            params: {},
+            callback: function (item, params) { }
+        });
+    }
+
+    return items;
+})();
+
+//Basic Items
+let BasicBItems = (function () {
+    let items: Array<IonpListItem> = [],
+        descriptions = ['Pokémon Yellow', 'Super Metroid', 'Mega Man X'],
+        descriptioin;
+
+    //Basic
+    for (var i = 0; i < 3; i++) {
+        descriptioin = descriptions[i];
+        items.push({
+            id: getGUID(),
             title: null,
             subTitle: null,
             description: descriptioin,
@@ -209,7 +276,7 @@ let AvatarItems = (function () {
         descriptioin = descriptioins[i];
 
         items.push({
-            id: null,
+            id: getGUID(),
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -242,7 +309,7 @@ let ThumbnailItems = (function () {
         descriptioin = descriptioins[i];
 
         items.push({
-            id: null,
+            id: getGUID(),
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -275,7 +342,7 @@ let IconItems = (function () {
         descriptioin = descriptioins[i];
 
         items.push({
-            id: null,
+            id: getGUID(),
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -308,12 +375,12 @@ let InputItems = (function () {
             getIcon()
         ],
         inputs = [
-            getInput('note'),
-            getInput('icon'),
-            getInput('button'),
-            getInput('toggle'),
-            getInput('text'),
-            getInput('select')
+            getForm('note'),
+            getForm('icon'),
+            getForm('button'),
+            getForm('toggle'),
+            getForm('text'),
+            getForm('select')
         ],
         icon,
         input,
@@ -330,7 +397,7 @@ let InputItems = (function () {
 
 
         items.push({
-            id: null,
+            id: getGUID(),
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -371,7 +438,7 @@ let SlidingItems = (function () {
 
 
         items.push({
-            id: null,
+            id: getGUID(),
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -414,8 +481,8 @@ let GROUPS = (function (): IonpListGroup[] {
             'header'
         ],
         listItems = [
-            BasicItems,
-            BasicItems,
+            BasicAItems,
+            BasicBItems,
             BasicItems,
             AvatarItems,
             ThumbnailItems,
@@ -447,18 +514,19 @@ let GROUPS = (function (): IonpListGroup[] {
         groups.push({
             text: text,
             style: style,
-            id: i.toString(),
+            id: `ionp-list-group-${i.toString()}`,
             items: items,
             type: type
         });
     }
 
+    //console.dir(groups);
     return groups;
 })();
 
 //List Mock
 export let IonpListMock: IonpList = {
-    id: '1',
+    id: 'ionp-list-mock',
     nolines: false,
     inset: false,
     groups: GROUPS

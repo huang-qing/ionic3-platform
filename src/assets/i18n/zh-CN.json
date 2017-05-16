@@ -1,6 +1,9 @@
 {
   "BACK_BUTTON_TEXT": "返回",
 
+  "IONP_LIST_SELECT_OK": "确定",
+  "IONP_LIST_SELECT_CANCEL": "取消",
+
   "APP_PAGES": "页面",
   "HELLO_IONIC": "你好 Ionic",
   "MY_FIRST_LIST": "我的第一个列表",

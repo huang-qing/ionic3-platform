@@ -1,5 +1,21 @@
 /**
- * core
+ * To update the version of the ionic-angular package, run:
+ * npm install ionic-angular@latest --save --save-exact
+ * 
+ * To update the ionic-cli install run:
+ * npm install -g ionic
+ * 
+ * ******************************************************
+ Dependency warning - for the CLI to run correctly,
+ it is highly recommended to install/upgrade the following:
+
+ Please install your Cordova CLI to version  >=4.2.0 `npm install -g cordova`
+
+ * ******************************************************
+ * cordova -v
+ * cnpm install -g cordova@7.0.0
+ * ionic info
+ * 
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -15,9 +31,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 /**
  * Ionic demo
  */
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage as ListDemoPage } from '../pages/demo-list/list';
+import { HelloIonicPage, HelloListPage, HelloItemDetailsPage } from '../pages';
+import { IonicListPage } from '../pages';
 
 /**
  * in-memory web-api
@@ -47,7 +62,7 @@ import { IonpListComponent } from '../components';
 /**
  * pages
  */
-import { ListPage } from '../pages/list/list.page';
+import { ListPage } from '../pages';
 
 /**
  * directives
@@ -71,7 +86,7 @@ export function createTranslateLoader(http: Http) {
 }
 
 export function provideSettings(storage: Storage) {
-  debugger;
+
   /**
    * The Settings provider takes a set of default settings for your app.
    *
@@ -93,11 +108,16 @@ export function provideSettings(storage: Storage) {
  */
 let pages: [any] = [
   MyApp,
+  //hello ionic
   HelloIonicPage,
-  ItemDetailsPage,
-  ListDemoPage,
-  ListPage,
-  IonpListComponent
+  HelloItemDetailsPage,
+  HelloListPage,
+  //ionic component
+  IonicListPage,
+  //ionic 3 platform components
+  IonpListComponent,
+  //ionic 3 platform pages
+  ListPage
 ];
 
 export function declarations() {

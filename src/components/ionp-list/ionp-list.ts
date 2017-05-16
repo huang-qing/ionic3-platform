@@ -5,7 +5,6 @@ export class IonpList {
   groups: IonpListGroup[];
 }
 
-
 export class IonpListGroup {
   id: string;
   style: 'header' | 'dividers' = 'header';
@@ -22,14 +21,15 @@ export class IonpListItem {
   subTitle: string;
   description: string;
   class: string;
-  input: IonpListInput;
+  input: IonpListForm;
   sliding: IonpListSlidingOption[];
   params: any;
   callback: (item: IonpListItem, params: any) => any;
 }
 
-export class IonpListInput {
-  type: 'note' | 'button' | 'select' | 'icon' | 'toggle';
+export class IonpListForm {
+  type: 'note' | 'button' | 'select' | 'icon' | 'toggle' | 'input' = 'note';
+  style: 'text' | 'email' | 'number' | 'tel' | 'url' = 'text';
   name: string;
   color: string;
   text: string;
@@ -40,12 +40,9 @@ export class IonpListInput {
   callback: (item: IonpListItem, params: any) => any;
 }
 
-export class IonpText{
-  
-}
-
 export class IonpListIcon {
-  type: 'icon' | 'thumbnail' | 'avatar' = 'icon';
+  type: 'icon' | 'thumbnail' | 'avatar' | 'label';
+  style: 'fixed';
   // thumbnail avatar 
   src: string;
   //icon

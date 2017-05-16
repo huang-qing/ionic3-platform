@@ -1,6 +1,6 @@
 import { IonpListComponent } from './ionp-list/ionp-list.component';
 import {
-    IonpList, IonpListGroup, IonpListIcon, IonpListInput, IonpListItem,
+    IonpList, IonpListGroup, IonpListIcon, IonpListForm, IonpListItem,
     IonpListSelectOption, IonpListSlidingOption
 } from './ionp-list/ionp-list'
 
@@ -12,7 +12,7 @@ export {
     IonpList,
     IonpListGroup,
     IonpListIcon,
-    IonpListInput,
+    IonpListForm,
     IonpListItem,
     IonpListSelectOption,
     IonpListSlidingOption

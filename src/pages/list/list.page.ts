@@ -29,14 +29,27 @@ export class ListPage implements OnInit {
 
   getList() {
     this.service.getList()
-      .subscribe(list => this.list = list,
+      .subscribe(list => {
+        this.list = list
+      },
       error => this.errorMessage = <any>error);
   }
 
   onItemSelected(item: IonpListItem) {
+    console.log('onItemSelected');
     this.nav.push(ListPage, {
       parentItem: item
     });
+  }
+
+  onInputChanged(item: IonpListItem) {
+    console.log('onInputChanged');
+    this.service.inputUpdated(item).subscribe(null,
+      error => this.errorMessage = <any>error);
+  }
+
+  onInputClick(item: IonpListItem) {
+    console.log('onInputClick');
   }
 
 }

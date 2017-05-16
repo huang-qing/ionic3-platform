@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Input, Output } from "@angular/core";
 import { IonpList, IonpListItem, IonpListGroup } from './ionp-list';
-//import { AttrsDirective } from '../../directives/attrs.directive';
+import { AttrsDirective } from '../../directives/attrs.directive';
 import { IonpListComponentTemplate } from './ionp-list.html';
 
 @Component({
@@ -10,7 +10,7 @@ import { IonpListComponentTemplate } from './ionp-list.html';
 })
 
 
-export class IonpListComponent {
+export class IonpListComponent implements OnInit {
 
   selectedItem: IonpListItem;
 
@@ -32,6 +32,8 @@ export class IonpListComponent {
 
   constructor() { }
 
+  ngOnInit() { }
+
   /**
    * 父组件监听子组件的事件:Parent listens for child event
    * https://www.angular.cn/docs/ts/latest/cookbook/component-communication.html#!#parent-to-child-on-changes
@@ -43,25 +45,21 @@ export class IonpListComponent {
   /**
    * https://www.angular.cn/docs/ts/latest/guide/user-input.html
    * $event.stopPropagation()
-   * [ngModel]="item.input.value" 单向绑定表单控件值
-   * ionChange 表单控件change事件
-   * keyup.enter blur 模拟input的change事件
-   * 
-   * http://ionicframework.com/docs/components/#gestures
-   * tap, press, pan, swipe, rotate, and pinch events
+   * ionChange 
    * @param item 
    */
   inputChanged($event, item: IonpListItem) {
+    debugger;
     let value;
-    //ionChange事件中获取值
-    if (typeof ($event.value) !== "undefined") {
+    if (typeof ($event.value) !== undefined) {
       value = $event.value;
-    } else if ($event.target) {//keyup.enter blur 事件中获取值
+    } else if ($event.target) {
       value = $event.target.value;
     }
+    console.log(`inputChanged:${value}`);
     if (item.input.value !== value) {
       item.input.value = value;
-      //console.log('emit change');
+      console.log(`item.input.value:${item.input.value}`);
       this.onInputChanged.emit(item);
     }
   }

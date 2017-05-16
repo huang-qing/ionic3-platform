@@ -1,6 +1,9 @@
 {
   "BACK_BUTTON_TEXT": "Back",
 
+  "IONP_LIST_SELECT_OK":"OK",
+  "IONP_LIST_SELECT_CANCEL":"CANCEL",
+
   "APP_PAGES": "Pages",
   "HELLO_IONIC": "Hello Ionic",
   "MY_FIRST_LIST": "My First List",

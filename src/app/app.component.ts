@@ -3,9 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav, Config } from 'ionic-angular';
 
 //pages
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage as ListDemoPage } from '../pages/demo-list/list';
-import { ListPage } from '../pages/list/list.page';
+import { HelloIonicPage, HelloListPage } from '../pages';
+import { IonicListPage } from '../pages';
+import { ListPage } from '../pages';
 
 //native
 import { StatusBar } from '@ionic-native/status-bar';
@@ -48,7 +48,8 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'HELLO_IONIC', component: HelloIonicPage },
-      { title: 'MY_FIRST_LIST', component: ListDemoPage },
+      { title: 'MY_FIRST_LIST', component: HelloListPage },
+      { title: 'IONIC_LIST_PAGE', component: IonicListPage },
       { title: 'LIST_PAGE', component: ListPage }
     ];
 
