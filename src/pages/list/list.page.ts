@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from "@angular/core";
 import { NavController, NavParams } from 'ionic-angular';
 import { IonpList, IonpListItem, IonpListGroup, IonpListComponent } from '../../components';
 import { ListService } from './list.service';
+/**
+ * http://reactivex.io/rxjs/
+ */
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'page-list',
@@ -15,6 +19,7 @@ export class ListPage implements OnInit {
   parentItem: IonpListItem;
   params: IonpListItem;
   errorMessage: string;
+  pagerIndex: number = 1;
 
   //通过private关键字在构建器中声明并传入
   constructor(
@@ -28,10 +33,8 @@ export class ListPage implements OnInit {
   }
 
   getList() {
-    this.service.getList()
-      .subscribe(list => {
-        this.list = list
-      },
+    this.service.getList(this.pagerIndex, true)
+      .subscribe(list => this.list = list,
       error => this.errorMessage = <any>error);
   }
 
@@ -50,6 +53,41 @@ export class ListPage implements OnInit {
 
   onInputClick(item: IonpListItem) {
     console.log('onInputClick');
+  }
+
+  doRefresh(refresher) {
+    this.service.getList(1, false)
+      .subscribe({
+        next: list => this.list = list,
+        error: error => {
+          this.errorMessage = <any>error
+          Observable.from('delay').delay(3000).subscribe(() => refresher.complete());
+        },
+        complete: () => {
+          this.pagerIndex = 1;
+          refresher.complete();
+        }
+      });
+  }
+
+  doInfinite(infiniteScroll) {
+    console.log(this.pagerIndex);
+    this.service.getList(this.pagerIndex + 1, false)
+      .subscribe({
+        next: list => {
+          let groups = list.groups;
+          if (groups && groups.length > 0) {
+            ++this.pagerIndex;
+            this.list.groups = this.list.groups.concat(groups);
+          }
+        },
+        error: error => {
+          this.errorMessage = <any>error;
+          //延时3秒完成
+          Observable.from('delay').delay(3000).subscribe(() => infiniteScroll.complete());
+        },
+        complete: () => infiniteScroll.complete()
+      });
   }
 
 }

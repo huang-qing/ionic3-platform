@@ -1,10 +1,7 @@
-ionp-list {
-  ion-item {
-    ion-input {
-      input.text-input {
-        text-align: right;
-      }
-    }
+
+.toast-danger {
+  >.toast-wrapper {
+    background:#f53d3d;
   }
 }
 

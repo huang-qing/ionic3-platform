@@ -3,9 +3,6 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions, URLSearchParams } from '@angular/http';
 /**
  * http://reactivex.io/rxjs/
- * https://www.learnrxjs.io/
- * https://www.angular.cn/docs/ts/latest/guide/server-communication.html#!#rxjs
- * https://fe.ele.me/let-us-learn-rxjs/
  * 
  * TypeError: __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__.Observable.throw is not a function
  * https://github.com/angular/angular-cli/issues/1649
@@ -15,13 +12,7 @@ import { Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-/**
- * http://ionicframework.com/docs/api/components/loading/LoadingController/
- * http://ionicframework.com/docs/api/components/toast/ToastController/
- */
-import { LoadingController, Loading, ToastController, Toast } from 'ionic-angular';
 
-import { TranslateService } from '@ngx-translate/core';
 
 
 /**
@@ -40,24 +31,15 @@ import { TranslateService } from '@ngx-translate/core';
 export class Api {
   //url: string = 'https://example.com/api/v1';
   url: string = 'api';
-  public loader: Loading;
-  public toast: Toast;
 
-  constructor(
-    public http: Http,
-    public loadingCtrl: LoadingController,
-    public translate: TranslateService,
-    private toastCtrl: ToastController) {
-
+  constructor(public http: Http) {
   }
+
 
   private handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
-    if (error.status === 404) {
-      errMsg = `${error.status} - ${error.statusText || ''}`;
-    }
-    else if (error instanceof Response) {
+    if (error instanceof Response) {
       const body = error.json() || '';
       const err = body.error || JSON.stringify(body);
       errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
@@ -65,9 +47,6 @@ export class Api {
       errMsg = error.message ? error.message : error.toString();
     }
     console.error(errMsg);
-
-    this.presentToast(error.statusText);
-
     return Observable.throw(errMsg);
   }
 
@@ -78,52 +57,20 @@ export class Api {
   }
 
   private presentLoading() {
-    let content = "Please wait...";
 
-    this.translate.get('LOADING_CONTENT').subscribe(
-      value => {
-        content = value;
-      });
-
-    this.loader = this.loadingCtrl.create({
-      content: content
-    });
-
-    this.loader.present();
   }
 
-  private dismissLoading() {
-    if (this.loader) {
-      this.loader.dismiss();
-    }
-  }
 
-  private presentToast(error) {
-    error = error || 'api error';
-    let message = "Request Error,Please Try It Later!";
-    this.translate.get('API_TOAST_MESSAGE').subscribe(
-      value => {
-        message = `${value}-(${error})`;
-      });
+  private finally() {
 
-    let toast = this.toastCtrl.create({
-      message: message,
-      duration: 3000,
-      cssClass: 'toast-danger',
-      position: 'top'
-    });
-
-    toast.present();
   }
 
   //获取
-  get<T>(endpoint: string, params?: any, options?: RequestOptions, showLoading: boolean = true): Observable<T> {
-
-    if (showLoading) {
-      this.presentLoading();
-    }
+  get<T>(endpoint: string, params?: any, options?: RequestOptions): Observable<T> {
 
     let _options = options || new RequestOptions();
+
+
     // Support easy query params for GET requests
     if (params) {
       let p = new URLSearchParams();
@@ -137,12 +84,8 @@ export class Api {
 
     return this.http.get(this.url + '/' + endpoint, _options)
       .map(this.extractData)
-      .catch(error => this.handleError(error))
-      .finally(() => {
-        if (showLoading) {
-          this.dismissLoading()
-        }
-      });
+      .catch(this.handleError)
+      .finally(this.finally);
   }
 
   //创建
@@ -156,7 +99,7 @@ export class Api {
 
     return this.http.post(this.url + '/' + endpoint, body, _options)
       .map(this.extractData)
-      .catch(error => this.handleError(error));
+      .catch(this.handleError);
   }
 
   //idempotent 幂等：编辑修改
@@ -171,18 +114,15 @@ export class Api {
 
     return this.http.put(this.url + '/' + endpoint, body, _options)
       .map(this.extractData)
-      .catch(error => this.handleError(error));
+      .catch(this.handleError);
   }
 
   //删除
   delete(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.post(this.url + '/' + endpoint, body, options)
-      .catch(error => this.handleError(error));
+    return this.http.post(this.url + '/' + endpoint, body, options);
   }
 
   patch(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.put(this.url + '/' + endpoint, body, options)
-      .catch(error => this.handleError(error));
+    return this.http.put(this.url + '/' + endpoint, body, options);
   }
-
 }

@@ -4,6 +4,10 @@
   "IONP_LIST_SELECT_OK": "确定",
   "IONP_LIST_SELECT_CANCEL": "取消",
 
+  "LOADING_CONTENT": "加载中...",
+
+  "API_TOAST_MESSAGE": "请求出错,请稍后重试！",
+
   "APP_PAGES": "页面",
   "HELLO_IONIC": "你好 Ionic",
   "MY_FIRST_LIST": "我的第一个列表",

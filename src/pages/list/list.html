@@ -8,9 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ionp-list [list]="list" *ngIf='list'
-     (onItemSelected)="onItemSelected($event);"
-     (onInputClick)="onInputClick($event);"
-     (onInputChanged)="onInputChanged($event);">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ionp-list [list]="list" *ngIf="list" (onItemSelected)="onItemSelected($event); " (onInputClick)="onInputClick($event); "
+    (onInputChanged)="onInputChanged($event); ">
   </ionp-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

@@ -1,8 +1,12 @@
 {
   "BACK_BUTTON_TEXT": "Back",
 
-  "IONP_LIST_SELECT_OK":"OK",
-  "IONP_LIST_SELECT_CANCEL":"CANCEL",
+  "IONP_LIST_SELECT_OK": "OK",
+  "IONP_LIST_SELECT_CANCEL": "CANCEL",
+
+  "LOADING_CONTENT": "Please wait...",
+
+  "API_TOAST_MESSAGE":"Request Error,Please Try It Later!",
 
   "APP_PAGES": "Pages",
   "HELLO_IONIC": "Hello Ionic",

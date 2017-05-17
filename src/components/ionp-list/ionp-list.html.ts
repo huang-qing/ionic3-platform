@@ -60,7 +60,7 @@ let template = {
         (blur)="inputChanged($event,item)"
         *ngIf="item?.input?.type==='text'"></ion-input>`,
       text: `
-      <ion-input type="{{item.input.style}}" item-right 
+      <ion-input type="{{item.input.style}}" item-right text-right
         value="{{item.input.value}}" 
         placeholder="{{item.input.text}}" 
         (keyup.enter)="inputChanged($event,item);$event.stopPropagation();"

@@ -75,11 +75,25 @@
 + sview
 + message push
 
-## config
+## app config
+
++ routing
++ config
 
 ## deploying
 
 + ios
 + android
+
+------------------------
+## Web Api
+
++ GET
++ POST
++ PUT
++ DELETE
++ PATCH
+
+
 
 
