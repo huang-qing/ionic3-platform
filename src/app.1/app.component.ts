@@ -6,8 +6,7 @@ import { Platform, MenuController, Nav, Config } from 'ionic-angular';
 import { HelloIonicPage, HelloListPage } from '../pages';
 import { IonicListPage } from '../pages';
 import { ListPage } from '../pages';
-import { IonicPageModule } from 'ionic-angular';
-import { ListPageModule} from '../pages/list/list.page.module';
+
 //native
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';

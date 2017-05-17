@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Settings } from '../../providers';
-import {IonicPage } from 'ionic-angular';
 
-
-@IonicPage()
 @Component({
   selector: 'page-hello-ionic',
   templateUrl: 'hello-ionic.html'

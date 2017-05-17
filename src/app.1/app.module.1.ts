@@ -55,10 +55,9 @@ import { IonicListPage } from '../pages';
 /**
  * pages
  */
-import { IonicPageModule } from 'ionic-angular';
 import { ListPage } from '../pages';
-import { ListPageModule } from '../pages/list/list.page.module';
-
+import { ListPageModule} from '../pages/list/list.page.module'
+import { IonicPageModule } from 'ionic-angular';
 
 /**
  * directives
@@ -113,29 +112,12 @@ let pages: [any] = [
   //ionic 3 platform components
   IonpListComponent,
   //ionic 3 platform pages
-  ListPage
-  //IonicPageModule
+  //ListPage
 ];
 
 export function declarations() {
-  //let declarations = pages.concat([AttrsDirective]);
-  //return declarations;
-
-  return [
-    MyApp,
-    //hello ionic
-    HelloIonicPage,
-    HelloItemDetailsPage,
-    HelloListPage,
-    //ionic component
-    IonicListPage,
-    //ionic 3 platform components
-    //IonpListComponent,
-    //ionic 3 platform pages
-    //ListPage
-    //IonicPageModule
-    //AttrsDirective
-  ]
+  let declarations = pages.concat([AttrsDirective]);
+  return declarations;
 }
 
 export function entryComponents() {
@@ -185,26 +167,11 @@ export function providers() {
      */
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100, passThruUnknownUrl: true }),
     ListPageModule,
-    //IonicPageModule,
     IonicModule.forRoot(MyApp)
 
   ],
   bootstrap: [IonicApp],
-  //entryComponents: entryComponents(),
-  entryComponents: [
-    MyApp,
-    //hello ionic
-    HelloIonicPage,
-    HelloItemDetailsPage,
-    HelloListPage,
-    //ionic component
-    IonicListPage,
-    //ionic 3 platform components
-    //IonpListComponent,
-    //ionic 3 platform pages
-    ListPage
-    //IonicPageModule
-  ],
+  entryComponents: entryComponents(),
   providers: providers()
 })
 

@@ -1,12 +1,15 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { IonpList, IonpListItem, IonpListGroup, IonpListComponent } from '../../components';
 import { ListService } from './list.service';
-/**
- * http://reactivex.io/rxjs/
- */
 import { Observable } from 'rxjs/Rx';
 
+/**
+ * http://ionicframework.com/docs/api/navigation/IonicPage/
+ */
+@IonicPage({
+  name: 'list-page'
+})
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
@@ -39,20 +42,21 @@ export class ListPage implements OnInit {
   }
 
   onItemSelected(item: IonpListItem) {
-    console.log('onItemSelected');
-    this.nav.push(ListPage, {
+    //console.log('onItemSelected');
+    debugger;
+    this.nav.push('list-page', {
       parentItem: item
     });
   }
 
   onInputChanged(item: IonpListItem) {
-    console.log('onInputChanged');
+    //console.log('onInputChanged');
     this.service.inputUpdated(item).subscribe(null,
       error => this.errorMessage = <any>error);
   }
 
   onInputClick(item: IonpListItem) {
-    console.log('onInputClick');
+    //console.log('onInputClick');
   }
 
   doRefresh(refresher) {
@@ -71,7 +75,7 @@ export class ListPage implements OnInit {
   }
 
   doInfinite(infiniteScroll) {
-    console.log(this.pagerIndex);
+    //console.log(this.pagerIndex);
     this.service.getList(this.pagerIndex + 1, false)
       .subscribe({
         next: list => {
