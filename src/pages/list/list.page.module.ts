@@ -20,18 +20,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ListPage } from './list.page';
-import { IonpListComponent } from '../../components'
-import { AttrsDirective } from '../../directives/attrs.directive';
-import { TranslateModule } from '@ngx-translate/core';
+import { IonpListComponent } from '../../components';
+import { SharedModule } from '../../modules/shared.module';
 
 @NgModule({
     declarations: [
         ListPage,
-        IonpListComponent,
-        AttrsDirective
+        IonpListComponent
     ],
     imports: [
-        TranslateModule,
+        SharedModule,
         IonicPageModule.forChild(ListPage)
     ],
     exports: [],
