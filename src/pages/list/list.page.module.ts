@@ -20,12 +20,9 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ListPage } from './list.page';
-import { BrowserModule } from '@angular/platform-browser';
-//import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonpListComponent } from '../../components'
 import { AttrsDirective } from '../../directives/attrs.directive';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -34,14 +31,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
         AttrsDirective
     ],
     imports: [
-        //BrowserModule,
         TranslateModule,
-        //AttrsDirective,
-        //ListPage,
-        //IonpListComponent,
         IonicPageModule.forChild(ListPage)
     ],
-    //exports: [IonpListComponent],
+    exports: [],
     entryComponents: [
         ListPage,
         IonpListComponent

@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/Rx';
  * http://ionicframework.com/docs/api/navigation/IonicPage/
  */
 @IonicPage({
-  name: 'list-page'
+  name: 'list-page',
+  segment: 'list'
 })
 @Component({
   selector: 'page-list',

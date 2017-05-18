@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { IonpList, IonpListItem, IonpListGroup } from './ionp-list';
-//import { AttrsDirective } from '../../directives/attrs.directive';
 import { IonpListComponentTemplate } from './ionp-list.html';
 
 @Component({
