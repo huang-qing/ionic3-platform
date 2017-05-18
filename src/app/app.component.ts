@@ -1,20 +1,11 @@
 //core
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav, Config } from 'ionic-angular';
-
-//pages
-import { HelloIonicPage, HelloListPage } from '../pages';
-import { IonicListPage } from '../pages';
-import { ListPage } from '../pages';
-import { IonicPageModule } from 'ionic-angular';
-import { ListPageModule} from '../pages/list/list.page.module';
 //native
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 //i18n
 import { TranslateService } from '@ngx-translate/core';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +15,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  // use NavController Dynamic Links
+  rootPage = 'hello-ionic';
+
   pages: Array<{ title: string, component: any }>;
 
   constructor(
@@ -48,10 +41,10 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'HELLO_IONIC', component: HelloIonicPage },
-      { title: 'MY_FIRST_LIST', component: HelloListPage },
-      { title: 'IONIC_LIST_PAGE', component: IonicListPage },
-      { title: 'LIST_PAGE', component: ListPage }
+      { title: 'HELLO_IONIC', component: 'hello-ionic' },
+      { title: 'MY_FIRST_LIST', component: 'hello-list' },
+      //{ title: 'IONIC_LIST_PAGE', component: IonicListPage },
+      { title: 'LIST_PAGE', component: 'list-page' }
     ];
 
     //i18n translate pages title

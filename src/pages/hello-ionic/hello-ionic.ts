@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Settings } from '../../providers';
-import {IonicPage } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
 
-@IonicPage()
+@IonicPage({
+  name: 'hello-ionic',
+  segment: 'hello-ionic'
+})
 @Component({
   selector: 'page-hello-ionic',
   templateUrl: 'hello-ionic.html'
@@ -16,6 +19,7 @@ export class HelloIonicPage {
 
     this.settings.load().then(() => {
       let options = this.settings.allSettings;
+      console.info(options);
     });
   }
 }

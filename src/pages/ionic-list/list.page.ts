@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'ionic-list-page',

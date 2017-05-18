@@ -1,14 +1,13 @@
 import { OnInit, Injectable } from "@angular/core";
-import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { IonpList, IonpListGroup, IonpListItem } from '../../components';
+import { IonpList, IonpListItem } from '../../components';
 import { Api } from '../../providers';
 
 
 @Injectable()
 export class ListService implements OnInit {
 
-    constructor(private http: Http, public api: Api) { }
+    constructor(public api: Api) { }
 
     ngOnInit() { }
 

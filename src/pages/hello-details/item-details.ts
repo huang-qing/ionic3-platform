@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
+@IonicPage({
+  name: 'hello-list-detail',
+  segment: 'hello-list-detail'
+})
 
 @Component({
   selector: 'page-item-details',

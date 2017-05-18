@@ -44,34 +44,13 @@ import { Api } from '../providers';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { Settings } from '../providers';
 /**
- * components
- */
-import { IonpListComponent } from '../components';
-/**
- * Ionic demo
- */
-import { HelloIonicPage, HelloListPage, HelloItemDetailsPage } from '../pages';
-import { IonicListPage } from '../pages';
-/**
- * pages
- */
-import { IonicPageModule } from 'ionic-angular';
-import { ListPage } from '../pages';
-import { ListPageModule } from '../pages/list/list.page.module';
-
-
-/**
- * directives
- */
-import { AttrsDirective } from '../directives/attrs.directive';
-
-/**
  * i18n
  * http://ionicframework.com/docs/resources/ng2-translate/
  * cnpm install @ngx-translate/core @ngx-translate/http-loader --save
  */
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 
 /**
@@ -103,39 +82,11 @@ export function provideSettings(storage: Storage) {
  * can find them. As you add and remove pages, make sure to keep this list up to date.
  */
 let pages: [any] = [
-  MyApp,
-  //hello ionic
-  HelloIonicPage,
-  HelloItemDetailsPage,
-  HelloListPage,
-  //ionic component
-  IonicListPage,
-  //ionic 3 platform components
-  IonpListComponent,
-  //ionic 3 platform pages
-  ListPage
-  //IonicPageModule
+  MyApp
 ];
 
 export function declarations() {
-  //let declarations = pages.concat([AttrsDirective]);
-  //return declarations;
-
-  return [
-    MyApp,
-    //hello ionic
-    HelloIonicPage,
-    HelloItemDetailsPage,
-    HelloListPage,
-    //ionic component
-    IonicListPage,
-    //ionic 3 platform components
-    //IonpListComponent,
-    //ionic 3 platform pages
-    //ListPage
-    //IonicPageModule
-    //AttrsDirective
-  ]
+  return pages;
 }
 
 export function entryComponents() {
@@ -158,20 +109,20 @@ export function providers() {
     BrowserModule,
     HttpModule,
     JsonpModule,
-    IonicStorageModule.forRoot({
-      name: '__ionicdb',
-      /**
-       * cordova plugin add cordova-sqlite-storage --save
-       * npm install --save @ionic/storage
-       */
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
-    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
         deps: [Http]
       }
+    }),
+    /**
+     * cordova plugin add cordova-sqlite-storage --save
+     * npm install --save @ionic/storage
+     */
+    IonicStorageModule.forRoot({
+      name: '__ionicdb',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
     /**
      * HTTP mock for the backend, MUST BE DECLARED AFTER the HttpModule
@@ -184,27 +135,10 @@ export function providers() {
      * InMemoryWebApiModule中需配置 { delay: 100, passThruUnknownUrl: true }
      */
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100, passThruUnknownUrl: true }),
-    ListPageModule,
-    //IonicPageModule,
     IonicModule.forRoot(MyApp)
-
   ],
   bootstrap: [IonicApp],
-  //entryComponents: entryComponents(),
-  entryComponents: [
-    MyApp,
-    //hello ionic
-    HelloIonicPage,
-    HelloItemDetailsPage,
-    HelloListPage,
-    //ionic component
-    IonicListPage,
-    //ionic 3 platform components
-    //IonpListComponent,
-    //ionic 3 platform pages
-    ListPage
-    //IonicPageModule
-  ],
+  entryComponents: entryComponents(),
   providers: providers()
 })
 

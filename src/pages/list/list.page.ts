@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { IonpList, IonpListItem, IonpListGroup, IonpListComponent } from '../../components';
 import { ListService } from './list.service';
@@ -80,7 +80,7 @@ export class ListPage implements OnInit {
     this.service.getList(this.pagerIndex + 1, false)
       .subscribe({
         next: list => {
-          let groups = list.groups;
+          let groups:IonpListGroup[] = list.groups;
           if (groups && groups.length > 0) {
             ++this.pagerIndex;
             this.list.groups = this.list.groups.concat(groups);
