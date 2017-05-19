@@ -50,6 +50,10 @@ import { Settings } from '../providers';
  */
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+/**
+ * https://www.npmjs.com/package/angular2-logger
+ */
+import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
 
 
 
@@ -97,9 +101,11 @@ export function providers() {
   return [
     StatusBar,
     SplashScreen,
+    Api,
+    Logger,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
-    Api
+    { provide: LoggerOptions, useValue: { level: LoggerLevel.LOG } }
   ];
 }
 

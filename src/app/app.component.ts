@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //i18n
 import { TranslateService } from '@ngx-translate/core';
+//logger
+import { Logger } from "angular2-logger/core";
 
 @Component({
   templateUrl: 'app.html'
@@ -28,6 +30,7 @@ export class MyApp {
 
   constructor(
     translate: TranslateService,
+    logger: Logger,
     config: Config,
     public platform: Platform,
     public menu: MenuController,

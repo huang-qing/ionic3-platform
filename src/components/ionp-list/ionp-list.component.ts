@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { IonpList, IonpListItem, IonpListGroup } from './ionp-list';
 import { IonpListComponentTemplate } from './ionp-list.html';
+import { Logger } from "angular2-logger/core";
 
 @Component({
   selector: 'ionp-list',
@@ -29,7 +30,7 @@ export class IonpListComponent {
   items: IonpListItem[];
   params: IonpListItem;
 
-  constructor() { }
+  constructor(private logger: Logger) { }
 
   /**
    * 父组件监听子组件的事件:Parent listens for child event
@@ -37,6 +38,7 @@ export class IonpListComponent {
    */
   itemSelected(item: IonpListItem) {
     this.onItemSelected.emit(item);
+    this.logger.debug('emit list.component item selected');
   }
 
   /**
@@ -60,13 +62,14 @@ export class IonpListComponent {
     }
     if (item.input.value !== value) {
       item.input.value = value;
-      //console.log('emit change');
       this.onInputChanged.emit(item);
+      this.logger.debug('emit list.component input change');
     }
   }
 
   inputClick(item: IonpListItem) {
     this.onInputClick.emit(item);
+    this.logger.debug('emit list.component input click');
   }
 
 }
