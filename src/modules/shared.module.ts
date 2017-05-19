@@ -8,4 +8,5 @@ import { TranslateModule } from '@ngx-translate/core';
     exports: [AttrsDirective,
         TranslateModule]
 })
+
 export class SharedModule { }

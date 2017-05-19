@@ -59,6 +59,11 @@
 
 ## icons
 
++ common
++ platform
++ project
+
+## log
 
 
 ## native

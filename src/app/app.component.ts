@@ -18,7 +18,13 @@ export class MyApp {
   // use NavController Dynamic Links
   rootPage = 'hello-ionic';
 
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{
+    title: string,
+    component: any,
+    style: any,
+    api: any,
+    next: any
+  }>;
 
   constructor(
     translate: TranslateService,
@@ -41,22 +47,44 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'HELLO_IONIC', component: 'hello-ionic' },
-      { title: 'MY_FIRST_LIST', component: 'hello-list' },
+      {
+        title: 'HELLO_IONIC',
+        component: 'hello-ionic',
+        style: null,
+        api: '',
+        next: null,
+      },
+      {
+        title: 'MY_FIRST_LIST',
+        component: 'hello-list',
+        style: null,
+        api: '',
+        next: null
+      },
       //{ title: 'IONIC_LIST_PAGE', component: IonicListPage },
-      { title: 'LIST_PAGE', component: 'list-page' }
+      {
+        title: 'LIST_PAGE',
+        component: 'list-page',
+        style: {
+          nolines: false,
+          inset: false
+        },
+        next: {
+          title: 'DETAIL_PAGE',
+          component: 'detail-page',
+          api: 'api/items'
+        },
+        api: 'api/lists'
+      }
     ];
 
     //i18n translate pages title
-    let pagesTitle = this.pages.map(page => {
-      return page.title
-    });
-
-    translate.get(pagesTitle).subscribe(values => {
-      this.pages.forEach(function (value, index, array) {
-        array[index].title = values[value.title];
+    translate.get(this.pages.map(p => { return p.title }))
+      .subscribe(values => {
+        this.pages.forEach((value, index, array) => {
+          array[index].title = values[value.title];
+        });
       });
-    });
 
   }
 
@@ -73,6 +101,6 @@ export class MyApp {
     // close the menu when clicking a link from the menu
     this.menu.close();
     // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, { router: page });
   }
 }

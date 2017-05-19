@@ -11,6 +11,10 @@ import { Headers, RequestOptions, URLSearchParams } from '@angular/http';
  * https://github.com/angular/angular-cli/issues/1649
  * using: import { Observable } from 'rxjs/Rx';
  * Instead of: import { Observable } from 'rxjs/Observable';
+ * 
+ * 跨域请求：Wikipedia 范例
+ * https://www.angular.cn/docs/ts/latest/guide/server-communication.html#!#cors
+ * 
  */
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
@@ -39,7 +43,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class Api {
   //url: string = 'https://example.com/api/v1';
-  url: string = 'api';
+  //url: string = 'api';
   public loader: Loading;
   public toast: Toast;
 
@@ -117,7 +121,7 @@ export class Api {
   }
 
   //获取
-  get<T>(endpoint: string, params?: any, options?: RequestOptions, showLoading: boolean = true): Observable<T> {
+  get<T>(url: string, params?: any, options?: RequestOptions, showLoading: boolean = true): Observable<T> {
 
     if (showLoading) {
       this.presentLoading();
@@ -135,7 +139,7 @@ export class Api {
       _options.search = !_options.search && p || _options.search;
     }
 
-    return this.http.get(this.url + '/' + endpoint, _options)
+    return this.http.get(url, _options)
       .map(this.extractData)
       .catch(error => this.handleError(error))
       .finally(() => {
@@ -146,7 +150,7 @@ export class Api {
   }
 
   //创建
-  post<T>(endpoint: string, body: any, options?: RequestOptions): Observable<T> {
+  post<T>(url: string, body: any, options?: RequestOptions): Observable<T> {
 
     let _options = options;
     if (!options) {
@@ -154,13 +158,13 @@ export class Api {
       _options = new RequestOptions({ headers: headers });
     }
 
-    return this.http.post(this.url + '/' + endpoint, body, _options)
+    return this.http.post(url, body, _options)
       .map(this.extractData)
       .catch(error => this.handleError(error));
   }
 
   //idempotent 幂等：编辑修改
-  put<T>(endpoint: string, body: any, options?: RequestOptions): Observable<T> {
+  put<T>(url: string, body: any, options?: RequestOptions): Observable<T> {
 
     let _options = options;
 
@@ -169,19 +173,19 @@ export class Api {
       _options = new RequestOptions({ headers: headers });
     }
 
-    return this.http.put(this.url + '/' + endpoint, body, _options)
+    return this.http.put(url, body, _options)
       .map(this.extractData)
       .catch(error => this.handleError(error));
   }
 
   //删除
-  delete(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.post(this.url + '/' + endpoint, body, options)
+  delete(url: string, body: any, options?: RequestOptions) {
+    return this.http.post(url, body, options)
       .catch(error => this.handleError(error));
   }
 
-  patch(endpoint: string, body: any, options?: RequestOptions) {
-    return this.http.put(this.url + '/' + endpoint, body, options)
+  patch(url: string, body: any, options?: RequestOptions) {
+    return this.http.put(url, body, options)
       .catch(error => this.handleError(error));
   }
 

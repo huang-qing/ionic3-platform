@@ -175,8 +175,7 @@ let getSliding = function (): IonpListSlidingOption[] {
 let getGUID = (function () {
     var i = 1;
     return function () {
-        return "";
-        //return `ionp-list-item-${i++}`;
+        return `ionp-list-item-${i++}`;
     }
 })();
 

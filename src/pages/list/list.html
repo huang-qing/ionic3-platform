@@ -12,7 +12,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ionp-list [list]="list" *ngIf="list" (onItemSelected)="onItemSelected($event); " (onInputClick)="onInputClick($event); "
+  <ionp-list [list]="model.list" *ngIf="model.list" (onItemSelected)="onItemSelected($event); " (onInputClick)="onInputClick($event); "
     (onInputChanged)="onInputChanged($event); ">
   </ionp-list>
 
