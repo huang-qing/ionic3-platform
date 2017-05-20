@@ -2,6 +2,8 @@ import {
     IonpList, IonpListItem, IonpListGroup, IonpListIcon,
     IonpListForm, IonpListSlidingOption, IonpListSelectOption
 } from './ionp-list';
+
+
 // icon name
 let ICONSNAME = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
@@ -173,7 +175,7 @@ let getSliding = function (): IonpListSlidingOption[] {
 };
 
 let getGUID = (function () {
-    var i = 1;
+    //var i = 1;
     return function () {
         return "";
         //return `ionp-list-item-${i++}`;
@@ -521,7 +523,6 @@ let GROUPS = (function (): IonpListGroup[] {
         });
     }
 
-    //console.dir(groups);
     return groups;
 })();
 
@@ -532,3 +533,6 @@ export let IonpListMock: IonpList = {
     inset: false,
     groups: GROUPS
 }
+
+//List Group Mock
+export let ionpListGroupsMock: IonpListGroup[] = GROUPS;

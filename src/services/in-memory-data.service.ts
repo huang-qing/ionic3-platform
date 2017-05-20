@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { IonpList, IonpListItem } from '../components/ionp-list/ionp-list';
-import { IonpListMock } from '../components/ionp-list/ionp-list.mock'
+import { IonpListGroup, IonpListItem } from '../components/ionp-list/ionp-list';
+import { IonpListMock, ionpListGroupsMock } from '../components/ionp-list/ionp-list.mock'
 
 
 /**
@@ -17,9 +17,9 @@ import { IonpListMock } from '../components/ionp-list/ionp-list.mock'
  */
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    var lists: IonpList = IonpListMock;
+    var lists: IonpListGroup[] = ionpListGroupsMock;
     var items: IonpListItem[] = [];
-    lists.groups.forEach(g => g.items.forEach(i => items.push(i)));
+    lists.forEach(g => g.items.forEach(i => items.push(i)));
 
     return {
       lists,

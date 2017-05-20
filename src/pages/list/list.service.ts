@@ -1,6 +1,6 @@
 import { OnInit, Injectable } from "@angular/core";
 import { Observable } from 'rxjs/Observable';
-import { IonpList, IonpListItem } from '../../components';
+import { IonpListGroup, IonpListItem } from '../../components';
 import { ListPageModel } from './list';
 import { Api } from '../../providers';
 
@@ -12,13 +12,13 @@ export class ListService implements OnInit {
 
     ngOnInit() { }
 
-    getList(model: ListPageModel, router: any, pageIndex: number, showLoading: boolean): Observable<IonpList> {
+    getList(model: ListPageModel, router: any, pageIndex: number, showLoading: boolean): Observable<IonpListGroup[]> {
         let url = `${router.api}/${model.parentId}`;
-        return this.api.get<IonpList>(url, null, null, showLoading);
+        return this.api.get<IonpListGroup[]>(url, null, null, showLoading);
     }
 
-    getListTestError(model: ListPageModel, router: any, pageIndex: number, showLoading: boolean): Observable<IonpList> {
-        return this.api.get<IonpList>(`${router.api}/${model.parentId}`, null, null, showLoading);
+    getListTestError(model: ListPageModel, router: any, pageIndex: number, showLoading: boolean): Observable<IonpListGroup[]> {
+        return this.api.get<IonpListGroup[]>(`${router.api}/${model.parentId}`, null, null, showLoading);
     }
 
     inputUpdated(item: IonpListItem): Observable<IonpListItem> {

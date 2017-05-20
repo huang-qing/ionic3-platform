@@ -4,6 +4,6 @@ export class ListPageModel {
     parentId: string;
     parentItem: IonpListItem;
     title: string;
-    list: IonpList;
-    pagerIndex: number = 1;
+    list: IonpList = new IonpList();
+    pageIndex: number = 1;
 }
