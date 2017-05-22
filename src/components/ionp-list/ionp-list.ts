@@ -10,7 +10,7 @@ export class IonpListGroup {
   style: 'header' | 'dividers' = 'header';
   text: string;
   items: IonpListItem[];
-  type: 'text' | 'button' | 'sliding' = 'text';
+  type: 'text' | 'button' | 'sliding' = 'button';
 }
 
 export class IonpListItem {

@@ -39,8 +39,12 @@ export class ListPage implements OnInit {
     this.model.parentItem = this.navParams.get('parentItem') || '';
     this.router = this.navParams.get('router');
 
+    if (!this.router) {
+      this.logger.error('list.page:please config the page router!');
+      return;
+    }
 
-    if (this.router && this.router.style) {
+    if (this.router.style) {
       let style = this.router.style;
       this.model.list.inset = style.inset;
       this.model.list.nolines = style.nolines;
@@ -49,36 +53,52 @@ export class ListPage implements OnInit {
   }
 
   getList() {
-    this.service.getList(this.model, this.router, 1, true)
+    this.service.getList(this.model, this.router.api, 1, true)
       .subscribe(list => this.model.list.groups = list,
       error => this.errorMessage = <any>error);
   }
 
   onItemSelected(item: IonpListItem) {
+    var router;
+
     this.logger.log('list-page onItemSelected');
     if (!this.router) {
       this.logger.warn('list-page router is not exist!');
     }
-    this.nav.push('list-page', {
+    if (item.detail) {
+      router = this.router;
+    }
+    else {
+      router = this.router.next;
+    }
+
+    this.nav.push(router.component, {
       parentId: item.id,
       parentItem: item,
-      router: this.router
+      router: router
     });
+
   }
 
 
   onInputChanged(item: IonpListItem) {
     this.logger.log('list-page onInputChanged');
-    this.service.inputUpdated(item).subscribe(null,
+    this.service.inputUpdated(this.router.next.api, item).subscribe(null,
       error => this.errorMessage = <any>error);
   }
 
   onInputClick(item: IonpListItem) {
     this.logger.log('list-page onInputClick');
+    var router = this.router.actions.button;
+    this.nav.push(router.component, {
+      parentId: item.id,
+      parentItem: item,
+      router: router
+    });
   }
 
   doRefresh(refresher) {
-    this.service.getList(this.model, this.router, 1, false)
+    this.service.getList(this.model, this.router.api, 1, false)
       .subscribe({
         next: list => this.model.list.groups = list,
         error: error => {
@@ -88,20 +108,20 @@ export class ListPage implements OnInit {
         complete: () => {
           this.model.pageIndex = 1;
           refresher.complete();
-          this.logger.log(this.model.pageIndex);
+          this.logger.log(`page index:${this.model.pageIndex}`);
         }
       });
   }
 
   doInfinite(infiniteScroll) {
 
-    this.service.getList(this.model, this.router, this.model.pageIndex + 1, false)
+    this.service.getList(this.model, this.router.api, this.model.pageIndex + 1, false)
       .subscribe({
         next: list => {
           let groups: IonpListGroup[] = list;
           if (groups && groups.length > 0) {
             ++this.model.pageIndex;
-            this.logger.log(this.model.pageIndex);
+            this.logger.log(`page index:${this.model.pageIndex}`);
             this.model.list.groups = this.model.list.groups.concat(groups);
           }
         },

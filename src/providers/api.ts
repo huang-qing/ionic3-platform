@@ -42,8 +42,7 @@ import { TranslateService } from '@ngx-translate/core';
  */
 @Injectable()
 export class Api {
-  //url: string = 'https://example.com/api/v1';
-  //url: string = 'api';
+  
   public loader: Loading;
   public toast: Toast;
 

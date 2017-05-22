@@ -6,8 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //i18n
 import { TranslateService } from '@ngx-translate/core';
-//logger
+/**
+ * logger
+ * https://www.npmjs.com/package/angular2-logger
+ */
 import { Logger } from "angular2-logger/core";
+//config
+import { pagesConfig } from '../config/page.router.config';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,15 +23,9 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   // use NavController Dynamic Links
-  rootPage = 'hello-ionic';
+  rootPage = pagesConfig[0].component;
 
-  pages: Array<{
-    title: string,
-    component: any,
-    style: any,
-    api: any,
-    next: any
-  }>;
+  pages: any;
 
   constructor(
     translate: TranslateService,
@@ -49,37 +48,7 @@ export class MyApp {
     this.initializeApp();
 
     // set our app's pages
-    this.pages = [
-      {
-        title: 'HELLO_IONIC',
-        component: 'hello-ionic',
-        style: null,
-        api: '',
-        next: null,
-      },
-      {
-        title: 'MY_FIRST_LIST',
-        component: 'hello-list',
-        style: null,
-        api: '',
-        next: null
-      },
-      //{ title: 'IONIC_LIST_PAGE', component: IonicListPage },
-      {
-        title: 'LIST_PAGE',
-        component: 'list-page',
-        style: {
-          nolines: false,
-          inset: false
-        },
-        next: {
-          title: 'DETAIL_PAGE',
-          component: 'detail-page',
-          api: 'api/items'
-        },
-        api: 'api/lists'
-      }
-    ];
+    this.pages = pagesConfig;
 
     //i18n translate pages title
     translate.get(this.pages.map(p => { return p.title }))

@@ -38,7 +38,7 @@ export class IonpListComponent {
    */
   itemSelected(item: IonpListItem) {
     this.onItemSelected.emit(item);
-    this.logger.debug('emit list.component item selected');
+    this.logger.log('emit list.component item selected');
   }
 
   /**
@@ -63,13 +63,13 @@ export class IonpListComponent {
     if (item.input.value !== value) {
       item.input.value = value;
       this.onInputChanged.emit(item);
-      this.logger.debug('emit list.component input change');
+      this.logger.log('emit list.component input change');
     }
   }
 
   inputClick(item: IonpListItem) {
     this.onInputClick.emit(item);
-    this.logger.debug('emit list.component input click');
+    this.logger.log('emit list.component input click');
   }
 
 }
