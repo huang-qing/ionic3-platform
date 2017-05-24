@@ -90,7 +90,10 @@
 + ios
 + android
 
-## message push
+## push notifications
+
++ intranet:websocket
++ internet:腾讯信鸽，百度云推送，个推，极光推送，华为云推送
 
 ------------------------
 ## Web Api

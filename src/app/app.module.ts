@@ -31,18 +31,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
  * cnpm install --save angular-in-memory-web-api
  */
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../services/in-memory-data.service';
 /**
  * http fulREST
  */
 import { Http, HttpModule, JsonpModule } from '@angular/http';
-import { Api } from '../providers';
 /**
  * storage
  * http://ionicframework.com/docs/storage/
  */
 import { Storage, IonicStorageModule } from '@ionic/storage';
-import { Settings } from '../providers';
 /**
  * i18n
  * http://ionicframework.com/docs/resources/ng2-translate/
@@ -54,7 +51,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  * https://www.npmjs.com/package/angular2-logger
  */
 import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
-
+/**
+ * my providers
+ */
+import { Settings, InMemoryDataService, Api, WebSocketService, IonicWebSocketService } from '../providers';
 
 
 /**
@@ -103,6 +103,8 @@ export function providers() {
     SplashScreen,
     Api,
     Logger,
+    WebSocketService,
+    IonicWebSocketService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     { provide: LoggerOptions, useValue: { level: LoggerLevel.LOG } }

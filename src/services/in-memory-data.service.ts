@@ -6,6 +6,7 @@ import { IonpListMock, ionpListGroupsMock } from '../components/ionp-list/ionp-l
 /**
  * https://www.npmjs.com/package/angular2-in-memory-web-api
  * 
+ * @example
  * GET /zoos：列出所有动物园
  * POST /zoos：新建一个动物园
  * GET /zoos/ID：获取某个指定动物园的信息

@@ -21,15 +21,7 @@ export class HelloIonicPage {
     //settings
     this.settings.load().then(() => {
       let options = this.settings.allSettings;
-      logger.debug(options);
+      logger.log(options);
     });
-
-    // logger
-    // logger.error('This is a priority level 1 error message...');
-    // logger.warn('This is a priority level 2 warning message...');
-    // logger.info('This is a priority level 3 warning message...');
-    // logger.debug('This is a priority level 4 debug message...');
-    // logger.log('This is a priority level 5 log message...');
-
   }
 }

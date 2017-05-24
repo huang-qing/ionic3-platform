@@ -14,8 +14,6 @@ export class ListService implements OnInit {
 
     ngOnInit() { }
 
-
-
     getList(model: ListPageModel, url: string, pageIndex: number, showLoading: boolean): Observable<IonpListGroup[]> {
 
         url = `${url}/${model.parentId}`;
