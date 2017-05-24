@@ -21,7 +21,7 @@ export class IonicWebSocketService {
       return this.outputStream;
     }
 
-    var url = 'ws://echo.websocket.org';
+    var url = 'ws://echo.websocket.org?useid=xxx';
     // Using share() causes a single websocket to be created when the first 
     // observer subscribes. This socket is shared with subsequent observers 
     // and closed when the observer count falls to zero. 

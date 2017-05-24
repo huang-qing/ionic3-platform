@@ -59,12 +59,11 @@
 
 ## icons
 
-+ common
-+ platform
-+ project
++ create -(svg to fonts)
 
 ## logger
 
++ angular2-logger:error,warn,info,debug,log
 
 ## native
 
@@ -92,7 +91,7 @@
 
 ## push notifications
 
-+ intranet:websocket
++ intranet/internet:websocket
 + internet:腾讯信鸽，百度云推送，个推，极光推送，华为云推送
 
 ------------------------
@@ -103,6 +102,8 @@
 + PUT
 + DELETE
 + PATCH
+
+## WebSocket Server
 
 
 
