@@ -1,33 +1,4 @@
 
-let createleftIcon = function () {
-  return `
-    <ion-icon [name]="item.icon.iconName" item-left 
-      *ngIf="item?.icon?.type==='icon'&&!item?.icon?.iconSet"
-      [color]="item.icon.color" [style.color]="item.icon.color">
-    </ion-icon>
-    <custom-icon set="{{item.icon.iconSet}}" name="{{item.icon.iconName}}" item-left  
-      *ngIf="item?.icon?.type==='icon'&&item?.icon?.iconSet"
-      [style.color]="item.icon.color" >
-    </custom-icon>`;
-}
-
-let createInputIcon = function () {
-  return `
-    <ion-icon [name]='item.input.iconName' [color]="item.input.color" item-right
-      *ngIf="item?.input?.type==='icon'&&!item?.input?.iconSet"
-      [style.color]="item.input.color">
-    </ion-icon>
-    <custom-icon set="{{item.input.iconSet}}" name="{{item.input.iconName}}" item-right
-      *ngIf="item?.input?.type==='icon'&&item?.input?.iconSet"
-      [style.color]="item.icon.color" >
-    </custom-icon>`;
-}
-
-let createSlidingOptionsIcon = function () {
-  return `<ion-icon [name]="option.iconName" *ngIf="!option.iconSet"> </ion-icon>
-          <custom-icon set="{{option.iconSet}}" name="{{option.iconName}}" *ngIf="option.iconSet"></custom-icon>`;
-}
-
 let template = {
   divider: `
   <ion-item-divider color="light" *ngIf="group.style==='dividers'">
