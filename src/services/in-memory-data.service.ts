@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { IonpListGroup, IonpListItem } from '../components/ionp-list/ionp-list';
-import { IonpListMock, ionpListGroupsMock } from '../components/ionp-list/ionp-list.mock'
+import { ionpListGroupsMock } from '../components/ionp-list/ionp-list.mock';
 
 
 /**

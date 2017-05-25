@@ -28,8 +28,8 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   // use NavController Dynamic Links
-  rootPage = pagesConfig[0].component;
-
+  //rootPage = pagesConfig[0].component;
+  rootPage='tabs-page';
   pages: any;
 
   private socketSubscription: Subscription
