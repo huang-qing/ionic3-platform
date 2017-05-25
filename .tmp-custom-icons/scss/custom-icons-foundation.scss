@@ -1,0 +1,2299 @@
+@font-face {
+  font-family: "custom-icons-foundation";
+  src: url('../assets/fonts/custom-icons-foundation.eot');
+  src: url('../assets/fonts/custom-icons-foundation.eot?#iefix') format('eot'),
+  url('../assets/fonts/custom-icons-foundation.woff2') format('woff2'),
+  url('../assets/fonts/custom-icons-foundation.woff') format('woff'),
+  url('../assets/fonts/custom-icons-foundation.ttf') format('truetype'),
+  url('../assets/fonts/custom-icons-foundation.svg#custom-icons-foundation') format('svg');
+}
+
+%foundation {
+  font-family: "custom-icons-foundation";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@function foundation-char($filename) {
+  $char: "";
+  
+    @if $filename == address-book {
+      $char: "\EA01";
+    }
+  
+    @if $filename == alert {
+      $char: "\EA02";
+    }
+  
+    @if $filename == align-center {
+      $char: "\EA03";
+    }
+  
+    @if $filename == align-justify {
+      $char: "\EA04";
+    }
+  
+    @if $filename == align-left {
+      $char: "\EA05";
+    }
+  
+    @if $filename == align-right {
+      $char: "\EA06";
+    }
+  
+    @if $filename == anchor {
+      $char: "\EA07";
+    }
+  
+    @if $filename == annotate {
+      $char: "\EA08";
+    }
+  
+    @if $filename == archive {
+      $char: "\EA09";
+    }
+  
+    @if $filename == arrow-down {
+      $char: "\EA0A";
+    }
+  
+    @if $filename == arrow-left {
+      $char: "\EA0B";
+    }
+  
+    @if $filename == arrow-right {
+      $char: "\EA0C";
+    }
+  
+    @if $filename == arrow-up {
+      $char: "\EA0D";
+    }
+  
+    @if $filename == arrows-compress {
+      $char: "\EA0E";
+    }
+  
+    @if $filename == arrows-expand {
+      $char: "\EA0F";
+    }
+  
+    @if $filename == arrows-in {
+      $char: "\EA10";
+    }
+  
+    @if $filename == arrows-out {
+      $char: "\EA11";
+    }
+  
+    @if $filename == asl {
+      $char: "\EA12";
+    }
+  
+    @if $filename == asterisk {
+      $char: "\EA13";
+    }
+  
+    @if $filename == at-sign {
+      $char: "\EA14";
+    }
+  
+    @if $filename == background-color {
+      $char: "\EA15";
+    }
+  
+    @if $filename == battery-empty {
+      $char: "\EA16";
+    }
+  
+    @if $filename == battery-full {
+      $char: "\EA17";
+    }
+  
+    @if $filename == battery-half {
+      $char: "\EA18";
+    }
+  
+    @if $filename == bitcoin-circle {
+      $char: "\EA19";
+    }
+  
+    @if $filename == bitcoin {
+      $char: "\EA1A";
+    }
+  
+    @if $filename == blind {
+      $char: "\EA1B";
+    }
+  
+    @if $filename == bluetooth {
+      $char: "\EA1C";
+    }
+  
+    @if $filename == bold {
+      $char: "\EA1D";
+    }
+  
+    @if $filename == book-bookmark {
+      $char: "\EA1E";
+    }
+  
+    @if $filename == book {
+      $char: "\EA1F";
+    }
+  
+    @if $filename == bookmark {
+      $char: "\EA20";
+    }
+  
+    @if $filename == braille {
+      $char: "\EA21";
+    }
+  
+    @if $filename == burst-new {
+      $char: "\EA22";
+    }
+  
+    @if $filename == burst-sale {
+      $char: "\EA23";
+    }
+  
+    @if $filename == burst {
+      $char: "\EA24";
+    }
+  
+    @if $filename == calendar {
+      $char: "\EA25";
+    }
+  
+    @if $filename == camera {
+      $char: "\EA26";
+    }
+  
+    @if $filename == check {
+      $char: "\EA27";
+    }
+  
+    @if $filename == checkbox {
+      $char: "\EA28";
+    }
+  
+    @if $filename == clipboard-notes {
+      $char: "\EA29";
+    }
+  
+    @if $filename == clipboard-pencil {
+      $char: "\EA2A";
+    }
+  
+    @if $filename == clipboard {
+      $char: "\EA2B";
+    }
+  
+    @if $filename == clock {
+      $char: "\EA2C";
+    }
+  
+    @if $filename == closed-caption {
+      $char: "\EA2D";
+    }
+  
+    @if $filename == cloud {
+      $char: "\EA2E";
+    }
+  
+    @if $filename == comment-minus {
+      $char: "\EA2F";
+    }
+  
+    @if $filename == comment-quotes {
+      $char: "\EA30";
+    }
+  
+    @if $filename == comment-video {
+      $char: "\EA31";
+    }
+  
+    @if $filename == comment {
+      $char: "\EA32";
+    }
+  
+    @if $filename == comments {
+      $char: "\EA33";
+    }
+  
+    @if $filename == compass {
+      $char: "\EA34";
+    }
+  
+    @if $filename == contrast {
+      $char: "\EA35";
+    }
+  
+    @if $filename == credit-card {
+      $char: "\EA36";
+    }
+  
+    @if $filename == crop {
+      $char: "\EA37";
+    }
+  
+    @if $filename == crown {
+      $char: "\EA38";
+    }
+  
+    @if $filename == css3 {
+      $char: "\EA39";
+    }
+  
+    @if $filename == database {
+      $char: "\EA3A";
+    }
+  
+    @if $filename == die-five {
+      $char: "\EA3B";
+    }
+  
+    @if $filename == die-four {
+      $char: "\EA3C";
+    }
+  
+    @if $filename == die-one {
+      $char: "\EA3D";
+    }
+  
+    @if $filename == die-six {
+      $char: "\EA3E";
+    }
+  
+    @if $filename == die-three {
+      $char: "\EA3F";
+    }
+  
+    @if $filename == die-two {
+      $char: "\EA40";
+    }
+  
+    @if $filename == dislike {
+      $char: "\EA41";
+    }
+  
+    @if $filename == dollar-bill {
+      $char: "\EA42";
+    }
+  
+    @if $filename == dollar {
+      $char: "\EA43";
+    }
+  
+    @if $filename == download {
+      $char: "\EA44";
+    }
+  
+    @if $filename == eject {
+      $char: "\EA45";
+    }
+  
+    @if $filename == elevator {
+      $char: "\EA46";
+    }
+  
+    @if $filename == euro {
+      $char: "\EA47";
+    }
+  
+    @if $filename == eye {
+      $char: "\EA48";
+    }
+  
+    @if $filename == fast-forward {
+      $char: "\EA49";
+    }
+  
+    @if $filename == female-symbol {
+      $char: "\EA4A";
+    }
+  
+    @if $filename == female {
+      $char: "\EA4B";
+    }
+  
+    @if $filename == filter {
+      $char: "\EA4C";
+    }
+  
+    @if $filename == first-aid {
+      $char: "\EA4D";
+    }
+  
+    @if $filename == flag {
+      $char: "\EA4E";
+    }
+  
+    @if $filename == folder-add {
+      $char: "\EA4F";
+    }
+  
+    @if $filename == folder-lock {
+      $char: "\EA50";
+    }
+  
+    @if $filename == folder {
+      $char: "\EA51";
+    }
+  
+    @if $filename == foot {
+      $char: "\EA52";
+    }
+  
+    @if $filename == foundation {
+      $char: "\EA53";
+    }
+  
+    @if $filename == graph-bar {
+      $char: "\EA54";
+    }
+  
+    @if $filename == graph-horizontal {
+      $char: "\EA55";
+    }
+  
+    @if $filename == graph-pie {
+      $char: "\EA56";
+    }
+  
+    @if $filename == graph-trend {
+      $char: "\EA57";
+    }
+  
+    @if $filename == guide-dog {
+      $char: "\EA58";
+    }
+  
+    @if $filename == hearing-aid {
+      $char: "\EA59";
+    }
+  
+    @if $filename == heart {
+      $char: "\EA5A";
+    }
+  
+    @if $filename == home {
+      $char: "\EA5B";
+    }
+  
+    @if $filename == html5 {
+      $char: "\EA5C";
+    }
+  
+    @if $filename == indent-less {
+      $char: "\EA5D";
+    }
+  
+    @if $filename == indent-more {
+      $char: "\EA5E";
+    }
+  
+    @if $filename == info {
+      $char: "\EA5F";
+    }
+  
+    @if $filename == italic {
+      $char: "\EA60";
+    }
+  
+    @if $filename == key {
+      $char: "\EA61";
+    }
+  
+    @if $filename == laptop {
+      $char: "\EA62";
+    }
+  
+    @if $filename == layout {
+      $char: "\EA63";
+    }
+  
+    @if $filename == lightbulb {
+      $char: "\EA64";
+    }
+  
+    @if $filename == like {
+      $char: "\EA65";
+    }
+  
+    @if $filename == link {
+      $char: "\EA66";
+    }
+  
+    @if $filename == list-bullet {
+      $char: "\EA67";
+    }
+  
+    @if $filename == list-number {
+      $char: "\EA68";
+    }
+  
+    @if $filename == list-thumbnails {
+      $char: "\EA69";
+    }
+  
+    @if $filename == list {
+      $char: "\EA6A";
+    }
+  
+    @if $filename == lock {
+      $char: "\EA6B";
+    }
+  
+    @if $filename == loop {
+      $char: "\EA6C";
+    }
+  
+    @if $filename == magnifying-glass {
+      $char: "\EA6D";
+    }
+  
+    @if $filename == mail {
+      $char: "\EA6E";
+    }
+  
+    @if $filename == male-female {
+      $char: "\EA6F";
+    }
+  
+    @if $filename == male-symbol {
+      $char: "\EA70";
+    }
+  
+    @if $filename == male {
+      $char: "\EA71";
+    }
+  
+    @if $filename == map {
+      $char: "\EA72";
+    }
+  
+    @if $filename == marker {
+      $char: "\EA73";
+    }
+  
+    @if $filename == megaphone {
+      $char: "\EA74";
+    }
+  
+    @if $filename == microphone {
+      $char: "\EA75";
+    }
+  
+    @if $filename == minus-circle {
+      $char: "\EA76";
+    }
+  
+    @if $filename == minus {
+      $char: "\EA77";
+    }
+  
+    @if $filename == mobile-signal {
+      $char: "\EA78";
+    }
+  
+    @if $filename == mobile {
+      $char: "\EA79";
+    }
+  
+    @if $filename == monitor {
+      $char: "\EA7A";
+    }
+  
+    @if $filename == mountains {
+      $char: "\EA7B";
+    }
+  
+    @if $filename == music {
+      $char: "\EA7C";
+    }
+  
+    @if $filename == next {
+      $char: "\EA7D";
+    }
+  
+    @if $filename == no-dogs {
+      $char: "\EA7E";
+    }
+  
+    @if $filename == no-smoking {
+      $char: "\EA7F";
+    }
+  
+    @if $filename == page-add {
+      $char: "\EA80";
+    }
+  
+    @if $filename == page-copy {
+      $char: "\EA81";
+    }
+  
+    @if $filename == page-csv {
+      $char: "\EA82";
+    }
+  
+    @if $filename == page-delete {
+      $char: "\EA83";
+    }
+  
+    @if $filename == page-doc {
+      $char: "\EA84";
+    }
+  
+    @if $filename == page-edit {
+      $char: "\EA85";
+    }
+  
+    @if $filename == page-export-csv {
+      $char: "\EA86";
+    }
+  
+    @if $filename == page-export-doc {
+      $char: "\EA87";
+    }
+  
+    @if $filename == page-export-pdf {
+      $char: "\EA88";
+    }
+  
+    @if $filename == page-export {
+      $char: "\EA89";
+    }
+  
+    @if $filename == page-filled {
+      $char: "\EA8A";
+    }
+  
+    @if $filename == page-multiple {
+      $char: "\EA8B";
+    }
+  
+    @if $filename == page-pdf {
+      $char: "\EA8C";
+    }
+  
+    @if $filename == page-remove {
+      $char: "\EA8D";
+    }
+  
+    @if $filename == page-search {
+      $char: "\EA8E";
+    }
+  
+    @if $filename == page {
+      $char: "\EA8F";
+    }
+  
+    @if $filename == paint-bucket {
+      $char: "\EA90";
+    }
+  
+    @if $filename == paperclip {
+      $char: "\EA91";
+    }
+  
+    @if $filename == pause {
+      $char: "\EA92";
+    }
+  
+    @if $filename == paw {
+      $char: "\EA93";
+    }
+  
+    @if $filename == paypal {
+      $char: "\EA94";
+    }
+  
+    @if $filename == pencil {
+      $char: "\EA95";
+    }
+  
+    @if $filename == photo {
+      $char: "\EA96";
+    }
+  
+    @if $filename == play-circle {
+      $char: "\EA97";
+    }
+  
+    @if $filename == play-video {
+      $char: "\EA98";
+    }
+  
+    @if $filename == play {
+      $char: "\EA99";
+    }
+  
+    @if $filename == plus {
+      $char: "\EA9A";
+    }
+  
+    @if $filename == pound {
+      $char: "\EA9B";
+    }
+  
+    @if $filename == power {
+      $char: "\EA9C";
+    }
+  
+    @if $filename == previous {
+      $char: "\EA9D";
+    }
+  
+    @if $filename == price-tag {
+      $char: "\EA9E";
+    }
+  
+    @if $filename == pricetag-multiple {
+      $char: "\EA9F";
+    }
+  
+    @if $filename == print {
+      $char: "\EAA0";
+    }
+  
+    @if $filename == prohibited {
+      $char: "\EAA1";
+    }
+  
+    @if $filename == projection-screen {
+      $char: "\EAA2";
+    }
+  
+    @if $filename == puzzle {
+      $char: "\EAA3";
+    }
+  
+    @if $filename == quote {
+      $char: "\EAA4";
+    }
+  
+    @if $filename == record {
+      $char: "\EAA5";
+    }
+  
+    @if $filename == refresh {
+      $char: "\EAA6";
+    }
+  
+    @if $filename == results-demographics {
+      $char: "\EAA7";
+    }
+  
+    @if $filename == results {
+      $char: "\EAA8";
+    }
+  
+    @if $filename == rewind-ten {
+      $char: "\EAA9";
+    }
+  
+    @if $filename == rewind {
+      $char: "\EAAA";
+    }
+  
+    @if $filename == rss {
+      $char: "\EAAB";
+    }
+  
+    @if $filename == safety-cone {
+      $char: "\EAAC";
+    }
+  
+    @if $filename == save {
+      $char: "\EAAD";
+    }
+  
+    @if $filename == share {
+      $char: "\EAAE";
+    }
+  
+    @if $filename == sheriff-badge {
+      $char: "\EAAF";
+    }
+  
+    @if $filename == shield {
+      $char: "\EAB0";
+    }
+  
+    @if $filename == shopping-bag {
+      $char: "\EAB1";
+    }
+  
+    @if $filename == shopping-cart {
+      $char: "\EAB2";
+    }
+  
+    @if $filename == shuffle {
+      $char: "\EAB3";
+    }
+  
+    @if $filename == skull {
+      $char: "\EAB4";
+    }
+  
+    @if $filename == social-500px {
+      $char: "\EAB5";
+    }
+  
+    @if $filename == social-adobe {
+      $char: "\EAB6";
+    }
+  
+    @if $filename == social-amazon {
+      $char: "\EAB7";
+    }
+  
+    @if $filename == social-android {
+      $char: "\EAB8";
+    }
+  
+    @if $filename == social-apple {
+      $char: "\EAB9";
+    }
+  
+    @if $filename == social-behance {
+      $char: "\EABA";
+    }
+  
+    @if $filename == social-bing {
+      $char: "\EABB";
+    }
+  
+    @if $filename == social-blogger {
+      $char: "\EABC";
+    }
+  
+    @if $filename == social-delicious {
+      $char: "\EABD";
+    }
+  
+    @if $filename == social-designer-news {
+      $char: "\EABE";
+    }
+  
+    @if $filename == social-deviant-art {
+      $char: "\EABF";
+    }
+  
+    @if $filename == social-digg {
+      $char: "\EAC0";
+    }
+  
+    @if $filename == social-dribbble {
+      $char: "\EAC1";
+    }
+  
+    @if $filename == social-drive {
+      $char: "\EAC2";
+    }
+  
+    @if $filename == social-dropbox {
+      $char: "\EAC3";
+    }
+  
+    @if $filename == social-evernote {
+      $char: "\EAC4";
+    }
+  
+    @if $filename == social-facebook {
+      $char: "\EAC5";
+    }
+  
+    @if $filename == social-flickr {
+      $char: "\EAC6";
+    }
+  
+    @if $filename == social-forrst {
+      $char: "\EAC7";
+    }
+  
+    @if $filename == social-foursquare {
+      $char: "\EAC8";
+    }
+  
+    @if $filename == social-game-center {
+      $char: "\EAC9";
+    }
+  
+    @if $filename == social-github {
+      $char: "\EACA";
+    }
+  
+    @if $filename == social-google-plus {
+      $char: "\EACB";
+    }
+  
+    @if $filename == social-hacker-news {
+      $char: "\EACC";
+    }
+  
+    @if $filename == social-hi5 {
+      $char: "\EACD";
+    }
+  
+    @if $filename == social-instagram {
+      $char: "\EACE";
+    }
+  
+    @if $filename == social-joomla {
+      $char: "\EACF";
+    }
+  
+    @if $filename == social-lastfm {
+      $char: "\EAD0";
+    }
+  
+    @if $filename == social-linkedin {
+      $char: "\EAD1";
+    }
+  
+    @if $filename == social-medium {
+      $char: "\EAD2";
+    }
+  
+    @if $filename == social-myspace {
+      $char: "\EAD3";
+    }
+  
+    @if $filename == social-orkut {
+      $char: "\EAD4";
+    }
+  
+    @if $filename == social-path {
+      $char: "\EAD5";
+    }
+  
+    @if $filename == social-picasa {
+      $char: "\EAD6";
+    }
+  
+    @if $filename == social-pinterest {
+      $char: "\EAD7";
+    }
+  
+    @if $filename == social-rdio {
+      $char: "\EAD8";
+    }
+  
+    @if $filename == social-reddit {
+      $char: "\EAD9";
+    }
+  
+    @if $filename == social-skillshare {
+      $char: "\EADA";
+    }
+  
+    @if $filename == social-skype {
+      $char: "\EADB";
+    }
+  
+    @if $filename == social-smashing-mag {
+      $char: "\EADC";
+    }
+  
+    @if $filename == social-snapchat {
+      $char: "\EADD";
+    }
+  
+    @if $filename == social-spotify {
+      $char: "\EADE";
+    }
+  
+    @if $filename == social-squidoo {
+      $char: "\EADF";
+    }
+  
+    @if $filename == social-stack-overflow {
+      $char: "\EAE0";
+    }
+  
+    @if $filename == social-steam {
+      $char: "\EAE1";
+    }
+  
+    @if $filename == social-stumbleupon {
+      $char: "\EAE2";
+    }
+  
+    @if $filename == social-treehouse {
+      $char: "\EAE3";
+    }
+  
+    @if $filename == social-tumblr {
+      $char: "\EAE4";
+    }
+  
+    @if $filename == social-twitter {
+      $char: "\EAE5";
+    }
+  
+    @if $filename == social-vimeo {
+      $char: "\EAE6";
+    }
+  
+    @if $filename == social-windows {
+      $char: "\EAE7";
+    }
+  
+    @if $filename == social-xbox {
+      $char: "\EAE8";
+    }
+  
+    @if $filename == social-yahoo {
+      $char: "\EAE9";
+    }
+  
+    @if $filename == social-yelp {
+      $char: "\EAEA";
+    }
+  
+    @if $filename == social-youtube {
+      $char: "\EAEB";
+    }
+  
+    @if $filename == social-zerply {
+      $char: "\EAEC";
+    }
+  
+    @if $filename == social-zurb {
+      $char: "\EAED";
+    }
+  
+    @if $filename == sound {
+      $char: "\EAEE";
+    }
+  
+    @if $filename == star {
+      $char: "\EAEF";
+    }
+  
+    @if $filename == stop {
+      $char: "\EAF0";
+    }
+  
+    @if $filename == strikethrough {
+      $char: "\EAF1";
+    }
+  
+    @if $filename == subscript {
+      $char: "\EAF2";
+    }
+  
+    @if $filename == superscript {
+      $char: "\EAF3";
+    }
+  
+    @if $filename == tablet-landscape {
+      $char: "\EAF4";
+    }
+  
+    @if $filename == tablet-portrait {
+      $char: "\EAF5";
+    }
+  
+    @if $filename == target-two {
+      $char: "\EAF6";
+    }
+  
+    @if $filename == target {
+      $char: "\EAF7";
+    }
+  
+    @if $filename == telephone-accessible {
+      $char: "\EAF8";
+    }
+  
+    @if $filename == telephone {
+      $char: "\EAF9";
+    }
+  
+    @if $filename == text-color {
+      $char: "\EAFA";
+    }
+  
+    @if $filename == thumbnails {
+      $char: "\EAFB";
+    }
+  
+    @if $filename == ticket {
+      $char: "\EAFC";
+    }
+  
+    @if $filename == torso-business {
+      $char: "\EAFD";
+    }
+  
+    @if $filename == torso-female {
+      $char: "\EAFE";
+    }
+  
+    @if $filename == torso {
+      $char: "\EAFF";
+    }
+  
+    @if $filename == torsos-all-female {
+      $char: "\EB00";
+    }
+  
+    @if $filename == torsos-all {
+      $char: "\EB01";
+    }
+  
+    @if $filename == torsos-female-male {
+      $char: "\EB02";
+    }
+  
+    @if $filename == torsos-male-female {
+      $char: "\EB03";
+    }
+  
+    @if $filename == torsos {
+      $char: "\EB04";
+    }
+  
+    @if $filename == trash {
+      $char: "\EB05";
+    }
+  
+    @if $filename == trees {
+      $char: "\EB06";
+    }
+  
+    @if $filename == trophy {
+      $char: "\EB07";
+    }
+  
+    @if $filename == underline {
+      $char: "\EB08";
+    }
+  
+    @if $filename == universal-access {
+      $char: "\EB09";
+    }
+  
+    @if $filename == unlink {
+      $char: "\EB0A";
+    }
+  
+    @if $filename == unlock {
+      $char: "\EB0B";
+    }
+  
+    @if $filename == upload-cloud {
+      $char: "\EB0C";
+    }
+  
+    @if $filename == upload {
+      $char: "\EB0D";
+    }
+  
+    @if $filename == usb {
+      $char: "\EB0E";
+    }
+  
+    @if $filename == video {
+      $char: "\EB0F";
+    }
+  
+    @if $filename == volume-none {
+      $char: "\EB10";
+    }
+  
+    @if $filename == volume-strike {
+      $char: "\EB11";
+    }
+  
+    @if $filename == volume {
+      $char: "\EB12";
+    }
+  
+    @if $filename == web {
+      $char: "\EB13";
+    }
+  
+    @if $filename == wheelchair {
+      $char: "\EB14";
+    }
+  
+    @if $filename == widget {
+      $char: "\EB15";
+    }
+  
+    @if $filename == wrench {
+      $char: "\EB16";
+    }
+  
+    @if $filename == x-circle {
+      $char: "\EB17";
+    }
+  
+    @if $filename == x {
+      $char: "\EB18";
+    }
+  
+    @if $filename == yen {
+      $char: "\EB19";
+    }
+  
+    @if $filename == zoom-in {
+      $char: "\EB1A";
+    }
+  
+    @if $filename == zoom-out {
+      $char: "\EB1B";
+    }
+  
+  @return $char;
+}
+
+@mixin foundation($filename) {
+  &:before {
+    @extend %foundation;
+    content: foundation-char($filename);
+  }
+}
+
+
+  custom-icon.set-foundation.icon-address-book {
+    @include foundation(address-book);
+  }
+
+  custom-icon.set-foundation.icon-alert {
+    @include foundation(alert);
+  }
+
+  custom-icon.set-foundation.icon-align-center {
+    @include foundation(align-center);
+  }
+
+  custom-icon.set-foundation.icon-align-justify {
+    @include foundation(align-justify);
+  }
+
+  custom-icon.set-foundation.icon-align-left {
+    @include foundation(align-left);
+  }
+
+  custom-icon.set-foundation.icon-align-right {
+    @include foundation(align-right);
+  }
+
+  custom-icon.set-foundation.icon-anchor {
+    @include foundation(anchor);
+  }
+
+  custom-icon.set-foundation.icon-annotate {
+    @include foundation(annotate);
+  }
+
+  custom-icon.set-foundation.icon-archive {
+    @include foundation(archive);
+  }
+
+  custom-icon.set-foundation.icon-arrow-down {
+    @include foundation(arrow-down);
+  }
+
+  custom-icon.set-foundation.icon-arrow-left {
+    @include foundation(arrow-left);
+  }
+
+  custom-icon.set-foundation.icon-arrow-right {
+    @include foundation(arrow-right);
+  }
+
+  custom-icon.set-foundation.icon-arrow-up {
+    @include foundation(arrow-up);
+  }
+
+  custom-icon.set-foundation.icon-arrows-compress {
+    @include foundation(arrows-compress);
+  }
+
+  custom-icon.set-foundation.icon-arrows-expand {
+    @include foundation(arrows-expand);
+  }
+
+  custom-icon.set-foundation.icon-arrows-in {
+    @include foundation(arrows-in);
+  }
+
+  custom-icon.set-foundation.icon-arrows-out {
+    @include foundation(arrows-out);
+  }
+
+  custom-icon.set-foundation.icon-asl {
+    @include foundation(asl);
+  }
+
+  custom-icon.set-foundation.icon-asterisk {
+    @include foundation(asterisk);
+  }
+
+  custom-icon.set-foundation.icon-at-sign {
+    @include foundation(at-sign);
+  }
+
+  custom-icon.set-foundation.icon-background-color {
+    @include foundation(background-color);
+  }
+
+  custom-icon.set-foundation.icon-battery-empty {
+    @include foundation(battery-empty);
+  }
+
+  custom-icon.set-foundation.icon-battery-full {
+    @include foundation(battery-full);
+  }
+
+  custom-icon.set-foundation.icon-battery-half {
+    @include foundation(battery-half);
+  }
+
+  custom-icon.set-foundation.icon-bitcoin-circle {
+    @include foundation(bitcoin-circle);
+  }
+
+  custom-icon.set-foundation.icon-bitcoin {
+    @include foundation(bitcoin);
+  }
+
+  custom-icon.set-foundation.icon-blind {
+    @include foundation(blind);
+  }
+
+  custom-icon.set-foundation.icon-bluetooth {
+    @include foundation(bluetooth);
+  }
+
+  custom-icon.set-foundation.icon-bold {
+    @include foundation(bold);
+  }
+
+  custom-icon.set-foundation.icon-book-bookmark {
+    @include foundation(book-bookmark);
+  }
+
+  custom-icon.set-foundation.icon-book {
+    @include foundation(book);
+  }
+
+  custom-icon.set-foundation.icon-bookmark {
+    @include foundation(bookmark);
+  }
+
+  custom-icon.set-foundation.icon-braille {
+    @include foundation(braille);
+  }
+
+  custom-icon.set-foundation.icon-burst-new {
+    @include foundation(burst-new);
+  }
+
+  custom-icon.set-foundation.icon-burst-sale {
+    @include foundation(burst-sale);
+  }
+
+  custom-icon.set-foundation.icon-burst {
+    @include foundation(burst);
+  }
+
+  custom-icon.set-foundation.icon-calendar {
+    @include foundation(calendar);
+  }
+
+  custom-icon.set-foundation.icon-camera {
+    @include foundation(camera);
+  }
+
+  custom-icon.set-foundation.icon-check {
+    @include foundation(check);
+  }
+
+  custom-icon.set-foundation.icon-checkbox {
+    @include foundation(checkbox);
+  }
+
+  custom-icon.set-foundation.icon-clipboard-notes {
+    @include foundation(clipboard-notes);
+  }
+
+  custom-icon.set-foundation.icon-clipboard-pencil {
+    @include foundation(clipboard-pencil);
+  }
+
+  custom-icon.set-foundation.icon-clipboard {
+    @include foundation(clipboard);
+  }
+
+  custom-icon.set-foundation.icon-clock {
+    @include foundation(clock);
+  }
+
+  custom-icon.set-foundation.icon-closed-caption {
+    @include foundation(closed-caption);
+  }
+
+  custom-icon.set-foundation.icon-cloud {
+    @include foundation(cloud);
+  }
+
+  custom-icon.set-foundation.icon-comment-minus {
+    @include foundation(comment-minus);
+  }
+
+  custom-icon.set-foundation.icon-comment-quotes {
+    @include foundation(comment-quotes);
+  }
+
+  custom-icon.set-foundation.icon-comment-video {
+    @include foundation(comment-video);
+  }
+
+  custom-icon.set-foundation.icon-comment {
+    @include foundation(comment);
+  }
+
+  custom-icon.set-foundation.icon-comments {
+    @include foundation(comments);
+  }
+
+  custom-icon.set-foundation.icon-compass {
+    @include foundation(compass);
+  }
+
+  custom-icon.set-foundation.icon-contrast {
+    @include foundation(contrast);
+  }
+
+  custom-icon.set-foundation.icon-credit-card {
+    @include foundation(credit-card);
+  }
+
+  custom-icon.set-foundation.icon-crop {
+    @include foundation(crop);
+  }
+
+  custom-icon.set-foundation.icon-crown {
+    @include foundation(crown);
+  }
+
+  custom-icon.set-foundation.icon-css3 {
+    @include foundation(css3);
+  }
+
+  custom-icon.set-foundation.icon-database {
+    @include foundation(database);
+  }
+
+  custom-icon.set-foundation.icon-die-five {
+    @include foundation(die-five);
+  }
+
+  custom-icon.set-foundation.icon-die-four {
+    @include foundation(die-four);
+  }
+
+  custom-icon.set-foundation.icon-die-one {
+    @include foundation(die-one);
+  }
+
+  custom-icon.set-foundation.icon-die-six {
+    @include foundation(die-six);
+  }
+
+  custom-icon.set-foundation.icon-die-three {
+    @include foundation(die-three);
+  }
+
+  custom-icon.set-foundation.icon-die-two {
+    @include foundation(die-two);
+  }
+
+  custom-icon.set-foundation.icon-dislike {
+    @include foundation(dislike);
+  }
+
+  custom-icon.set-foundation.icon-dollar-bill {
+    @include foundation(dollar-bill);
+  }
+
+  custom-icon.set-foundation.icon-dollar {
+    @include foundation(dollar);
+  }
+
+  custom-icon.set-foundation.icon-download {
+    @include foundation(download);
+  }
+
+  custom-icon.set-foundation.icon-eject {
+    @include foundation(eject);
+  }
+
+  custom-icon.set-foundation.icon-elevator {
+    @include foundation(elevator);
+  }
+
+  custom-icon.set-foundation.icon-euro {
+    @include foundation(euro);
+  }
+
+  custom-icon.set-foundation.icon-eye {
+    @include foundation(eye);
+  }
+
+  custom-icon.set-foundation.icon-fast-forward {
+    @include foundation(fast-forward);
+  }
+
+  custom-icon.set-foundation.icon-female-symbol {
+    @include foundation(female-symbol);
+  }
+
+  custom-icon.set-foundation.icon-female {
+    @include foundation(female);
+  }
+
+  custom-icon.set-foundation.icon-filter {
+    @include foundation(filter);
+  }
+
+  custom-icon.set-foundation.icon-first-aid {
+    @include foundation(first-aid);
+  }
+
+  custom-icon.set-foundation.icon-flag {
+    @include foundation(flag);
+  }
+
+  custom-icon.set-foundation.icon-folder-add {
+    @include foundation(folder-add);
+  }
+
+  custom-icon.set-foundation.icon-folder-lock {
+    @include foundation(folder-lock);
+  }
+
+  custom-icon.set-foundation.icon-folder {
+    @include foundation(folder);
+  }
+
+  custom-icon.set-foundation.icon-foot {
+    @include foundation(foot);
+  }
+
+  custom-icon.set-foundation.icon-foundation {
+    @include foundation(foundation);
+  }
+
+  custom-icon.set-foundation.icon-graph-bar {
+    @include foundation(graph-bar);
+  }
+
+  custom-icon.set-foundation.icon-graph-horizontal {
+    @include foundation(graph-horizontal);
+  }
+
+  custom-icon.set-foundation.icon-graph-pie {
+    @include foundation(graph-pie);
+  }
+
+  custom-icon.set-foundation.icon-graph-trend {
+    @include foundation(graph-trend);
+  }
+
+  custom-icon.set-foundation.icon-guide-dog {
+    @include foundation(guide-dog);
+  }
+
+  custom-icon.set-foundation.icon-hearing-aid {
+    @include foundation(hearing-aid);
+  }
+
+  custom-icon.set-foundation.icon-heart {
+    @include foundation(heart);
+  }
+
+  custom-icon.set-foundation.icon-home {
+    @include foundation(home);
+  }
+
+  custom-icon.set-foundation.icon-html5 {
+    @include foundation(html5);
+  }
+
+  custom-icon.set-foundation.icon-indent-less {
+    @include foundation(indent-less);
+  }
+
+  custom-icon.set-foundation.icon-indent-more {
+    @include foundation(indent-more);
+  }
+
+  custom-icon.set-foundation.icon-info {
+    @include foundation(info);
+  }
+
+  custom-icon.set-foundation.icon-italic {
+    @include foundation(italic);
+  }
+
+  custom-icon.set-foundation.icon-key {
+    @include foundation(key);
+  }
+
+  custom-icon.set-foundation.icon-laptop {
+    @include foundation(laptop);
+  }
+
+  custom-icon.set-foundation.icon-layout {
+    @include foundation(layout);
+  }
+
+  custom-icon.set-foundation.icon-lightbulb {
+    @include foundation(lightbulb);
+  }
+
+  custom-icon.set-foundation.icon-like {
+    @include foundation(like);
+  }
+
+  custom-icon.set-foundation.icon-link {
+    @include foundation(link);
+  }
+
+  custom-icon.set-foundation.icon-list-bullet {
+    @include foundation(list-bullet);
+  }
+
+  custom-icon.set-foundation.icon-list-number {
+    @include foundation(list-number);
+  }
+
+  custom-icon.set-foundation.icon-list-thumbnails {
+    @include foundation(list-thumbnails);
+  }
+
+  custom-icon.set-foundation.icon-list {
+    @include foundation(list);
+  }
+
+  custom-icon.set-foundation.icon-lock {
+    @include foundation(lock);
+  }
+
+  custom-icon.set-foundation.icon-loop {
+    @include foundation(loop);
+  }
+
+  custom-icon.set-foundation.icon-magnifying-glass {
+    @include foundation(magnifying-glass);
+  }
+
+  custom-icon.set-foundation.icon-mail {
+    @include foundation(mail);
+  }
+
+  custom-icon.set-foundation.icon-male-female {
+    @include foundation(male-female);
+  }
+
+  custom-icon.set-foundation.icon-male-symbol {
+    @include foundation(male-symbol);
+  }
+
+  custom-icon.set-foundation.icon-male {
+    @include foundation(male);
+  }
+
+  custom-icon.set-foundation.icon-map {
+    @include foundation(map);
+  }
+
+  custom-icon.set-foundation.icon-marker {
+    @include foundation(marker);
+  }
+
+  custom-icon.set-foundation.icon-megaphone {
+    @include foundation(megaphone);
+  }
+
+  custom-icon.set-foundation.icon-microphone {
+    @include foundation(microphone);
+  }
+
+  custom-icon.set-foundation.icon-minus-circle {
+    @include foundation(minus-circle);
+  }
+
+  custom-icon.set-foundation.icon-minus {
+    @include foundation(minus);
+  }
+
+  custom-icon.set-foundation.icon-mobile-signal {
+    @include foundation(mobile-signal);
+  }
+
+  custom-icon.set-foundation.icon-mobile {
+    @include foundation(mobile);
+  }
+
+  custom-icon.set-foundation.icon-monitor {
+    @include foundation(monitor);
+  }
+
+  custom-icon.set-foundation.icon-mountains {
+    @include foundation(mountains);
+  }
+
+  custom-icon.set-foundation.icon-music {
+    @include foundation(music);
+  }
+
+  custom-icon.set-foundation.icon-next {
+    @include foundation(next);
+  }
+
+  custom-icon.set-foundation.icon-no-dogs {
+    @include foundation(no-dogs);
+  }
+
+  custom-icon.set-foundation.icon-no-smoking {
+    @include foundation(no-smoking);
+  }
+
+  custom-icon.set-foundation.icon-page-add {
+    @include foundation(page-add);
+  }
+
+  custom-icon.set-foundation.icon-page-copy {
+    @include foundation(page-copy);
+  }
+
+  custom-icon.set-foundation.icon-page-csv {
+    @include foundation(page-csv);
+  }
+
+  custom-icon.set-foundation.icon-page-delete {
+    @include foundation(page-delete);
+  }
+
+  custom-icon.set-foundation.icon-page-doc {
+    @include foundation(page-doc);
+  }
+
+  custom-icon.set-foundation.icon-page-edit {
+    @include foundation(page-edit);
+  }
+
+  custom-icon.set-foundation.icon-page-export-csv {
+    @include foundation(page-export-csv);
+  }
+
+  custom-icon.set-foundation.icon-page-export-doc {
+    @include foundation(page-export-doc);
+  }
+
+  custom-icon.set-foundation.icon-page-export-pdf {
+    @include foundation(page-export-pdf);
+  }
+
+  custom-icon.set-foundation.icon-page-export {
+    @include foundation(page-export);
+  }
+
+  custom-icon.set-foundation.icon-page-filled {
+    @include foundation(page-filled);
+  }
+
+  custom-icon.set-foundation.icon-page-multiple {
+    @include foundation(page-multiple);
+  }
+
+  custom-icon.set-foundation.icon-page-pdf {
+    @include foundation(page-pdf);
+  }
+
+  custom-icon.set-foundation.icon-page-remove {
+    @include foundation(page-remove);
+  }
+
+  custom-icon.set-foundation.icon-page-search {
+    @include foundation(page-search);
+  }
+
+  custom-icon.set-foundation.icon-page {
+    @include foundation(page);
+  }
+
+  custom-icon.set-foundation.icon-paint-bucket {
+    @include foundation(paint-bucket);
+  }
+
+  custom-icon.set-foundation.icon-paperclip {
+    @include foundation(paperclip);
+  }
+
+  custom-icon.set-foundation.icon-pause {
+    @include foundation(pause);
+  }
+
+  custom-icon.set-foundation.icon-paw {
+    @include foundation(paw);
+  }
+
+  custom-icon.set-foundation.icon-paypal {
+    @include foundation(paypal);
+  }
+
+  custom-icon.set-foundation.icon-pencil {
+    @include foundation(pencil);
+  }
+
+  custom-icon.set-foundation.icon-photo {
+    @include foundation(photo);
+  }
+
+  custom-icon.set-foundation.icon-play-circle {
+    @include foundation(play-circle);
+  }
+
+  custom-icon.set-foundation.icon-play-video {
+    @include foundation(play-video);
+  }
+
+  custom-icon.set-foundation.icon-play {
+    @include foundation(play);
+  }
+
+  custom-icon.set-foundation.icon-plus {
+    @include foundation(plus);
+  }
+
+  custom-icon.set-foundation.icon-pound {
+    @include foundation(pound);
+  }
+
+  custom-icon.set-foundation.icon-power {
+    @include foundation(power);
+  }
+
+  custom-icon.set-foundation.icon-previous {
+    @include foundation(previous);
+  }
+
+  custom-icon.set-foundation.icon-price-tag {
+    @include foundation(price-tag);
+  }
+
+  custom-icon.set-foundation.icon-pricetag-multiple {
+    @include foundation(pricetag-multiple);
+  }
+
+  custom-icon.set-foundation.icon-print {
+    @include foundation(print);
+  }
+
+  custom-icon.set-foundation.icon-prohibited {
+    @include foundation(prohibited);
+  }
+
+  custom-icon.set-foundation.icon-projection-screen {
+    @include foundation(projection-screen);
+  }
+
+  custom-icon.set-foundation.icon-puzzle {
+    @include foundation(puzzle);
+  }
+
+  custom-icon.set-foundation.icon-quote {
+    @include foundation(quote);
+  }
+
+  custom-icon.set-foundation.icon-record {
+    @include foundation(record);
+  }
+
+  custom-icon.set-foundation.icon-refresh {
+    @include foundation(refresh);
+  }
+
+  custom-icon.set-foundation.icon-results-demographics {
+    @include foundation(results-demographics);
+  }
+
+  custom-icon.set-foundation.icon-results {
+    @include foundation(results);
+  }
+
+  custom-icon.set-foundation.icon-rewind-ten {
+    @include foundation(rewind-ten);
+  }
+
+  custom-icon.set-foundation.icon-rewind {
+    @include foundation(rewind);
+  }
+
+  custom-icon.set-foundation.icon-rss {
+    @include foundation(rss);
+  }
+
+  custom-icon.set-foundation.icon-safety-cone {
+    @include foundation(safety-cone);
+  }
+
+  custom-icon.set-foundation.icon-save {
+    @include foundation(save);
+  }
+
+  custom-icon.set-foundation.icon-share {
+    @include foundation(share);
+  }
+
+  custom-icon.set-foundation.icon-sheriff-badge {
+    @include foundation(sheriff-badge);
+  }
+
+  custom-icon.set-foundation.icon-shield {
+    @include foundation(shield);
+  }
+
+  custom-icon.set-foundation.icon-shopping-bag {
+    @include foundation(shopping-bag);
+  }
+
+  custom-icon.set-foundation.icon-shopping-cart {
+    @include foundation(shopping-cart);
+  }
+
+  custom-icon.set-foundation.icon-shuffle {
+    @include foundation(shuffle);
+  }
+
+  custom-icon.set-foundation.icon-skull {
+    @include foundation(skull);
+  }
+
+  custom-icon.set-foundation.icon-social-500px {
+    @include foundation(social-500px);
+  }
+
+  custom-icon.set-foundation.icon-social-adobe {
+    @include foundation(social-adobe);
+  }
+
+  custom-icon.set-foundation.icon-social-amazon {
+    @include foundation(social-amazon);
+  }
+
+  custom-icon.set-foundation.icon-social-android {
+    @include foundation(social-android);
+  }
+
+  custom-icon.set-foundation.icon-social-apple {
+    @include foundation(social-apple);
+  }
+
+  custom-icon.set-foundation.icon-social-behance {
+    @include foundation(social-behance);
+  }
+
+  custom-icon.set-foundation.icon-social-bing {
+    @include foundation(social-bing);
+  }
+
+  custom-icon.set-foundation.icon-social-blogger {
+    @include foundation(social-blogger);
+  }
+
+  custom-icon.set-foundation.icon-social-delicious {
+    @include foundation(social-delicious);
+  }
+
+  custom-icon.set-foundation.icon-social-designer-news {
+    @include foundation(social-designer-news);
+  }
+
+  custom-icon.set-foundation.icon-social-deviant-art {
+    @include foundation(social-deviant-art);
+  }
+
+  custom-icon.set-foundation.icon-social-digg {
+    @include foundation(social-digg);
+  }
+
+  custom-icon.set-foundation.icon-social-dribbble {
+    @include foundation(social-dribbble);
+  }
+
+  custom-icon.set-foundation.icon-social-drive {
+    @include foundation(social-drive);
+  }
+
+  custom-icon.set-foundation.icon-social-dropbox {
+    @include foundation(social-dropbox);
+  }
+
+  custom-icon.set-foundation.icon-social-evernote {
+    @include foundation(social-evernote);
+  }
+
+  custom-icon.set-foundation.icon-social-facebook {
+    @include foundation(social-facebook);
+  }
+
+  custom-icon.set-foundation.icon-social-flickr {
+    @include foundation(social-flickr);
+  }
+
+  custom-icon.set-foundation.icon-social-forrst {
+    @include foundation(social-forrst);
+  }
+
+  custom-icon.set-foundation.icon-social-foursquare {
+    @include foundation(social-foursquare);
+  }
+
+  custom-icon.set-foundation.icon-social-game-center {
+    @include foundation(social-game-center);
+  }
+
+  custom-icon.set-foundation.icon-social-github {
+    @include foundation(social-github);
+  }
+
+  custom-icon.set-foundation.icon-social-google-plus {
+    @include foundation(social-google-plus);
+  }
+
+  custom-icon.set-foundation.icon-social-hacker-news {
+    @include foundation(social-hacker-news);
+  }
+
+  custom-icon.set-foundation.icon-social-hi5 {
+    @include foundation(social-hi5);
+  }
+
+  custom-icon.set-foundation.icon-social-instagram {
+    @include foundation(social-instagram);
+  }
+
+  custom-icon.set-foundation.icon-social-joomla {
+    @include foundation(social-joomla);
+  }
+
+  custom-icon.set-foundation.icon-social-lastfm {
+    @include foundation(social-lastfm);
+  }
+
+  custom-icon.set-foundation.icon-social-linkedin {
+    @include foundation(social-linkedin);
+  }
+
+  custom-icon.set-foundation.icon-social-medium {
+    @include foundation(social-medium);
+  }
+
+  custom-icon.set-foundation.icon-social-myspace {
+    @include foundation(social-myspace);
+  }
+
+  custom-icon.set-foundation.icon-social-orkut {
+    @include foundation(social-orkut);
+  }
+
+  custom-icon.set-foundation.icon-social-path {
+    @include foundation(social-path);
+  }
+
+  custom-icon.set-foundation.icon-social-picasa {
+    @include foundation(social-picasa);
+  }
+
+  custom-icon.set-foundation.icon-social-pinterest {
+    @include foundation(social-pinterest);
+  }
+
+  custom-icon.set-foundation.icon-social-rdio {
+    @include foundation(social-rdio);
+  }
+
+  custom-icon.set-foundation.icon-social-reddit {
+    @include foundation(social-reddit);
+  }
+
+  custom-icon.set-foundation.icon-social-skillshare {
+    @include foundation(social-skillshare);
+  }
+
+  custom-icon.set-foundation.icon-social-skype {
+    @include foundation(social-skype);
+  }
+
+  custom-icon.set-foundation.icon-social-smashing-mag {
+    @include foundation(social-smashing-mag);
+  }
+
+  custom-icon.set-foundation.icon-social-snapchat {
+    @include foundation(social-snapchat);
+  }
+
+  custom-icon.set-foundation.icon-social-spotify {
+    @include foundation(social-spotify);
+  }
+
+  custom-icon.set-foundation.icon-social-squidoo {
+    @include foundation(social-squidoo);
+  }
+
+  custom-icon.set-foundation.icon-social-stack-overflow {
+    @include foundation(social-stack-overflow);
+  }
+
+  custom-icon.set-foundation.icon-social-steam {
+    @include foundation(social-steam);
+  }
+
+  custom-icon.set-foundation.icon-social-stumbleupon {
+    @include foundation(social-stumbleupon);
+  }
+
+  custom-icon.set-foundation.icon-social-treehouse {
+    @include foundation(social-treehouse);
+  }
+
+  custom-icon.set-foundation.icon-social-tumblr {
+    @include foundation(social-tumblr);
+  }
+
+  custom-icon.set-foundation.icon-social-twitter {
+    @include foundation(social-twitter);
+  }
+
+  custom-icon.set-foundation.icon-social-vimeo {
+    @include foundation(social-vimeo);
+  }
+
+  custom-icon.set-foundation.icon-social-windows {
+    @include foundation(social-windows);
+  }
+
+  custom-icon.set-foundation.icon-social-xbox {
+    @include foundation(social-xbox);
+  }
+
+  custom-icon.set-foundation.icon-social-yahoo {
+    @include foundation(social-yahoo);
+  }
+
+  custom-icon.set-foundation.icon-social-yelp {
+    @include foundation(social-yelp);
+  }
+
+  custom-icon.set-foundation.icon-social-youtube {
+    @include foundation(social-youtube);
+  }
+
+  custom-icon.set-foundation.icon-social-zerply {
+    @include foundation(social-zerply);
+  }
+
+  custom-icon.set-foundation.icon-social-zurb {
+    @include foundation(social-zurb);
+  }
+
+  custom-icon.set-foundation.icon-sound {
+    @include foundation(sound);
+  }
+
+  custom-icon.set-foundation.icon-star {
+    @include foundation(star);
+  }
+
+  custom-icon.set-foundation.icon-stop {
+    @include foundation(stop);
+  }
+
+  custom-icon.set-foundation.icon-strikethrough {
+    @include foundation(strikethrough);
+  }
+
+  custom-icon.set-foundation.icon-subscript {
+    @include foundation(subscript);
+  }
+
+  custom-icon.set-foundation.icon-superscript {
+    @include foundation(superscript);
+  }
+
+  custom-icon.set-foundation.icon-tablet-landscape {
+    @include foundation(tablet-landscape);
+  }
+
+  custom-icon.set-foundation.icon-tablet-portrait {
+    @include foundation(tablet-portrait);
+  }
+
+  custom-icon.set-foundation.icon-target-two {
+    @include foundation(target-two);
+  }
+
+  custom-icon.set-foundation.icon-target {
+    @include foundation(target);
+  }
+
+  custom-icon.set-foundation.icon-telephone-accessible {
+    @include foundation(telephone-accessible);
+  }
+
+  custom-icon.set-foundation.icon-telephone {
+    @include foundation(telephone);
+  }
+
+  custom-icon.set-foundation.icon-text-color {
+    @include foundation(text-color);
+  }
+
+  custom-icon.set-foundation.icon-thumbnails {
+    @include foundation(thumbnails);
+  }
+
+  custom-icon.set-foundation.icon-ticket {
+    @include foundation(ticket);
+  }
+
+  custom-icon.set-foundation.icon-torso-business {
+    @include foundation(torso-business);
+  }
+
+  custom-icon.set-foundation.icon-torso-female {
+    @include foundation(torso-female);
+  }
+
+  custom-icon.set-foundation.icon-torso {
+    @include foundation(torso);
+  }
+
+  custom-icon.set-foundation.icon-torsos-all-female {
+    @include foundation(torsos-all-female);
+  }
+
+  custom-icon.set-foundation.icon-torsos-all {
+    @include foundation(torsos-all);
+  }
+
+  custom-icon.set-foundation.icon-torsos-female-male {
+    @include foundation(torsos-female-male);
+  }
+
+  custom-icon.set-foundation.icon-torsos-male-female {
+    @include foundation(torsos-male-female);
+  }
+
+  custom-icon.set-foundation.icon-torsos {
+    @include foundation(torsos);
+  }
+
+  custom-icon.set-foundation.icon-trash {
+    @include foundation(trash);
+  }
+
+  custom-icon.set-foundation.icon-trees {
+    @include foundation(trees);
+  }
+
+  custom-icon.set-foundation.icon-trophy {
+    @include foundation(trophy);
+  }
+
+  custom-icon.set-foundation.icon-underline {
+    @include foundation(underline);
+  }
+
+  custom-icon.set-foundation.icon-universal-access {
+    @include foundation(universal-access);
+  }
+
+  custom-icon.set-foundation.icon-unlink {
+    @include foundation(unlink);
+  }
+
+  custom-icon.set-foundation.icon-unlock {
+    @include foundation(unlock);
+  }
+
+  custom-icon.set-foundation.icon-upload-cloud {
+    @include foundation(upload-cloud);
+  }
+
+  custom-icon.set-foundation.icon-upload {
+    @include foundation(upload);
+  }
+
+  custom-icon.set-foundation.icon-usb {
+    @include foundation(usb);
+  }
+
+  custom-icon.set-foundation.icon-video {
+    @include foundation(video);
+  }
+
+  custom-icon.set-foundation.icon-volume-none {
+    @include foundation(volume-none);
+  }
+
+  custom-icon.set-foundation.icon-volume-strike {
+    @include foundation(volume-strike);
+  }
+
+  custom-icon.set-foundation.icon-volume {
+    @include foundation(volume);
+  }
+
+  custom-icon.set-foundation.icon-web {
+    @include foundation(web);
+  }
+
+  custom-icon.set-foundation.icon-wheelchair {
+    @include foundation(wheelchair);
+  }
+
+  custom-icon.set-foundation.icon-widget {
+    @include foundation(widget);
+  }
+
+  custom-icon.set-foundation.icon-wrench {
+    @include foundation(wrench);
+  }
+
+  custom-icon.set-foundation.icon-x-circle {
+    @include foundation(x-circle);
+  }
+
+  custom-icon.set-foundation.icon-x {
+    @include foundation(x);
+  }
+
+  custom-icon.set-foundation.icon-yen {
+    @include foundation(yen);
+  }
+
+  custom-icon.set-foundation.icon-zoom-in {
+    @include foundation(zoom-in);
+  }
+
+  custom-icon.set-foundation.icon-zoom-out {
+    @include foundation(zoom-out);
+  }
+

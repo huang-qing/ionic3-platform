@@ -1,0 +1,595 @@
+@font-face {
+  font-family: "custom-icons-evil";
+  src: url('../assets/fonts/custom-icons-evil.eot');
+  src: url('../assets/fonts/custom-icons-evil.eot?#iefix') format('eot'),
+  url('../assets/fonts/custom-icons-evil.woff2') format('woff2'),
+  url('../assets/fonts/custom-icons-evil.woff') format('woff'),
+  url('../assets/fonts/custom-icons-evil.ttf') format('truetype'),
+  url('../assets/fonts/custom-icons-evil.svg#custom-icons-evil') format('svg');
+}
+
+%evil {
+  font-family: "custom-icons-evil";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@function evil-char($filename) {
+  $char: "";
+  
+    @if $filename == archive {
+      $char: "\EA01";
+    }
+  
+    @if $filename == arrow-down {
+      $char: "\EA02";
+    }
+  
+    @if $filename == arrow-left {
+      $char: "\EA03";
+    }
+  
+    @if $filename == arrow-right {
+      $char: "\EA04";
+    }
+  
+    @if $filename == arrow-up {
+      $char: "\EA05";
+    }
+  
+    @if $filename == bell {
+      $char: "\EA06";
+    }
+  
+    @if $filename == calendar {
+      $char: "\EA07";
+    }
+  
+    @if $filename == camera {
+      $char: "\EA08";
+    }
+  
+    @if $filename == cart {
+      $char: "\EA09";
+    }
+  
+    @if $filename == chart {
+      $char: "\EA0A";
+    }
+  
+    @if $filename == check {
+      $char: "\EA0B";
+    }
+  
+    @if $filename == chevron-down {
+      $char: "\EA0C";
+    }
+  
+    @if $filename == chevron-left {
+      $char: "\EA0D";
+    }
+  
+    @if $filename == chevron-right {
+      $char: "\EA0E";
+    }
+  
+    @if $filename == chevron-up {
+      $char: "\EA0F";
+    }
+  
+    @if $filename == clock {
+      $char: "\EA10";
+    }
+  
+    @if $filename == close-o {
+      $char: "\EA11";
+    }
+  
+    @if $filename == close {
+      $char: "\EA12";
+    }
+  
+    @if $filename == comment {
+      $char: "\EA13";
+    }
+  
+    @if $filename == credit-card {
+      $char: "\EA14";
+    }
+  
+    @if $filename == envelope {
+      $char: "\EA15";
+    }
+  
+    @if $filename == exclamation {
+      $char: "\EA16";
+    }
+  
+    @if $filename == external-link {
+      $char: "\EA17";
+    }
+  
+    @if $filename == eye {
+      $char: "\EA18";
+    }
+  
+    @if $filename == gear {
+      $char: "\EA19";
+    }
+  
+    @if $filename == heart {
+      $char: "\EA1A";
+    }
+  
+    @if $filename == image {
+      $char: "\EA1B";
+    }
+  
+    @if $filename == like {
+      $char: "\EA1C";
+    }
+  
+    @if $filename == link {
+      $char: "\EA1D";
+    }
+  
+    @if $filename == location {
+      $char: "\EA1E";
+    }
+  
+    @if $filename == lock {
+      $char: "\EA1F";
+    }
+  
+    @if $filename == minus {
+      $char: "\EA20";
+    }
+  
+    @if $filename == navicon {
+      $char: "\EA21";
+    }
+  
+    @if $filename == paperclip {
+      $char: "\EA22";
+    }
+  
+    @if $filename == pencil {
+      $char: "\EA23";
+    }
+  
+    @if $filename == play {
+      $char: "\EA24";
+    }
+  
+    @if $filename == plus {
+      $char: "\EA25";
+    }
+  
+    @if $filename == pointer {
+      $char: "\EA26";
+    }
+  
+    @if $filename == question {
+      $char: "\EA27";
+    }
+  
+    @if $filename == redo {
+      $char: "\EA28";
+    }
+  
+    @if $filename == refresh {
+      $char: "\EA29";
+    }
+  
+    @if $filename == retweet {
+      $char: "\EA2A";
+    }
+  
+    @if $filename == sc-facebook {
+      $char: "\EA2B";
+    }
+  
+    @if $filename == sc-github {
+      $char: "\EA2C";
+    }
+  
+    @if $filename == sc-google-plus {
+      $char: "\EA2D";
+    }
+  
+    @if $filename == sc-instagram {
+      $char: "\EA2E";
+    }
+  
+    @if $filename == sc-linkedin {
+      $char: "\EA2F";
+    }
+  
+    @if $filename == sc-odnoklassniki {
+      $char: "\EA30";
+    }
+  
+    @if $filename == sc-pinterest {
+      $char: "\EA31";
+    }
+  
+    @if $filename == sc-skype {
+      $char: "\EA32";
+    }
+  
+    @if $filename == sc-soundcloud {
+      $char: "\EA33";
+    }
+  
+    @if $filename == sc-telegram {
+      $char: "\EA34";
+    }
+  
+    @if $filename == sc-tumblr {
+      $char: "\EA35";
+    }
+  
+    @if $filename == sc-twitter {
+      $char: "\EA36";
+    }
+  
+    @if $filename == sc-vimeo {
+      $char: "\EA37";
+    }
+  
+    @if $filename == sc-vk {
+      $char: "\EA38";
+    }
+  
+    @if $filename == sc-youtube {
+      $char: "\EA39";
+    }
+  
+    @if $filename == search {
+      $char: "\EA3A";
+    }
+  
+    @if $filename == share-apple {
+      $char: "\EA3B";
+    }
+  
+    @if $filename == share-google {
+      $char: "\EA3C";
+    }
+  
+    @if $filename == spinner-2 {
+      $char: "\EA3D";
+    }
+  
+    @if $filename == spinner-3 {
+      $char: "\EA3E";
+    }
+  
+    @if $filename == spinner {
+      $char: "\EA3F";
+    }
+  
+    @if $filename == star {
+      $char: "\EA40";
+    }
+  
+    @if $filename == tag {
+      $char: "\EA41";
+    }
+  
+    @if $filename == trash {
+      $char: "\EA42";
+    }
+  
+    @if $filename == trophy {
+      $char: "\EA43";
+    }
+  
+    @if $filename == undo {
+      $char: "\EA44";
+    }
+  
+    @if $filename == unlock {
+      $char: "\EA45";
+    }
+  
+    @if $filename == user {
+      $char: "\EA46";
+    }
+  
+  @return $char;
+}
+
+@mixin evil($filename) {
+  &:before {
+    @extend %evil;
+    content: evil-char($filename);
+  }
+}
+
+
+  custom-icon.set-evil.icon-archive {
+    @include evil(archive);
+  }
+
+  custom-icon.set-evil.icon-arrow-down {
+    @include evil(arrow-down);
+  }
+
+  custom-icon.set-evil.icon-arrow-left {
+    @include evil(arrow-left);
+  }
+
+  custom-icon.set-evil.icon-arrow-right {
+    @include evil(arrow-right);
+  }
+
+  custom-icon.set-evil.icon-arrow-up {
+    @include evil(arrow-up);
+  }
+
+  custom-icon.set-evil.icon-bell {
+    @include evil(bell);
+  }
+
+  custom-icon.set-evil.icon-calendar {
+    @include evil(calendar);
+  }
+
+  custom-icon.set-evil.icon-camera {
+    @include evil(camera);
+  }
+
+  custom-icon.set-evil.icon-cart {
+    @include evil(cart);
+  }
+
+  custom-icon.set-evil.icon-chart {
+    @include evil(chart);
+  }
+
+  custom-icon.set-evil.icon-check {
+    @include evil(check);
+  }
+
+  custom-icon.set-evil.icon-chevron-down {
+    @include evil(chevron-down);
+  }
+
+  custom-icon.set-evil.icon-chevron-left {
+    @include evil(chevron-left);
+  }
+
+  custom-icon.set-evil.icon-chevron-right {
+    @include evil(chevron-right);
+  }
+
+  custom-icon.set-evil.icon-chevron-up {
+    @include evil(chevron-up);
+  }
+
+  custom-icon.set-evil.icon-clock {
+    @include evil(clock);
+  }
+
+  custom-icon.set-evil.icon-close-o {
+    @include evil(close-o);
+  }
+
+  custom-icon.set-evil.icon-close {
+    @include evil(close);
+  }
+
+  custom-icon.set-evil.icon-comment {
+    @include evil(comment);
+  }
+
+  custom-icon.set-evil.icon-credit-card {
+    @include evil(credit-card);
+  }
+
+  custom-icon.set-evil.icon-envelope {
+    @include evil(envelope);
+  }
+
+  custom-icon.set-evil.icon-exclamation {
+    @include evil(exclamation);
+  }
+
+  custom-icon.set-evil.icon-external-link {
+    @include evil(external-link);
+  }
+
+  custom-icon.set-evil.icon-eye {
+    @include evil(eye);
+  }
+
+  custom-icon.set-evil.icon-gear {
+    @include evil(gear);
+  }
+
+  custom-icon.set-evil.icon-heart {
+    @include evil(heart);
+  }
+
+  custom-icon.set-evil.icon-image {
+    @include evil(image);
+  }
+
+  custom-icon.set-evil.icon-like {
+    @include evil(like);
+  }
+
+  custom-icon.set-evil.icon-link {
+    @include evil(link);
+  }
+
+  custom-icon.set-evil.icon-location {
+    @include evil(location);
+  }
+
+  custom-icon.set-evil.icon-lock {
+    @include evil(lock);
+  }
+
+  custom-icon.set-evil.icon-minus {
+    @include evil(minus);
+  }
+
+  custom-icon.set-evil.icon-navicon {
+    @include evil(navicon);
+  }
+
+  custom-icon.set-evil.icon-paperclip {
+    @include evil(paperclip);
+  }
+
+  custom-icon.set-evil.icon-pencil {
+    @include evil(pencil);
+  }
+
+  custom-icon.set-evil.icon-play {
+    @include evil(play);
+  }
+
+  custom-icon.set-evil.icon-plus {
+    @include evil(plus);
+  }
+
+  custom-icon.set-evil.icon-pointer {
+    @include evil(pointer);
+  }
+
+  custom-icon.set-evil.icon-question {
+    @include evil(question);
+  }
+
+  custom-icon.set-evil.icon-redo {
+    @include evil(redo);
+  }
+
+  custom-icon.set-evil.icon-refresh {
+    @include evil(refresh);
+  }
+
+  custom-icon.set-evil.icon-retweet {
+    @include evil(retweet);
+  }
+
+  custom-icon.set-evil.icon-sc-facebook {
+    @include evil(sc-facebook);
+  }
+
+  custom-icon.set-evil.icon-sc-github {
+    @include evil(sc-github);
+  }
+
+  custom-icon.set-evil.icon-sc-google-plus {
+    @include evil(sc-google-plus);
+  }
+
+  custom-icon.set-evil.icon-sc-instagram {
+    @include evil(sc-instagram);
+  }
+
+  custom-icon.set-evil.icon-sc-linkedin {
+    @include evil(sc-linkedin);
+  }
+
+  custom-icon.set-evil.icon-sc-odnoklassniki {
+    @include evil(sc-odnoklassniki);
+  }
+
+  custom-icon.set-evil.icon-sc-pinterest {
+    @include evil(sc-pinterest);
+  }
+
+  custom-icon.set-evil.icon-sc-skype {
+    @include evil(sc-skype);
+  }
+
+  custom-icon.set-evil.icon-sc-soundcloud {
+    @include evil(sc-soundcloud);
+  }
+
+  custom-icon.set-evil.icon-sc-telegram {
+    @include evil(sc-telegram);
+  }
+
+  custom-icon.set-evil.icon-sc-tumblr {
+    @include evil(sc-tumblr);
+  }
+
+  custom-icon.set-evil.icon-sc-twitter {
+    @include evil(sc-twitter);
+  }
+
+  custom-icon.set-evil.icon-sc-vimeo {
+    @include evil(sc-vimeo);
+  }
+
+  custom-icon.set-evil.icon-sc-vk {
+    @include evil(sc-vk);
+  }
+
+  custom-icon.set-evil.icon-sc-youtube {
+    @include evil(sc-youtube);
+  }
+
+  custom-icon.set-evil.icon-search {
+    @include evil(search);
+  }
+
+  custom-icon.set-evil.icon-share-apple {
+    @include evil(share-apple);
+  }
+
+  custom-icon.set-evil.icon-share-google {
+    @include evil(share-google);
+  }
+
+  custom-icon.set-evil.icon-spinner-2 {
+    @include evil(spinner-2);
+  }
+
+  custom-icon.set-evil.icon-spinner-3 {
+    @include evil(spinner-3);
+  }
+
+  custom-icon.set-evil.icon-spinner {
+    @include evil(spinner);
+  }
+
+  custom-icon.set-evil.icon-star {
+    @include evil(star);
+  }
+
+  custom-icon.set-evil.icon-tag {
+    @include evil(tag);
+  }
+
+  custom-icon.set-evil.icon-trash {
+    @include evil(trash);
+  }
+
+  custom-icon.set-evil.icon-trophy {
+    @include evil(trophy);
+  }
+
+  custom-icon.set-evil.icon-undo {
+    @include evil(undo);
+  }
+
+  custom-icon.set-evil.icon-unlock {
+    @include evil(unlock);
+  }
+
+  custom-icon.set-evil.icon-user {
+    @include evil(user);
+  }
+

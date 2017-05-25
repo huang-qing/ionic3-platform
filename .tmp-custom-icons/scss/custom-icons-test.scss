@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "custom-icons-test";
+  src: url('../assets/fonts/custom-icons-test.eot');
+  src: url('../assets/fonts/custom-icons-test.eot?#iefix') format('eot'),
+  url('../assets/fonts/custom-icons-test.woff2') format('woff2'),
+  url('../assets/fonts/custom-icons-test.woff') format('woff'),
+  url('../assets/fonts/custom-icons-test.ttf') format('truetype'),
+  url('../assets/fonts/custom-icons-test.svg#custom-icons-test') format('svg');
+}
+
+%test {
+  font-family: "custom-icons-test";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@function test-char($filename) {
+  $char: "";
+  
+    @if $filename == circle-inactive {
+      $char: "\EA01";
+    }
+  
+    @if $filename == circle {
+      $char: "\EA02";
+    }
+  
+    @if $filename == heart-inactive {
+      $char: "\EA03";
+    }
+  
+    @if $filename == heart {
+      $char: "\EA04";
+    }
+  
+    @if $filename == platform-logo-ios {
+      $char: "\EA05";
+    }
+  
+    @if $filename == platform-logo-md {
+      $char: "\EA06";
+    }
+  
+    @if $filename == platform-logo-wp {
+      $char: "\EA07";
+    }
+  
+    @if $filename == platform-logo {
+      $char: "\EA08";
+    }
+  
+    @if $filename == square-inactive {
+      $char: "\EA09";
+    }
+  
+    @if $filename == square {
+      $char: "\EA0A";
+    }
+  
+    @if $filename == star-inactive {
+      $char: "\EA0B";
+    }
+  
+    @if $filename == star {
+      $char: "\EA0C";
+    }
+  
+    @if $filename == triangle-inactive {
+      $char: "\EA0D";
+    }
+  
+    @if $filename == triangle {
+      $char: "\EA0E";
+    }
+  
+  @return $char;
+}
+
+@mixin test($filename) {
+  &:before {
+    @extend %test;
+    content: test-char($filename);
+  }
+}
+
+
+  custom-icon.set-test.icon-circle.inactive {
+    @include test(circle-inactive);
+  }
+
+  custom-icon.set-test.icon-circle {
+    @include test(circle);
+  }
+
+  custom-icon.set-test.icon-heart.inactive {
+    @include test(heart-inactive);
+  }
+
+  custom-icon.set-test.icon-heart {
+    @include test(heart);
+  }
+
+  custom-icon.set-test.icon-platform-logo.ios {
+    @include test(platform-logo-ios);
+  }
+
+  custom-icon.set-test.icon-platform-logo.md {
+    @include test(platform-logo-md);
+  }
+
+  custom-icon.set-test.icon-platform-logo.wp {
+    @include test(platform-logo-wp);
+  }
+
+  custom-icon.set-test.icon-platform-logo {
+    @include test(platform-logo);
+  }
+
+  custom-icon.set-test.icon-square.inactive {
+    @include test(square-inactive);
+  }
+
+  custom-icon.set-test.icon-square {
+    @include test(square);
+  }
+
+  custom-icon.set-test.icon-star.inactive {
+    @include test(star-inactive);
+  }
+
+  custom-icon.set-test.icon-star {
+    @include test(star);
+  }
+
+  custom-icon.set-test.icon-triangle.inactive {
+    @include test(triangle-inactive);
+  }
+
+  custom-icon.set-test.icon-triangle {
+    @include test(triangle);
+  }
+

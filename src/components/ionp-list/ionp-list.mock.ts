@@ -7,6 +7,7 @@ import {
 // icon name
 let ICONSNAME = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
+let CUSTOMICONSNAME = ['heart', 'star', 'trash'];
 // button color
 let COLORS = ["#387ef5", '#000', "#f53d3d", "rebeccapurple", "#FFC125", "#32db64"];
 // icon color
@@ -45,46 +46,44 @@ let THUMBNAIL = ["assets/img/thumbnail-totoro.png",
 
 //get thumbnail
 let getThumbnail = function (): IonpListIcon {
-    return {
-        type: "thumbnail",
-        src: THUMBNAIL[Math.floor(Math.random() * THUMBNAIL.length)],
-        style: null,
-        name: null,
-        color: null,
-        class: null,
-        params: null,
-        callback: null
-    }
+
+    var thumbnail = new IonpListIcon();
+    thumbnail.type = "thumbnail";
+    thumbnail.src = THUMBNAIL[Math.floor(Math.random() * THUMBNAIL.length)];
+
+    return thumbnail;
 }
 
 //get icon
 let getIcon = function (): IonpListIcon {
 
-    return {
-        type: 'icon',
-        style: null,
-        name: ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
-        src: "",
-        class: "icon-customer",
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        params: {},
-        callback: function (item, params) { }
-    }
+    var icon = new IonpListIcon();
+    icon.type = 'icon';
+    icon.iconName = ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)];
+    icon.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+    return icon;
+}
+
+let getCustomIcon = function (): IonpListIcon {
+
+    var icon = new IonpListIcon();
+    icon.type = 'icon';
+    icon.iconSet = 'evil';
+    icon.iconName = CUSTOMICONSNAME[Math.floor(Math.random() * CUSTOMICONSNAME.length)];
+    icon.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+    return icon;
 }
 
 // get avatar
 let getAvatar = function (): IonpListIcon {
 
-    return {
-        type: "avatar",
-        style: null,
-        src: AVATARS[Math.floor(Math.random() * AVATARS.length)],
-        name: null,
-        color: null,
-        class: null,
-        params: null,
-        callback: null
-    }
+    var avatar = new IonpListIcon();
+    avatar.type = 'avatar';
+    avatar.src = AVATARS[Math.floor(Math.random() * AVATARS.length)];
+
+    return avatar;
 }
 
 let SELECTOPTIONS = (function (): IonpListSelectOption[] {
@@ -117,8 +116,10 @@ let getForm = function (type): IonpListForm {
         value: boolean | string = true,
         style: any = 'text',
         name = ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
+        customName = CUSTOMICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
         color = COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)],
-        options: IonpListSelectOption[] = [];
+        options: IonpListSelectOption[] = [],
+        listForm = new IonpListForm();
 
     switch (type) {
         case 'note':
@@ -139,36 +140,46 @@ let getForm = function (type): IonpListForm {
             break;
     }
 
-    return {
-        type: type,
-        text: text,
-        style: style,
-        value: value,
-        name: name,
-        class: null,
-        color: color,
-        options: options,
-        params: {},
-        callback: function (item, params) { }
+    listForm.type = type;
+    listForm.text = text;
+    listForm.style = style;
+    listForm.value = value;
+    listForm.color = color;
+    listForm.options = options;
+
+    if (Math.floor(Math.random() * 2)) {
+        listForm.iconName = customName;
+        listForm.iconSet = 'evil';
+    } else {
+        listForm.iconName = name;
     }
+
+    return listForm;
 }
 
 //sliding
 let getSliding = function (): IonpListSlidingOption[] {
     let sliding: IonpListSlidingOption[] = [],
         names = ['call', 'text', 'more'],
-        name;
+        name,
+        customName = CUSTOMICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
+        slidingOption;
 
     for (var i = 0; i < 3; i++) {
         name = names[i];
-        sliding.push({
-            text: name,
-            color: COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)],
-            class: "",
-            name: name,
-            callback: function (item, params) { },
-            params: {}
-        });
+        slidingOption = new IonpListSlidingOption();
+        slidingOption.text = name;
+        slidingOption.iconName = name;
+        //slidingOption.color = COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)];
+        slidingOption.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        
+        if (i % 2) {
+            slidingOption.iconName = customName;
+            slidingOption.iconSet = 'evil';
+        } else {
+            slidingOption.iconName = name;
+        }
+        sliding.push(slidingOption);
     }
 
     return sliding;
@@ -350,7 +361,7 @@ let IconItems = (function () {
             subTitle: subTitle,
             description: descriptioin,
             class: null,
-            icon: getIcon(),
+            icon: i % 2 ? getCustomIcon() : getIcon(),
             input: null,
             sliding: null,
             detail: true,
@@ -371,11 +382,11 @@ let InputItems = (function () {
             null, "I've had a pretty messed up day. If we just", null, null],
         icons = [
             getIcon(),
+            getCustomIcon(),
             getIcon(),
+            getCustomIcon(),
             getIcon(),
-            getIcon(),
-            getIcon(),
-            getIcon()
+            getCustomIcon()
         ],
         inputs = [
             getForm('note'),
@@ -462,9 +473,7 @@ let SlidingItems = (function () {
 let GROUPS = (function (): IonpListGroup[] {
     var groups: IonpListGroup[] = [],
         texts = [
-            //dividers:A
             'A',
-            //dividers:B,
             'B',
             'Basic',
             'Avatar',
@@ -512,7 +521,6 @@ let GROUPS = (function (): IonpListGroup[] {
         else if (i === 6) {
             type = 'sliding';
         }
-
 
         groups.push({
             text: text,

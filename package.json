@@ -4,9 +4,17 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "config": {
+    "ionic_copy": "./custom-icons.config/copy.config.js",
+    "ionic_sass": "./custom-icons.config/sass.config.js",
+    "custom_icons": "./custom-icons.config/custom-icons.config.js"
+  },
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "ionic2-custom-icons": "ionic2-custom-icons",
+    "build:before": "ionic2-custom-icons",
+    "serve:before": "ionic2-custom-icons",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
@@ -29,6 +37,7 @@
     "angular2-logger": "^0.5.1",
     "angular2-websocket-service": "^0.5.3",
     "ionic-angular": "3.1.0",
+    "ionic2-custom-icons": "^0.4.1",
     "ionicons": "3.0.0",
     "queueing-subject": "^0.1.1",
     "rxjs": "^5.4.0",

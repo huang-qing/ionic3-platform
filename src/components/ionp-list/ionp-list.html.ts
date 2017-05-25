@@ -1,4 +1,33 @@
 
+let createleftIcon = function () {
+  return `
+    <ion-icon [name]="item.icon.iconName" item-left 
+      *ngIf="item?.icon?.type==='icon'&&!item?.icon?.iconSet"
+      [color]="item.icon.color" [style.color]="item.icon.color">
+    </ion-icon>
+    <custom-icon set="{{item.icon.iconSet}}" name="{{item.icon.iconName}}" item-left  
+      *ngIf="item?.icon?.type==='icon'&&item?.icon?.iconSet"
+      [style.color]="item.icon.color" >
+    </custom-icon>`;
+}
+
+let createInputIcon = function () {
+  return `
+    <ion-icon [name]='item.input.iconName' [color]="item.input.color" item-right
+      *ngIf="item?.input?.type==='icon'&&!item?.input?.iconSet"
+      [style.color]="item.input.color">
+    </ion-icon>
+    <custom-icon set="{{item.input.iconSet}}" name="{{item.input.iconName}}" item-right
+      *ngIf="item?.input?.type==='icon'&&item?.input?.iconSet"
+      [style.color]="item.icon.color" >
+    </custom-icon>`;
+}
+
+let createSlidingOptionsIcon = function () {
+  return `<ion-icon [name]="option.iconName" *ngIf="!option.iconSet"> </ion-icon>
+          <custom-icon set="{{option.iconSet}}" name="{{option.iconName}}" *ngIf="option.iconSet"></custom-icon>`;
+}
+
 let template = {
   divider: `
   <ion-item-divider color="light" *ngIf="group.style==='dividers'">
@@ -20,8 +49,14 @@ let template = {
         <img [src]="item.icon.src">
       </ion-thumbnail>`,
       icon: `
-      <ion-icon [name]="item.icon.name" item-left [color]="item.icon.color" [style.color]="item.icon.color" *ngIf="item?.icon?.type==='icon'">
-      </ion-icon>`
+    <ion-icon [name]="item.icon.iconName" item-left 
+      *ngIf="item?.icon?.type==='icon'&&!item?.icon?.iconSet"
+      [color]="item.icon.color" [style.color]="item.icon.color">
+    </ion-icon>
+    <custom-icon set="{{item.icon.iconSet}}" name="{{item.icon.iconName}}" item-left  
+      *ngIf="item?.icon?.type==='icon'&&item?.icon?.iconSet"
+      [style.color]="item.icon.color" >
+    </custom-icon>`
     },
     center: {
       multiLine: `
@@ -41,8 +76,14 @@ let template = {
         {{item.input.text}}
       </ion-note>`,
       icon: `
-        <ion-icon [name]='item.input.name' item-right [color]="item.input.color" 
-          [style.color]="item.input.color" *ngIf="item?.input?.type==='icon'"></ion-icon>`,
+      <ion-icon [name]='item.input.iconName' [color]="item.input.color" item-right
+        *ngIf="item?.input?.type==='icon'&&!item?.input?.iconSet"
+        [style.color]="item.input.color">
+      </ion-icon>
+      <custom-icon set="{{item.input.iconSet}}" name="{{item.input.iconName}}" item-right
+        *ngIf="item?.input?.type==='icon'&&item?.input?.iconSet"
+        [style.color]="item.icon.color" >
+      </custom-icon>`,
       button: `
       <button ion-button outline item-right *ngIf="item?.input?.type==='button'"
          (click)="inputClick(item);$event.stopPropagation();"> 
@@ -79,12 +120,13 @@ let template = {
   sliding: {
     options: `
     <ion-item-options side="right" *ngIf="item?.sliding?.length>0">
-      <button ion-button [color]="option.color" [color]="option.color" [style.color]="option.color"  *ngFor="let option of item.sliding">
-        <ion-icon [name]="option.name"></ion-icon>
+      <button ion-button [color]="option.color" [color]="option.color" [style.background-color]="option.color"  *ngFor="let option of item.sliding">
+        <ion-icon [name]="option.iconName" *ngIf="!option.iconSet"> </ion-icon>
+        <custom-icon set="{{option.iconSet}}" name="{{option.iconName}}" *ngIf="option.iconSet"></custom-icon>
         {{option.text}}
       </button>
     </ion-item-options>`,
-    content: '',
+    content: ''
   },
   itemsType: {
     sliding: '',
