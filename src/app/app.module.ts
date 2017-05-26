@@ -55,6 +55,7 @@ import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2
  * my providers
  */
 import { Settings, InMemoryDataService, Api, WebSocketService, IonicWebSocketService } from '../providers';
+import { RouterConfig } from '../config/router.config';
 
 
 /**
@@ -105,6 +106,7 @@ export function providers() {
     Logger,
     WebSocketService,
     IonicWebSocketService,
+    RouterConfig,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     { provide: LoggerOptions, useValue: { level: LoggerLevel.LOG } }

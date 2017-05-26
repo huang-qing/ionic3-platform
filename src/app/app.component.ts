@@ -17,7 +17,7 @@ import { Logger } from "angular2-logger/core";
 import { Subscription } from 'rxjs/Subscription';
 import { IonicWebSocketService } from '../services/server-websocket.service';
 //config
-import { pagesConfig } from '../config/page.router.config';
+import { RouterConfig } from '../config/router.config';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,8 +28,7 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   // use NavController Dynamic Links
-  //rootPage = pagesConfig[0].component;
-  rootPage='tabs-page';
+  rootPage;
   pages: any;
 
   private socketSubscription: Subscription
@@ -38,6 +37,7 @@ export class MyApp {
     private translate: TranslateService,
     private logger: Logger,
     private config: Config,
+    public router: RouterConfig,
     public socket: IonicWebSocketService,
     public platform: Platform,
     public menu: MenuController,
@@ -45,7 +45,8 @@ export class MyApp {
     public splashScreen: SplashScreen
   ) {
     // set our app's pages
-    this.pages = pagesConfig;
+    this.pages = router.getNavRouter();
+    this.rootPage = this.pages[0].component
     this.initializeTranslate();
     this.initializeApp();
     this.initializeServerWebsocket();
@@ -61,7 +62,8 @@ export class MyApp {
   }
 
   initializeTranslate() {
-    let translate = this.translate;
+    let translate = this.translate,
+      pages = this.pages;
     // Set the default language for translation strings, and the current language.
     translate.setDefaultLang('zh-CN');
     translate.use('zh-CN');
@@ -71,9 +73,9 @@ export class MyApp {
     });
 
     //i18n translate pages title
-    translate.get(this.pages.map(p => { return p.title }))
+    translate.get(pages.map(p => { return p.title }))
       .subscribe(values => {
-        this.pages.forEach((value, index, array) => {
+        pages.forEach((value, index, array) => {
           array[index].title = values[value.title];
         });
       });
@@ -98,7 +100,7 @@ export class MyApp {
     // close the menu when clicking a link from the menu
     this.menu.close();
     // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component, { router: page });
+    this.nav.setRoot(page.component, { id: page.id });
   }
 
   ngOnDestroy() {

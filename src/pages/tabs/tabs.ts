@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 //config
-import { pagesConfig } from '../../config/page.router.config';
+import { RouterConfig } from '../../config/router.config';
 
 @IonicPage({
   name: 'tabs-page',
@@ -24,8 +24,17 @@ export class TabsPage {
   pageParams: any;
 
 
-  constructor(nav: NavController, navParams: NavParams) {
-    let params = pagesConfig[2];
+  constructor(nav: NavController, navParams: NavParams, router: RouterConfig) {
+    let params = router.getTabsRouter[0];
     this.pageParams = { router: params };
+  }
+
+  tabSelect(index) {
+
+
+  }
+
+  ionChange(params) {
+    alert('dddd');
   }
 }

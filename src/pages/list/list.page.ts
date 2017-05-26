@@ -5,13 +5,14 @@ import { ListPageModel } from './list';
 import { ListService } from './list.service';
 import { Observable } from 'rxjs/Rx';
 import { Logger } from "angular2-logger/core";
+import { RouterConfig } from '../../config/router.config';
 
 /**
  * http://ionicframework.com/docs/api/navigation/IonicPage/
  */
 @IonicPage({
   name: 'list-page',
-  segment: 'list'
+  segment: 'list/:id'
 })
 
 @Component({
@@ -30,14 +31,17 @@ export class ListPage implements OnInit {
   constructor(
     private logger: Logger,
     private nav: NavController,
+    private routerConfig: RouterConfig,
     private navParams: NavParams,
     private service: ListService) { }
 
   ngOnInit() {
+ 
+    var routerId = this.navParams.get('id');
     this.model.pageIndex = 1;
     this.model.parentId = this.navParams.get('parentId') || '';
     this.model.parentItem = this.navParams.get('parentItem') || '';
-    this.router = this.navParams.get('router');
+    this.router = this.routerConfig.getPageConfigById(routerId);
 
     if (!this.router) {
       this.logger.error('list.page:please config the page router!');

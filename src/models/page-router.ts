@@ -1,5 +1,6 @@
 
 export class PageRouter {
+    id: string;
     title: string;
     component: string;
     style: any;
