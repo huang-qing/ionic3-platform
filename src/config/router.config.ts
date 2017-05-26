@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 import { PageRouter } from '../models/page-router';
 
 var pages: any = [{
@@ -63,6 +63,7 @@ export class RouterConfig {
     private pagesHash;
     private navsHash;
     private tabsHash;
+    public rootPage;
 
     constructor() {
         this.navs = this.getConfigByType('nav');
@@ -70,6 +71,7 @@ export class RouterConfig {
         this.pagesHash = this.getConfigHash(this.pages);
         this.navsHash = this.getConfigHash(this.navs);
         this.tabsHash = this.getConfigHash(this.tabs);
+        this.rootPage = 'tabs-page';
     }
 
     public getPageConfigById = function (id: string): string {
@@ -93,6 +95,18 @@ export class RouterConfig {
         return config;
     }
 
+    public getRouter = function (): PageRouter[] {
+        return this.pages;
+    };
+
+    public getNavRouter = function (): PageRouter[] {
+        return this.navs;
+    };
+
+    public getTabsRouter = function (): PageRouter[] {
+        return this.tabs;
+    };
+
     private getConfigHash = function (config: PageRouter[]) {
         var confighash = {};
 
@@ -113,18 +127,6 @@ export class RouterConfig {
     public getTabsConfiHash = function () {
         return this.tabsHash;
     }
-
-    public getRouter = function () {
-        return this.pages;
-    };
-
-    public getNavRouter = function () {
-        return this.navs;
-    };
-
-    public getTabsRouter = function () {
-        return this.tabs;
-    };
 
     public getPagesRouterHash = function () {
         return this.pagesHash;

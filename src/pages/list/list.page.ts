@@ -79,7 +79,7 @@ export class ListPage implements OnInit {
     this.nav.push(router.component, {
       parentId: item.id,
       parentItem: item,
-      router: router
+      id: router.id
     });
 
   }
@@ -97,7 +97,7 @@ export class ListPage implements OnInit {
     this.nav.push(router.component, {
       parentId: item.id,
       parentItem: item,
-      router: router
+      id: router.id
     });
   }
 

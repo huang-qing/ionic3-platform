@@ -46,7 +46,7 @@ export class MyApp {
   ) {
     // set our app's pages
     this.pages = router.getNavRouter();
-    this.rootPage = this.pages[0].component
+    this.rootPage = router.rootPage;
     this.initializeTranslate();
     this.initializeApp();
     this.initializeServerWebsocket();
