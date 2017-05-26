@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
 import { PageRouter } from '../models/page-router';
 
+var COLORS = ["#387ef5", '#000', "#f53d3d", "rebeccapurple", "#FFC125", "#32db64"];
+var getColor = function () {
+    return COLORS[Math.floor(Math.random() * COLORS.length)];
+}
+
 var pages: any = [{
     id: 'hello-ionic',
     title: 'HELLO_IONIC',
     component: 'hello-ionic',
+    iconSet: '',
+    iconName: 'ionic',
+    color: getColor(),
     style: null,
     api: '',
     next: null,
@@ -16,16 +24,22 @@ var pages: any = [{
     title: 'MY_FIRST_LIST',
     component: 'hello-list',
     style: null,
+    iconSet: '',
+    iconName: 'list',
+    color: getColor(),
     api: '',
     next: null,
     actions: null,
     isNav: false,
     isTabs: true
 }, {
-    id: 'demo',
+    id: 'list-demo',
     title: 'LIST_PAGE',
     component: 'list-page',
     api: 'api/lists',
+    iconSet: '',
+    iconName: 'list-box',
+    color: getColor(),
     style: {
         nolines: false,
         inset: false
@@ -52,7 +66,20 @@ var pages: any = [{
     },
     isNav: true,
     isTabs: true
-}];
+}, {
+    id: 'tabs-demo',
+    title: 'TABS-DEMO',
+    component: 'tabs-page',
+    style: null,
+    iconSet: '',
+    iconName: 'appstore',
+    color: getColor(),
+    api: '',
+    next: null,
+    actions: null,
+    isNav: true,
+    isTabs: false
+},];
 
 @Injectable()
 export class RouterConfig {

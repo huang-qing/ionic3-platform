@@ -1,5 +1,5 @@
 <ion-tabs *ngIf="tabsRoot&&tabsRoot.length>0">
   <ion-tab [root]="root.page.component" [rootParams]="root.params"
     *ngFor="let root of tabsRoot" 
-    tabTitle="{{root.page.title | translate}}" tabIcon="home"></ion-tab>
+    tabTitle="{{root.page.title | translate}}" tabIcon="{{root.page.iconName}}"></ion-tab>
 </ion-tabs>
