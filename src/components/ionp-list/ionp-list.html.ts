@@ -64,13 +64,6 @@ let template = {
       <ion-toggle checked="{{item.input.value}}" 
         *ngIf="item?.input?.type==='toggle'" (ionChange)="inputChanged($event,item)"></ion-toggle>
       `,
-      text2: `
-      <ion-input type="{{item.input.style}}" item-right 
-        value="{{item.input.value}}" 
-        placeholder="{{item.input.text}}" 
-        (keyup.enter)="inputChanged($event,item);"
-        (blur)="inputChanged($event,item)"
-        *ngIf="item?.input?.type==='text'"></ion-input>`,
       text: `
       <ion-input type="{{item.input.style}}" item-right text-right
         value="{{item.input.value}}" 
@@ -123,20 +116,20 @@ template.item.content = `
 `;
 
 template.itemsType.text = `
-  <div *ngIf="group.type==='text'">
+  <ng-container *ngIf="group.type==='text'">
   <!--item-->
     <ion-item ion-item *ngFor="let item of group.items">
       ${template.item.content}
     </ion-item>
-  </div>`;
+  </ng-container>`;
 
 template.itemsType.button = `
-  <div *ngIf="group.type==='button'">
+  <ng-container *ngIf="group.type==='button'">
     <!--item-->
     <button ion-item (click)="itemSelected(item)"  *ngFor="let item of group.items"  [attrs]="{'detail-none':!item.detail}">
       ${template.item.content}
     </button>
-  </div>`;
+  </ng-container>`;
 
 template.itemsType.sliding = `
 <button ion-item (click)="itemSelected(item)" [attrs]="{'detail-none':!item.detail}">
@@ -144,14 +137,14 @@ template.itemsType.sliding = `
 </button>`;
 
 template.sliding.content = `
-  <div *ngIf="group.type==='sliding'">
+  <ng-container *ngIf="group.type==='sliding'">
     <ion-item-sliding *ngFor="let item of group.items">
       <!--item-->
       ${template.itemsType.sliding}
       <!--sliding options-->
       ${template.sliding.options}
     </ion-item-sliding>
-  </div>`;
+  </ng-container>`;
 
 let listTemplate = `
   <ion-list [attrs]="{'no-lines':list.nolines,'inset':list.inset}" *ngIf='list' >
