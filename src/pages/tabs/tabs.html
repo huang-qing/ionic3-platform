@@ -1,5 +1,16 @@
+<!--
+  * ng-container
+  * https://angular.cn/docs/ts/latest/guide/structural-directives.html#!#ng-container
+  * https://stackoverflow.com/questions/34657821/ngif-and-ngfor-on-same-element-causing-error
+-->
 <ion-tabs *ngIf="tabsRoot&&tabsRoot.length>0">
-  <ion-tab [root]="root.page.component" [rootParams]="root.params"
-    *ngFor="let root of tabsRoot" 
-    tabTitle="{{root.page.title | translate}}" tabIcon="{{root.page.iconName}}"></ion-tab>
+  <ng-container *ngFor="let root of tabsRoot">
+    <ion-tab [root]="root.page.component" [rootParams]="root.params" *ngIf="!root.page.iconSet" tabTitle="{{root.page.title | translate}}"
+      tabIcon="{{root.page.iconName}}">
+    </ion-tab>
+
+    <ion-tab customIconSet="{{root.page.iconSet}}" customIconName="{{root.page.iconName}}" *ngIf="root.page.iconSet" [root]="root.page.component"
+      [rootParams]="root.params" tabTitle="{{root.page.title | translate}}">
+    </ion-tab>
+  </ng-container>
 </ion-tabs>

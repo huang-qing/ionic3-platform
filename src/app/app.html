@@ -9,7 +9,8 @@
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="{{p.iconName}}" [style.color]="p.color" item-left></ion-icon>
+        <ion-icon name="{{p.iconName}}" [style.color]="p.color" item-left *ngIf="!p.iconSet"></ion-icon>
+        <custom-icon item-left *ngIf="p.iconSet" set="{{p.iconSet}}" name="{{p.iconName}}" [style.color]="p.color"></custom-icon>
         {{p.title}}
       </button>
     </ion-list>

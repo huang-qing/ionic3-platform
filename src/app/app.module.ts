@@ -57,6 +57,8 @@ import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2
 import { Settings, InMemoryDataService, Api, WebSocketService, IonicWebSocketService } from '../providers';
 import { RouterConfig } from '../config/router.config';
 
+import { CustomIconsModule } from 'ionic2-custom-icons';
+
 
 /**
  * The translate loader needs to know where to load i18n files
@@ -119,6 +121,7 @@ export function providers() {
     BrowserModule,
     HttpModule,
     JsonpModule,
+    CustomIconsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
