@@ -5,7 +5,7 @@ import { ListPageModel } from './list';
 import { ListService } from './list.service';
 import { Observable } from 'rxjs/Rx';
 import { Logger } from "angular2-logger/core";
-import { RouterConfig } from '../../config/router.config';
+import { RouterConfig } from '../../providers';
 
 /**
  * http://ionicframework.com/docs/api/navigation/IonicPage/

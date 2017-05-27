@@ -17,8 +17,8 @@ import { Logger } from "angular2-logger/core";
 import { Subscription } from 'rxjs/Subscription';
 import { IonicWebSocketService } from '../services/server-websocket.service';
 //config
-import { RouterConfig } from '../config/router.config';
-import { APPCONFIG } from '../config/app.config';
+import { RouterConfig } from '../providers';
+import { APPCONFIG } from '../app.config/app.config';
 
 @Component({
   templateUrl: 'app.html'
@@ -47,7 +47,7 @@ export class MyApp {
   ) {
     // set our app's pages
     this.pages = router.getNavRouter();
-    this.rootPage = router.rootPage;
+    this.rootPage = APPCONFIG.rootPage;
     this.initializeTranslate();
     this.initializeApp();
     this.initializeServerWebsocket();

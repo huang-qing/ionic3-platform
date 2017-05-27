@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 //config
-import { RouterConfig } from '../../config/router.config';
+import { RouterConfig } from '../../providers';
 
 @IonicPage({
   name: 'tabs-page',

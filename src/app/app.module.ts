@@ -53,20 +53,27 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  */
 import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
 /**
- * my providers
+ * https://www.npmjs.com/package/ionic2-custom-icons
+ * https://stackoverflow.com/questions/38462885/add-custom-icon-in-ionic-2
  */
-import { Settings, InMemoryDataService, Api, WebSocketService, IonicWebSocketService } from '../providers';
-import { RouterConfig } from '../config/router.config';
-
 import { CustomIconsModule } from 'ionic2-custom-icons';
-
-
 /**
  * The translate loader needs to know where to load i18n files
  */
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+/**
+ * my providers
+ */
+import { APPCONFIG } from '../app.config/app.config';
+import {
+  Settings,
+  InMemoryDataService,
+  Api,
+  WebSocketService, IonicWebSocketService,
+  RouterConfig
+} from '../providers';
 
 export function provideSettings(storage: Storage) {
 
@@ -82,6 +89,10 @@ export function provideSettings(storage: Storage) {
     option3: '3',
     option4: 'Hello'
   });
+}
+
+export function provideRouterCongfig() {
+  return new RouterConfig(APPCONFIG.router);
 }
 
 /**
@@ -109,7 +120,7 @@ export function providers() {
     Logger,
     WebSocketService,
     IonicWebSocketService,
-    RouterConfig,
+    { provide: RouterConfig, useFactory: provideRouterCongfig },
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     { provide: LoggerOptions, useValue: { level: LoggerLevel.LOG } }
