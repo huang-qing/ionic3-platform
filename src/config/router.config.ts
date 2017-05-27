@@ -68,7 +68,8 @@ var pages: any = [{
     isTabs: true
 }, {
     id: 'tabs-demo',
-    title: 'TABS-DEMO',
+    //title: 'TABS-DEMO',
+    title:'Tabs示例',
     component: 'tabs-page',
     style: null,
     iconSet: '',

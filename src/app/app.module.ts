@@ -43,6 +43,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 /**
  * i18n
  * http://ionicframework.com/docs/resources/ng2-translate/
+ * https://www.npmjs.com/package/@ngx-translate/core
  * cnpm install @ngx-translate/core @ngx-translate/http-loader --save
  */
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';

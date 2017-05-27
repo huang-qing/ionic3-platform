@@ -6,10 +6,7 @@
 
   "LOADING_CONTENT": "加载中...",
 
-  "API_TOAST_MESSAGE": "请求出错,请稍后重试！",
+  "API_TOAST_MESSAGE": "请求出错,请稍后重试！"
 
-  "APP_PAGES": "页面",
-  "HELLO_IONIC": "你好 Ionic",
-  "MY_FIRST_LIST": "我的第一个列表",
-  "LIST_PAGE": "列表页面"
+
 }
