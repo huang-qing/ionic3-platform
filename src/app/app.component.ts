@@ -66,11 +66,12 @@ export class MyApp {
     let translate = this.translate,
       pages = this.pages;
 
-    //define translations manually with setTranslation
-    translate.setTranslation(APPCONFIG.i18n.name, APPCONFIG.i18n.content);
     // Set the default language for translation strings, and the current language.
     translate.setDefaultLang(APPCONFIG.i18n.name);
     translate.use(APPCONFIG.i18n.name);
+    //define translations manually with setTranslation
+    //https://www.npmjs.com/package/@ngx-translate/core
+    translate.setTranslation(APPCONFIG.i18n.name, APPCONFIG.i18n.content, true);
 
     translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
