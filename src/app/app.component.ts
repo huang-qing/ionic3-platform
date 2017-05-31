@@ -68,22 +68,24 @@ export class MyApp {
 
     // Set the default language for translation strings, and the current language.
     translate.setDefaultLang(APPCONFIG.i18n.name);
-    translate.use(APPCONFIG.i18n.name);
-    //define translations manually with setTranslation
-    //https://www.npmjs.com/package/@ngx-translate/core
-    translate.setTranslation(APPCONFIG.i18n.name, APPCONFIG.i18n.content, true);
+    translate.use(APPCONFIG.i18n.name).subscribe((aaa) => {
+      //define translations manually with setTranslation
+      //https://www.npmjs.com/package/@ngx-translate/core
+      translate.setTranslation(APPCONFIG.i18n.name, APPCONFIG.i18n.content, true);
 
-    translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+      translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+        this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+      });
+      //i18n translate pages title
+      translate.get(pages.map(p => { return p.title }))
+        .subscribe(values => {
+          pages.forEach((value, index, array) => {
+            array[index].title = values[value.title];
+          });
+        });
+
     });
 
-    //i18n translate pages title
-    translate.get(pages.map(p => { return p.title }))
-      .subscribe(values => {
-        pages.forEach((value, index, array) => {
-          array[index].title = values[value.title];
-        });
-      });
   }
 
   initializeServerWebsocket() {
