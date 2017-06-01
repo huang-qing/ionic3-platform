@@ -1,10 +1,10 @@
 ## components
 
 + card
-+ list
++ list √
 + action sheets
 + alerts
-+ loading
++ loading √
 + charts
 + form
     + buttons
@@ -19,51 +19,54 @@
 
 ### use ionic components
 
-+ menu
++ menu √
 + grid
 + fabs
 + badges
 + modals
-+ navigation
-+ tabs
++ navigation √
++ tabs √
 + toast
 + toggle
 + toolbar
-+ refresher
-+ infiniteScroll
++ refresher √
++ infiniteScroll √
 
 ### new pages
 
-+ list
++ list √
 + slides
 + grid
 + search
 + segment
-+ tabs
++ tabs √
++ home
++ charts
++ user setting
 
 
 ## directives
 
-+ attrs.directive
++ attrs.directive √
 
 ## providers
 
 + api (CORS)
 
-+ settings (A simple settings/config class for storing key/value pairs with persistence)
++ settings (A simple settings/config class for storing key/value pairs with persistence) √
 
 ## services 
 
-+ in-memory-data.service
-+ i18n(@ngx-translate)
++ in-memory-data.service √
++ i18n(@ngx-translate)   √
 
 ## icons
 
-+ create -(svg to fonts)
++ create -(svg to fonts) √
 
 ## logger
 
-+ angular2-logger:error,warn,info,debug,log
++ angular2-logger:error,warn,info,debug,log √
 
 ## native
 
@@ -81,8 +84,8 @@
 
 ## app config
 
-+ page-router
-+ log
++ page-router √
++ log         √
 
 ## deploying
 
@@ -91,7 +94,7 @@
 
 ## push notifications
 
-+ intranet/internet:websocket
++ intranet/internet:websocket √
 + internet:腾讯信鸽，百度云推送，个推，极光推送，华为云推送
 
 ------------------------

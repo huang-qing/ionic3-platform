@@ -55,6 +55,9 @@ import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2
 /**
  * https://www.npmjs.com/package/ionic2-custom-icons
  * https://stackoverflow.com/questions/38462885/add-custom-icon-in-ionic-2
+ * package.json -> scripts
+ * "build:before": "ionic2-custom-icons",
+ * "serve:before": "ionic2-custom-icons",
  */
 import { CustomIconsModule } from 'ionic2-custom-icons';
 /**
