@@ -1,3 +1,34 @@
+## technology stack
+
++ javascript
++ typescript
++ css/sass
++ Rxjs
++ Angularjs 4
++ ionic 3
++ Cordova
+
+## development environment
+
++ windows
++ Android SDK
++ Mac
++ X-code
++ IOS
+
+##  development tools
+
++ vscode
++ nodejs
++ Cordova
++ webpack
++ gulp
++ npm
++ Genymotion 
++ Android SDK
++ X-code
+
+
 ## components
 
 + card
