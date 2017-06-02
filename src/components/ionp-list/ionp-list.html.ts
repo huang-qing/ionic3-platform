@@ -157,4 +157,4 @@ let listTemplate = `
     </ion-item-group>
   </ion-list>`;
 
-export let IonpListComponentTemplate = listTemplate;
+export var IonpListComponentTemplate = listTemplate;

@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+// import { Component, OnInit } from "@angular/core";
 
-@Component({
-  selector: 'ionic-list-page',
-  templateUrl: 'list.html'
-})
+// @Component({
+//   selector: 'ionic-list-page',
+//   templateUrl: 'list.html'
+// })
 
-export class IonicListPage implements OnInit {
+// export class IonicListPage implements OnInit {
 
-  constructor() { }
+//   constructor() { }
 
-  ngOnInit() { }
+//   ngOnInit() { }
 
-}
+// }

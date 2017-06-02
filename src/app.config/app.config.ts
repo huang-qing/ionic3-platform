@@ -1,5 +1,10 @@
 /**
  * http://ionicframework.com/docs//resources/platform-setup/windows-setup.html
+ * https://ionicframework.com/docs/intro/deploying/
+ * 
+ * nodejs
+ * http://nodejs.cn/download/
+ * 
  * 
  * Android:
  * http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html
@@ -14,8 +19,13 @@
  * https://gradle.org/install
  * 
  * Build android:
- * ionic platform add android --release --prod
- * ionic build android
+ * ionic platform add android 
+ * --- 
+ * ionic platform rm android
+ * ionic platform add android@latest
+ * ionic resources
+ * ---
+ * ionic build android --release --prod
  * http://www.jianshu.com/p/dfd98ad47af1
  * 
  * Genymotion:

@@ -118,15 +118,20 @@
 + page-router √
 + log         √
 
-## deploying
-
-+ ios
-+ android
 
 ## push notifications
 
 + intranet/internet:websocket √
 + internet:腾讯信鸽，百度云推送，个推，极光推送，华为云推送
+
+## deploying to a Device
+
++ ios
++ android
+
+## app update
+
++ auto update
 
 ------------------------
 ## Web Api
