@@ -15,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Logger } from "angular2-logger/core";
 // websocket
 import { Subscription } from 'rxjs/Subscription';
-import { IonicWebSocketService } from '../services/server-websocket.service';
+import { IonicWebSocketService } from '../services';
 //config
 import { RouterConfig } from '../providers';
 import { APPCONFIG } from '../app.config/app.config';

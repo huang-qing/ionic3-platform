@@ -72,11 +72,14 @@ export function createTranslateLoader(http: Http) {
 import { APPCONFIG } from '../app.config/app.config';
 import {
   Settings,
-  InMemoryDataService,
   Api,
-  WebSocketService, IonicWebSocketService,
   RouterConfig
 } from '../providers';
+
+import {
+  InMemoryDataService,
+  WebSocketService, IonicWebSocketService
+} from '../services'
 
 export function provideSettings(storage: Storage) {
 

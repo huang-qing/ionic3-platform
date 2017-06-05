@@ -5,9 +5,10 @@
  * http://www.websocket.org/echo.html
  */
 import { Injectable } from '@angular/core'
-import { QueueingSubject } from 'queueing-subject'
+//import { QueueingSubject } from 'queueing-subject'
 import { Observable } from 'rxjs/Observable'
-import { WebSocketService } from 'angular2-websocket-service'
+//import { WebSocketService } from 'angular2-websocket-service'
+import { QueueingSubject, WebSocketService } from './ngx-websocket-service'
 
 @Injectable()
 export class IonicWebSocketService {
@@ -25,9 +26,11 @@ export class IonicWebSocketService {
     // Using share() causes a single websocket to be created when the first 
     // observer subscribes. This socket is shared with subsequent observers 
     // and closed when the observer count falls to zero. 
+    this.inputStream = new QueueingSubject<any>();
+
     return this.outputStream = this.socketFactory.connect(
       url,
-      this.inputStream = new QueueingSubject<any>()
+      this.inputStream
     ).share();
   }
 

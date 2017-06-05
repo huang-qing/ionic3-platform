@@ -38,6 +38,17 @@
 
 
 /**
+ * error: ionic build andrid --prod
+ * 
+ * You may need an appropriate loader to handle this file type. | import * as import35
+ * https://github.com/ionic-team/ionic-app-scripts/issues/930
+ * This should be fixed in 1.3.6. npm install @ionic/app-scripts@latest
+ * 
+ * 
+ */
+
+
+/**
  * 项目开发时，路径替换为需要使用的配置文件
  */
 import { AppConfig } from './demo/app.config';

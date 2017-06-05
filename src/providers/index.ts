@@ -1,15 +1,11 @@
-import { Api } from './api';
-import { Settings } from './settings';
-import { InMemoryDataService } from '../services/in-memory-data.service';
-import { WebSocketService } from 'angular2-websocket-service';
-import { IonicWebSocketService } from '../services/server-websocket.service';
+import { Api } from './api'
+import { Settings } from './settings'
 import { RouterConfig } from './router'
+import { InMemoryDataService } from '../services/in-memory-data.service';
 
 export {
     Api,
     Settings,
     RouterConfig,
-    InMemoryDataService,
-    WebSocketService,
-    IonicWebSocketService
+    InMemoryDataService
 }
