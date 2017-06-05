@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { APPCONFIG } from '../app.config/app.config';
 import { PageRouter } from '../models/page-router';
 
 
@@ -12,8 +13,8 @@ export class RouterConfig {
     private navsHash;
     private tabsHash;
 
-    constructor(router) {
-        this.pages = router;
+    constructor() {
+        this.pages = APPCONFIG.router;
         this.navs = this.getConfigByType('nav');
         this.tabs = this.getConfigByType('tabs');
         this.pagesHash = this.getConfigHash(this.pages);

@@ -146,18 +146,18 @@ template.sliding.content = `
     </ion-item-sliding>
   </ng-container>`;
 
-// export var IonpListComponentTemplate = `
-//   <ion-list [attrs]="{'no-lines':list.nolines,'inset':list.inset}" *ngIf='list' >
-//     <ion-item-group *ngFor="let group of list.groups" >
-//       ${template.divider}
-//       ${template.header}
-//       ${template.itemsType.text}
-//       ${template.itemsType.button}
-//       ${template.sliding.content}
-//     </ion-item-group>
-// </ion-list>`;
+export var IonpListComponentTemplate = `
+  <ion-list [attrs]="{'no-lines':list.nolines,'inset':list.inset}" *ngIf='list' >
+    <ion-item-group *ngFor="let group of list.groups" >
+      ${template.divider}
+      ${template.header}
+      ${template.itemsType.text}
+      ${template.itemsType.button}
+      ${template.sliding.content}
+    </ion-item-group>
+</ion-list>`;
 
-export var IonpListComponentTemplate = `abc`;
+//export var IonpListComponentTemplate = `abc`;
 // export var divider = `
 //   <ion-item-divider color="light" *ngIf="group.style==='dividers'">
 //     {{group?.text}}

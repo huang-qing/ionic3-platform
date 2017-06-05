@@ -69,7 +69,7 @@ export function createTranslateLoader(http: Http) {
 /**
  * my providers
  */
-import { APPCONFIG } from '../app.config/app.config';
+//import { APPCONFIG } from '../app.config/app.config';
 import {
   Settings,
   Api,
@@ -98,7 +98,7 @@ export function provideSettings(storage: Storage) {
 }
 
 export function provideRouterCongfig() {
-  return new RouterConfig(APPCONFIG.router);
+  return new RouterConfig();
 }
 
 /**
