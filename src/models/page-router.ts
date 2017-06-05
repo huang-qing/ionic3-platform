@@ -10,4 +10,6 @@ export class PageRouter {
     api: string;
     next: PageRouter | null;
     actions: any;
+    isNav: boolean;
+    isTabs: boolean;
 }
