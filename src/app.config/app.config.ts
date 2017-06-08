@@ -6,6 +6,13 @@
 
 /**
  * 
+ * npm install rimraf -g
+ * rimraf node_modules
+ * 
+ */
+
+/**
+ * 
  * nodejs
  * http://nodejs.cn/download/
  * 
@@ -110,6 +117,9 @@
  * https://desktop.github.com
  * 
  * https://code.visualstudio.com/Download
+ * 
+ * Agreeing to the Xcode/iOS license
+ * http://yijiebuyi.com/blog/988227abf54d474a11999c964f5ec038.html
  * 
  * ionic:
  * sudo －s

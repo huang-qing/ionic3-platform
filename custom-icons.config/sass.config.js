@@ -11,7 +11,7 @@ module.exports = {
       'node_modules/ionicons/dist/scss',
       'node_modules/ionic-angular/fonts',
       'node_modules/ionic2-custom-icons/ionic/scss/',
-      'custom-icons.tmp/scss/'
+      '.tmp-custom-icons/scss/'
    ],
 
    /**
@@ -21,7 +21,7 @@ module.exports = {
     */
    variableSassFiles: [
       '{{SRC}}/theme/variables.scss',
-      'custom-icons.tmp/scss/variables.scss'
+      '.tmp-custom-icons/scss/variables.scss'
    ]
 
 };

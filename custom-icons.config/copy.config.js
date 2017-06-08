@@ -23,7 +23,7 @@ module.exports = {
   //       dest: '{{BUILD}}'
   //    },
   copyCustomIcons: {
-    src: ['{{ROOT}}/custom-icons.tmp/fonts/**/*'],
+    src: ['{{ROOT}}/.tmp-custom-icons/fonts/**/*'],
     dest: '{{WWW}}/assets/fonts'
   }
 }

@@ -13,8 +13,6 @@
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
         "ionic2-custom-icons": "ionic2-custom-icons",
-        "build:before": "ionic2-custom-icons",
-        "serve:before": "ionic2-custom-icons",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve"
     },
