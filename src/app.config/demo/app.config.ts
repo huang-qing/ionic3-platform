@@ -91,7 +91,28 @@
  * 
  * 优化：http://www.cnblogs.com/dr-hao/p/4921929.html
  * 
+ * https://nodejs.org/en/
  * 
+ * http://npm.taobao.org
+ * http://www.cnblogs.com/feea/p/mac-cnpm.html
+ * sudo －s
+ * $ npm install -g cnpm --registry=https://registry.npm.taobao.org
+ * 
+ * https://git-scm.com
+ * https://desktop.github.com
+ * 
+ * https://code.visualstudio.com/Download
+ * 
+ * ionic:
+ * sudo －s
+ * $ npm install -g ionic cordova
+ * 
+ * cnpm install
+ * cnpm install --save reflect-metadata
+ * 
+ * https://github.com/angular/angular-cli/issues/3541
+ * 
+ * https://cordova.apache.org/docs/en/latest/guide/platforms/ios/
  * 
  */
 
