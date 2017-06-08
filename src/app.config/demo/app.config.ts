@@ -1,14 +1,16 @@
 /**
- * 
  * custom-icons:
  * npm run ionic2-custom-icons
  * 
- * http://ionicframework.com/docs/resources/platform-setup/windows-setup.html
- * https://ionicframework.com/docs/intro/deploying/
+ */
+
+/**
  * 
  * nodejs
  * http://nodejs.cn/download/
  * 
+ * http://ionicframework.com/docs/resources/platform-setup/windows-setup.html
+ * https://ionicframework.com/docs/intro/deploying/
  * 
  * Android:
  * http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html
@@ -46,6 +48,7 @@
  * http://www.jianshu.com/p/dfd98ad47af1
  * http://blog.csdn.net/yu17310133443/article/details/52701492
  * 
+ * huangqing:
  * keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
  * 
  * before android v7.0
@@ -69,7 +72,26 @@
  * https://www.genymotion.com/download/
  * 
  * 
+ */
+
+/**
+ * 
  * IOS:
+ * 
+ * VMware:
+ * http://www.jianshu.com/p/25d2d781bd98
+ * http://www.cnblogs.com/DrHao/p/4921929.html
+ * VMware 菜单中的“虚拟机”→“安装 VMware 工具(T)”。Workstation 安装目录下的 darwin.iso 光盘镜像
+ * 
+ * VMware中的mac与主机windows的硬盘文件共享：
+ * http://www.cnblogs.com/85538649/archive/2012/06/07/2539858.html
+ * Mac->Finder->Finder 偏好设置->通用->已连接的服务器
+ * 
+ * 网络：VMware Workstation->编辑->虚拟网络编辑器->NAT
+ * 
+ * 优化：http://www.cnblogs.com/dr-hao/p/4921929.html
+ * 
+ * 
  * 
  */
 
@@ -83,6 +105,7 @@
  * 
  * Android signing apk signature V2
  * https://stackoverflow.com/questions/41391531/android-signing-apk-signature-v2
+ * 
  */
 
 

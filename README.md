@@ -4,15 +4,17 @@
 + typescript
 + css/sass
 + Rxjs
-+ Angularjs 4
++ Angularjs 
 + ionic 3
 + Cordova
+
++ 扩展：android、ios
 
 ## development environment
 
 + windows
-+ Android SDK
 + Mac
++ Android SDK
 + X-code
 + IOS
 
@@ -20,10 +22,10 @@
 
 + vscode
 + nodejs
++ npm
 + Cordova
 + webpack
 + gulp
-+ npm
 + Genymotion 
 + Android SDK
 + X-code
@@ -82,7 +84,7 @@
 
 ## providers
 
-+ api (CORS)
++ api √
 
 + settings (A simple settings/config class for storing key/value pairs with persistence) √
 
@@ -107,11 +109,11 @@
 + scan
     + bar code
     + QR code
++ message push
 + pdf
     + view
     + postil
 + sview
-+ message push
 
 ## app config
 
@@ -122,19 +124,19 @@
 ## push notifications
 
 + intranet/internet:websocket √
-+ internet:腾讯信鸽，百度云推送，个推，极光推送，华为云推送
++ internet:腾讯信鸽，百度云推送，个推，极光推送，华为云推送 ×
 
 ## deploying to a Device
 
 + ios
-+ android
++ android √
 
 ## app update
 
 + auto update
 
 ------------------------
-## Web Api
+## Web Api (CORS) 
 
 + GET
 + POST
