@@ -8,7 +8,8 @@
 + ionic 3
 + Cordova
 
-+ 扩展：android、ios
++ android:java
++ ios:Objective-C Swift
 
 ## development environment
 
