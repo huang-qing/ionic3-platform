@@ -126,10 +126,23 @@
  * sudo －s
  * $ npm install -g ionic cordova
  * 
+ * 截屏：Shift＋Command＋4
  * 
  * https://github.com/angular/angular-cli/issues/3541
  * 
+ * IOS deploying:
+ * http://ionicframework.com/docs/resources/platform-setup/windows-setup.html
+ * https://ionicframework.com/docs/intro/deploying/
  * https://cordova.apache.org/docs/en/latest/guide/platforms/ios/
+ * 
+ * Using an Apple ID:
+ * Open Xcode preferences (Xcode > Preferences…)
+ * Click the ‘Accounts’ tab
+ * Login with your Apple ID (+ > Add Apple ID…)
+ * 
+ * ionic cordova build ios --prod
+ * 
+ * Mac-> 项目文件夹 ios ->右键 显示简介 -> 共享与权限 -> 添加登录用户（或使用everyone） 设置读与写 权限 -> 设置 应用的包含的项目
  * 
  */
 
