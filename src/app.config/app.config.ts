@@ -64,7 +64,7 @@
  * http://www.jianshu.com/p/dfd98ad47af1
  * http://blog.csdn.net/yu17310133443/article/details/52701492
  * 
- * huangqing:
+ * sn：my-alias
  * keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
  * 
  * before android v7.0
