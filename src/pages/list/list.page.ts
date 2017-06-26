@@ -41,6 +41,7 @@ export class ListPage implements OnInit {
     this.model.pageIndex = 1;
     this.model.parentId = this.navParams.get('parentId') || '';
     this.model.parentItem = this.navParams.get('parentItem') || '';
+    this.model.title = this.navParams.get('parentTitle') || '';
     this.router = this.routerConfig.getPageConfigById(routerId);
 
     if (!this.router) {
@@ -48,6 +49,9 @@ export class ListPage implements OnInit {
       return;
     }
 
+    if (!this.model.title) {
+      this.model.title = this.router.title;
+    }
     if (this.router.style) {
       let style = this.router.style;
       this.model.list.inset = style.inset;
@@ -80,6 +84,7 @@ export class ListPage implements OnInit {
 
     this.nav.push(router.component, {
       parentId: item.id,
+      parentTitle: item.title || item.subTitle || item.description,
       parentItem: item,
       id: router.id
     });

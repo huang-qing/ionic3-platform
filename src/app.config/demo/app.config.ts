@@ -100,7 +100,7 @@ pages.push(tabsDemo);
 //chart list page
 var chartList = {
     id: 'chart-list',
-    title: 'CHART_LIST',
+    title: 'CHARTS_LIST',
     component: 'chart-list-page',
     iconSet: 'evil',
     iconName: 'heart',

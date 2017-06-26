@@ -1,10 +1,10 @@
 <ion-card>
-  <ion-card-header text-center>
-    <span (click)="TitleClick();"> {{chart.title}}</span>
+  <ion-card-header text-center (click)="TitleClick();">
+    {{chart.title}}
     <!--<ion-icon name="arrow-forward" ></ion-icon>-->
   </ion-card-header>
   <ion-card-content>
-    <canvas #canvas></canvas>
+    <canvas #canvas height="75vh" width="100vw"></canvas>
   </ion-card-content>
   <!--<ion-list>
     <button ion-item (click)="itemSelected(item)">

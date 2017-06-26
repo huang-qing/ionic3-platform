@@ -204,9 +204,9 @@ let BasicItems = (function () {
         descriptioin = descriptions[i];
         items.push({
             id: getGUID(),
-            title: null,
+            title: descriptioin,
             subTitle: null,
-            description: descriptioin,
+            description: '',
             class: null,
             icon: null,
             input: null,

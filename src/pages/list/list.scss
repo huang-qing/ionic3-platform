@@ -1,3 +1,12 @@
-page-list {
-
+ion-header.list-page {
+  .sub-title {
+    display: inline-block;
+    max-width: 4em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: smaller;
+    vertical-align: bottom;
+    font-weight: lighter;
+  }
 }

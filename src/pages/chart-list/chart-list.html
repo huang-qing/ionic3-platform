@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Chart List</ion-title>
+    <ion-title>{{model.title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ng-container  *ngIf="model">
+  <ng-container *ngIf="model">
     <ionp-chart [chart]="chart" *ngFor="let chart of model.charts" (onTitleSelected)="onItemSelected($event);"></ionp-chart>
   </ng-container>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

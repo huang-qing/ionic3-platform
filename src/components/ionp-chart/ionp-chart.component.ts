@@ -2,6 +2,7 @@
  * 
  * https://www.joshmorony.com/adding-responsive-charts-graphs-to-ionic-2-applications/
  * http://www.chartjs.org/samples/latest/
+ * http://www.chartjs.org/docs/latest/general/responsive.html
  * 
  * npm install chart.js --save
  * 

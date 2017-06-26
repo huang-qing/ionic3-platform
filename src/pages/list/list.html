@@ -1,9 +1,12 @@
-<ion-header>
+<ion-header class='list-page'>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>
+      {{model.title}}
+      <span class="sub-title">{{model.subTitle}}</span>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 

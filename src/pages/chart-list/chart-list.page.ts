@@ -45,7 +45,7 @@ export class ChartListPage implements OnInit {
       this.logger.error('list.page:please config the page router!');
       return;
     }
-
+    this.model.title = this.router.title;
     this.getCharts();
   }
 
