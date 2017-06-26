@@ -1,6 +1,10 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+//list
 import { IonpListGroup, IonpListItem } from '../components/ionp-list/ionp-list';
 import { ionpListGroupsMock } from '../components/ionp-list/ionp-list.mock';
+//chart
+import { IonpChart } from '../components/ionp-chart/ionp-chart'
+import { chartsMock } from '../components/ionp-chart/ionp-chart.mock';
 
 
 /**
@@ -22,9 +26,11 @@ export class InMemoryDataService implements InMemoryDbService {
     var items: IonpListItem[] = [];
     lists.forEach(g => g.items.forEach(i => items.push(i)));
 
+    var charts: IonpChart[] = chartsMock;
     return {
       lists,
-      items
+      items,
+      charts
     };
   }
 }

@@ -36,7 +36,7 @@ export class ListPage implements OnInit {
     private service: ListService) { }
 
   ngOnInit() {
- 
+
     var routerId = this.navParams.get('id');
     this.model.pageIndex = 1;
     this.model.parentId = this.navParams.get('parentId') || '';
@@ -58,7 +58,9 @@ export class ListPage implements OnInit {
 
   getList() {
     this.service.getList(this.model, this.router.api, 1, true)
-      .subscribe(list => this.model.list.groups = list,
+      .subscribe(list => {
+        this.model.list.groups = list
+      },
       error => this.errorMessage = <any>error);
   }
 

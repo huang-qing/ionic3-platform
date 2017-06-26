@@ -96,6 +96,24 @@ var tabsDemo = {
 };
 pages.push(tabsDemo);
 
+
+//chart list page
+var chartList = {
+    id: 'chart-list',
+    title: 'CHART_LIST',
+    component: 'chart-list-page',
+    iconSet: 'evil',
+    iconName: 'heart',
+    color: getColor(),
+    style: null,
+    api: 'api/charts',
+    next: null,
+    actions: null,
+    isNav: true,
+    isTabs: false
+};
+pages.push(chartList);
+
 const AppConfig = {
     i18n: {
         name: 'zh-CN',
