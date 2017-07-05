@@ -2,7 +2,11 @@
  * 
  * https://www.joshmorony.com/adding-responsive-charts-graphs-to-ionic-2-applications/
  * http://www.chartjs.org/samples/latest/
+ * http://www.bootcss.com/p/chart.js/docs/
  * http://www.chartjs.org/docs/latest/general/responsive.html
+ * http://www.chartjs.org/docs/latest/configuration/animations.html#animation-callbacks
+ * https://stackoverflow.com/questions/31631354/how-to-display-data-values-on-chart-js
+ * https://stackoverflow.com/questions/43616599/show-values-on-each-arc-doughnut-chart-js
  * 
  * npm install chart.js --save
  * 
@@ -50,7 +54,7 @@ export class IonpChartComponent implements AfterViewInit {
           labels: {
             //fontColor: 'rgb(255, 99, 132)'
           },
-          usePointStyle: false
+          usePointStyle: true
         },
         scales: {
           yAxes: [{
@@ -61,8 +65,9 @@ export class IonpChartComponent implements AfterViewInit {
         }
       }
     };
-    
-    this.chartCanvas = new Chart(this.canvas.nativeElement, this._chart);
+    if (this.canvas) {
+      this.chartCanvas = new Chart(this.canvas.nativeElement, this._chart);
+    }
   }
 
   TitleClick() {

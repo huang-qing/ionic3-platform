@@ -9,11 +9,13 @@ export class RouterConfig {
     private pages: PageRouter[];
     private navs: PageRouter[];
     private tabs: PageRouter[];
+    public rootPage: string;
     private pagesHash;
     private navsHash;
     private tabsHash;
 
     constructor() {
+        this.rootPage = APPCONFIG.rootPage;
         this.pages = APPCONFIG.router;
         this.navs = this.getConfigByType('nav');
         this.tabs = this.getConfigByType('tabs');

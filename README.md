@@ -39,7 +39,7 @@
 + action sheets
 + alerts
 + loading √
-+ charts
++ charts (bar pie)√
 + form
     + buttons
     + checkbox
@@ -75,7 +75,7 @@
 + segment
 + tabs √
 + home
-+ charts
++ charts √
 + user setting
 
 
@@ -102,7 +102,7 @@
 
 + angular2-logger:error,warn,info,debug,log √
 
-## native
+## native (ionic native)
 
 + camera
 + network
@@ -111,9 +111,12 @@
     + bar code
     + QR code
 + message push
+
+
+## native (cordova plug) 
 + pdf
     + view
-    + postil
+    + postil   
 + sview
 
 ## app config
@@ -129,12 +132,12 @@
 
 ## deploying to a Device
 
-+ ios
++ ios √
 + android √
 
 ## app update
 
-+ auto update
++ auto update(ios热更新已禁止,使用标准更新方案)
 
 ------------------------
 ## Web Api (CORS) 
@@ -147,6 +150,6 @@
 
 ## WebSocket Server
 
-
++ websocket server (nodejs)
 
 

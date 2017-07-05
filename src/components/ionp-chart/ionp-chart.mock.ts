@@ -63,7 +63,7 @@ chartsMock.push(bar);
 //group bar
 var groupbar: IonpChart = new IonpChart();
 groupbar.type = 'bar';
-groupbar.title = 'bar';
+groupbar.title = 'group bar';
 groupbar.data = new IonpChartData();
 groupbar.data.labels = [
     'January',

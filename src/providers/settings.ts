@@ -9,7 +9,7 @@ import { Storage } from '@ionic/storage';
 export class Settings {
   private SETTINGS_KEY: string = '_settings';
 
-  settings: any;
+  settings: any = {};
 
   _defaults: any;
   _readyPromise: Promise<any>;
@@ -20,7 +20,7 @@ export class Settings {
 
   load() {
     return this.storage.get(this.SETTINGS_KEY).then((value) => {
-      if(value) {
+      if (value) {
         this.settings = value;
         this._mergeDefaults(this._defaults);
       } else {
@@ -32,8 +32,8 @@ export class Settings {
   }
 
   _mergeDefaults(defaults: any) {
-    for(let k in defaults) {
-      if(!(k in this.settings)) {
+    for (let k in defaults) {
+      if (!(k in this.settings)) {
         this.settings[k] = defaults[k];
       }
     }
@@ -41,7 +41,7 @@ export class Settings {
   }
 
   merge(settings: any) {
-    for(let k in settings) {
+    for (let k in settings) {
       this.settings[k] = settings[k];
     }
     return this.save();

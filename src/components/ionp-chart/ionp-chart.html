@@ -4,7 +4,8 @@
     <!--<ion-icon name="arrow-forward" ></ion-icon>-->
   </ion-card-header>
   <ion-card-content>
-    <canvas #canvas height="75vh" width="100vw"></canvas>
+    <canvas #canvas height="80vh" width="100vw" *ngIf="chart.type==='bar'"></canvas>
+    <canvas #canvas *ngIf="chart.type==='doughnut'"></canvas>
   </ion-card-content>
   <!--<ion-list>
     <button ion-item (click)="itemSelected(item)">

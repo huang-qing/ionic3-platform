@@ -16,9 +16,11 @@ import { Logger } from "angular2-logger/core";
 // websocket
 import { Subscription } from 'rxjs/Subscription';
 import { IonicWebSocketService } from '../services';
+//setting
+import { Settings } from '../providers';
 //config
 import { RouterConfig } from '../providers';
-import { APPCONFIG } from '../app.config/app.config';
+import { APPCONFIG, APPSLIDESCONFIG } from '../app.config/app.config';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,6 +38,7 @@ export class MyApp {
 
   constructor(
     private translate: TranslateService,
+    public settings: Settings,
     private logger: Logger,
     private config: Config,
     public router: RouterConfig,
@@ -45,12 +48,30 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen
   ) {
-    // set our app's pages
-    this.pages = router.getNavRouter();
-    this.rootPage = APPCONFIG.rootPage;
-    this.initializeTranslate();
-    this.initializeApp();
-    this.initializeServerWebsocket();
+
+    //引导页
+    this.settings.getValue('guidePage').then(guidePage => {
+      
+      if (typeof guidePage === 'undefined') {
+        guidePage = true;
+        this.settings.setValue('guidePage', guidePage);
+      }
+
+      // set our app's pages
+      this.pages = router.getNavRouter();
+      if (guidePage && APPSLIDESCONFIG && APPSLIDESCONFIG.slides && APPSLIDESCONFIG.slides.length > 0) {
+        this.rootPage = APPSLIDESCONFIG.component;
+      }
+      else {
+        this.rootPage = APPCONFIG.rootPage;
+      }
+
+      this.initializeTranslate();
+      this.initializeApp();
+      this.initializeServerWebsocket();
+    });
+
+
   }
 
   initializeApp() {

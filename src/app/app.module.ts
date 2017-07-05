@@ -91,9 +91,10 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     option1: true,
-    option2: 'Ionitron Huangqing Framework',
+    option2: 'Ionic Huangqing Framework',
     option3: '3',
     option4: 'Hello'
+    //guidePage: true
   });
 }
 

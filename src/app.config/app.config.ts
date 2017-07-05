@@ -170,8 +170,15 @@
  * 
  */
 
+/**
+ * app page router config
+ */
 import { AppConfig } from './demo/app.config';
+import { AppSlidesConfig } from './demo/app.slides.config';
 
 export {
-    AppConfig as APPCONFIG
+    AppConfig as APPCONFIG,
+    AppSlidesConfig as APPSLIDESCONFIG
 }
+
+
