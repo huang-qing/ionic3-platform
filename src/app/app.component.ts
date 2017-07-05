@@ -51,12 +51,14 @@ export class MyApp {
 
     //引导页
     this.settings.getValue('guidePage').then(guidePage => {
-      
+
+      //首次运行app时加载引导页
       if (typeof guidePage === 'undefined') {
         guidePage = true;
         this.settings.setValue('guidePage', guidePage);
       }
 
+      guidePage = true;//测试使用参数
       // set our app's pages
       this.pages = router.getNavRouter();
       if (guidePage && APPSLIDESCONFIG && APPSLIDESCONFIG.slides && APPSLIDESCONFIG.slides.length > 0) {

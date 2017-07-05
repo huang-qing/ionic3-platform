@@ -93,8 +93,8 @@ export function provideSettings(storage: Storage) {
     option1: true,
     option2: 'Ionic Huangqing Framework',
     option3: '3',
+    //guidePage: true,
     option4: 'Hello'
-    //guidePage: true
   });
 }
 

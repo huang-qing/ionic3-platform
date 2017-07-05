@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NavController, NavParams, IonicPage, Slides } from 'ionic-angular';
 import { PageSlide, PageSlides } from '../../models/page-slides';
 import { Settings } from '../../providers';
 import { Logger } from "angular2-logger/core";
@@ -21,6 +21,8 @@ import { APPSLIDESCONFIG } from '../../app.config/app.config';
 
 export class SlidesPage implements OnInit {
 
+    @ViewChild(Slides) ionSlides: Slides;
+
     config: PageSlides;
     slides: PageSlide[] = [];
     lastSlide: PageSlide;
@@ -31,10 +33,9 @@ export class SlidesPage implements OnInit {
         private nav: NavController,
         private routerConfig: RouterConfig,
         public settings: Settings,
-        private navParams: NavParams) { }
+        private navParams: NavParams) {}
 
     ngOnInit() {
-        debugger;
         this.config = APPSLIDESCONFIG;
         if (!this.config || !this.config.slides || this.config.slides.length === 0) {
             this.logger.error('slides.page:please config the page slides config!');
@@ -51,8 +52,10 @@ export class SlidesPage implements OnInit {
             this.slides = this.config.slides.slice(0, length - 1);
             this.lastSlide = this.config.slides.slice(-1)[0];
         }
+    }
 
-
+    ngAfterViewInit() {
+        this.ionSlides.lockSwipeToPrev(true);
     }
 
     slideSelected() {

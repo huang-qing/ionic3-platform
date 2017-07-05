@@ -19,4 +19,5 @@ export class IonpChartDataSets {
     borderColor: string[] | string = [];
     hoverBackgroundColor: string[] | string = [];
     borderWidth: number = 1;
+    pointStyle: string = 'rectRounded';
 }

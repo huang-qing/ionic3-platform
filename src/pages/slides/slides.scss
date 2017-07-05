@@ -1,4 +1,10 @@
 .slides-page {
+  .scroll-content {
+    overflow: hidden;
+  }
+  .swiper-pagination {
+    display: none;
+  }
   .toolbar-background {
     background: #fff;
     border-color: transparent;
@@ -7,7 +13,7 @@
     height: 100%;
   }
   .slide-title {
-    margin-top: 2.8rem;
+    margin-top: 4.8rem;
   }
   .slide-image {
     max-height: 50%;

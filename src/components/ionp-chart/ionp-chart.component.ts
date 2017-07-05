@@ -1,10 +1,16 @@
 /**
  * 
  * https://www.joshmorony.com/adding-responsive-charts-graphs-to-ionic-2-applications/
+ * 
  * http://www.chartjs.org/samples/latest/
  * http://www.bootcss.com/p/chart.js/docs/
+ * responsive
  * http://www.chartjs.org/docs/latest/general/responsive.html
  * http://www.chartjs.org/docs/latest/configuration/animations.html#animation-callbacks
+ * legend pointStyle
+ * http://www.chartjs.org/docs/latest/configuration/legend.html
+ * http://www.chartjs.org/docs/latest/charts/line.html#pointStyle
+ * 
  * https://stackoverflow.com/questions/31631354/how-to-display-data-values-on-chart-js
  * https://stackoverflow.com/questions/43616599/show-values-on-each-arc-doughnut-chart-js
  * 
@@ -48,25 +54,43 @@ export class IonpChartComponent implements AfterViewInit {
     this._chart = this.chart;
     //bar options
     if (this._chart.type === 'bar') {
-      this._chart.options = {
-        legend: {
-          display: true,
-          labels: {
-            //fontColor: 'rgb(255, 99, 132)'
-          },
-          usePointStyle: true
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    };
+      this.setBarOptions();
+    }
+    else if (this._chart.type === 'doughnut') {
+      this.setDoughnutOptions();
+    }
+
     if (this.canvas) {
       this.chartCanvas = new Chart(this.canvas.nativeElement, this._chart);
+    }
+  }
+
+  setBarOptions() {
+    this._chart.options = {
+      legend: {
+        display: true,
+        labels: {
+          usePointStyle: true
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  }
+
+  setDoughnutOptions() {
+    this._chart.options = {
+      legend: {
+        display: true,
+        labels: {
+          usePointStyle: true
+        }
+      }
     }
   }
 
