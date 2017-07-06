@@ -5,7 +5,7 @@ var AppSlidesConfig: PageSlides = new PageSlides();
 
 AppSlidesConfig.slides = [
     {
-        title: "Welcome to the Docs!",
+        title: "WELCOME_TO_THE_DOCS",
         description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
         image: "assets/img/ica-slidebox-img-1.png",
     },
@@ -21,7 +21,7 @@ AppSlidesConfig.slides = [
     },
     {
         title: "Ready to Play?",
-        description: "Continue",
+        description: "GUIDE_CONTINUE",
         image: "assets/img/ica-slidebox-img-4.png",
     }
 ];

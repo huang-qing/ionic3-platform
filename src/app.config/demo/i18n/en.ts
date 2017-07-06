@@ -3,7 +3,10 @@ var i18n = {
     "HELLO_IONIC": "Hello Ionic",
     "MY_FIRST_LIST": "My First List",
     "LIST_PAGE": "List Page",
-    "CHARTS_LIST": "Charts Page"
+    "CHARTS_LIST": "Charts Page",
+
+    "WELCOME_TO_THE_DOCS": "Welcome to the Docs!",
+    "GUIDE_CONTINUE": "Continue"
 }
 
 export { i18n as en }

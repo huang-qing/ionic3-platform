@@ -7,18 +7,27 @@
         </ion-buttons>
       </ion-toolbar>-->
       <img [src]="slide.image" class="slide-image" />
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
+      <h2 class="slide-title" [innerHTML]="slide.title | translate"></h2>
+      <p [innerHTML]="slide.description | translate"></p>
     </ion-slide>
     <ion-slide>
       <!--<ion-toolbar>
       </ion-toolbar>-->
       <img [src]="lastSlide.image" class="slide-image" />
-      <h2 class="slide-title" [innerHTML]="lastSlide.title"></h2>
+      <h2 class="slide-title" [innerHTML]="lastSlide.title | translate"></h2>
       <button ion-button large clear icon-end color="primary" (click)="slideSelected();">
-        {{lastSlide.description}}
+        {{lastSlide.description | translate}}
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-slide>
   </ion-slides>
 </ion-content>
+
+
+<!--<img [src]="slide.image" class="slide-image" />
+      <h2 class="slide-title">
+        {{slide.title | translate}}
+      </h2>
+      <p [innerHTML]="slide.description">
+        {{slide.title | translate}}
+      </p>-->
