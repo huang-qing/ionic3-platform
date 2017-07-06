@@ -37,12 +37,19 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
 
-    var routerId = this.navParams.get('id');
+    var routerId = this.navParams.get('id'),
+      segmentId = this.navParams.get('segmentId');
+
+    if (segmentId) {
+      this.model.segmentId = segmentId;
+    }
     this.model.pageIndex = 1;
     this.model.parentId = this.navParams.get('parentId') || '';
+
     this.model.parentItem = this.navParams.get('parentItem') || '';
     this.model.title = this.navParams.get('parentTitle') || '';
     this.router = this.routerConfig.getPageConfigById(routerId);
+
 
     if (!this.router) {
       this.logger.error('list.page:please config the page router!');
@@ -57,15 +64,57 @@ export class ListPage implements OnInit {
       this.model.list.inset = style.inset;
       this.model.list.nolines = style.nolines;
     }
+    if (this.router.segments && this.router.segments.length > 0) {
+      this.model.segments = this.router.segments;
+    }
     this.getList();
   }
 
+  /**
+   * api：
+   * 
+   * lists
+   * lists/parentId
+   * lists/segmentId/
+   * lists/segmentId/parentId
+   * lists/itemId
+   * 
+   */
   getList() {
-    this.service.getList(this.model, this.router.api, 1, true)
+    var url = this.router.api;
+    if (this.model.segmentId) {
+      url = `${url}/${this.model.segmentId}`;
+    }
+    if (this.model.parentId) {
+      url = `${url}/${this.model.parentId}`;
+    }
+
+    this.service.getList(this.model, url, 1, true)
       .subscribe(list => {
         this.model.list.groups = list
       },
       error => this.errorMessage = <any>error);
+  }
+
+  getNavPushParams(item: IonpListItem, router: any) {
+    if (!item) {
+      item = new IonpListItem();
+    }
+    return {
+      //segmentId: segmentId,
+      parentId: item.id,
+      parentTitle: item.title || item.subTitle || item.description,
+      parentItem: item,
+      id: router.id
+    }
+  }
+
+  onSegmentSelected(segmentId: string) {
+    debugger;
+    this.model.segmentId = segmentId;
+    this.getList();
+
+    //this.nav.push(this.router.component, this.getNavPushParams(segmentId, null, this.router));
   }
 
   onItemSelected(item: IonpListItem) {
@@ -82,12 +131,7 @@ export class ListPage implements OnInit {
       router = this.router.next;
     }
 
-    this.nav.push(router.component, {
-      parentId: item.id,
-      parentTitle: item.title || item.subTitle || item.description,
-      parentItem: item,
-      id: router.id
-    });
+    this.nav.push(router.component, this.getNavPushParams(item, router));
 
   }
 
@@ -101,11 +145,7 @@ export class ListPage implements OnInit {
   onInputClick(item: IonpListItem) {
     this.logger.log('list-page onInputClick');
     var router = this.router.actions.button;
-    this.nav.push(router.component, {
-      parentId: item.id,
-      parentItem: item,
-      id: router.id
-    });
+    this.nav.push(router.component, this.getNavPushParams(item, router));
   }
 
   doRefresh(refresher) {

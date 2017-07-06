@@ -27,6 +27,8 @@ import { LoadingController, Loading, ToastController, Toast } from 'ionic-angula
 
 import { TranslateService } from '@ngx-translate/core';
 
+import { Logger } from "angular2-logger/core";
+
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
@@ -42,7 +44,7 @@ import { TranslateService } from '@ngx-translate/core';
  */
 @Injectable()
 export class Api {
-  
+
   public loader: Loading;
   public toast: Toast;
 
@@ -50,6 +52,7 @@ export class Api {
     public http: Http,
     public loadingCtrl: LoadingController,
     public translate: TranslateService,
+    private logger: Logger,
     private toastCtrl: ToastController) {
 
   }
@@ -137,6 +140,8 @@ export class Api {
       // a search field set in options.
       _options.search = !_options.search && p || _options.search;
     }
+
+    this.logger.info(url);
 
     return this.http.get(url, _options)
       .map(this.extractData)

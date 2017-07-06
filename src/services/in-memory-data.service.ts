@@ -22,9 +22,13 @@ import { chartsMock } from '../components/ionp-chart/ionp-chart.mock';
  */
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    var lists: IonpListGroup[] = ionpListGroupsMock;
-    var items: IonpListItem[] = [];
-    lists.forEach(g => g.items.forEach(i => items.push(i)));
+    var _lists: IonpListGroup[] = ionpListGroupsMock;
+    var _items: IonpListItem[] = [];
+    //items
+    _lists.forEach(g => g.items.forEach(i => _items.push(i)));
+
+    var lists = _lists;
+    var items = _items;
 
     var charts: IonpChart[] = chartsMock;
     return {

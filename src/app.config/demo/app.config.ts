@@ -49,6 +49,16 @@ var listDemo = {
     iconSet: '',
     iconName: 'list-box',
     color: getColor(),
+    segments: [{
+        text: 'segment1',
+        value: ''
+    }, {
+        text: 'segment2',
+        value: 'segment2'
+    }, {
+        text: 'segment3',
+        value: 'segment3'
+    }],
     style: {
         nolines: false,
         inset: false

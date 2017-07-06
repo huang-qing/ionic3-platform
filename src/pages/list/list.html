@@ -8,6 +8,16 @@
       <span class="sub-title">{{model.subTitle}}</span>
     </ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top *ngIf="model.segments&&model.segments.length>0">
+    <ion-segment>
+      <ng-container *ngFor="let segment of model.segments">
+        <ion-segment-button value="{{segment.value}}" (click)='onSegmentSelected(segment.value);'>
+          {{segment.text}}
+        </ion-segment-button>
+      </ng-container>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>

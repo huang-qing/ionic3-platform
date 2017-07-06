@@ -58,7 +58,8 @@ export class MyApp {
         this.settings.setValue('guidePage', guidePage);
       }
 
-      guidePage = true;//测试使用参数
+      //guidePage = true;//测试使用参数
+      
       // set our app's pages
       this.pages = router.getNavRouter();
       if (guidePage && APPSLIDESCONFIG && APPSLIDESCONFIG.slides && APPSLIDESCONFIG.slides.length > 0) {
