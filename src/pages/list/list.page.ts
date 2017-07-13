@@ -3,6 +3,7 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { IonpListItem, IonpListGroup, IonpListComponent } from '../../components';
 import { ListPageModel } from './list';
 import { ListService } from './list.service';
+import { Segment } from '../../models/segment';
 import { Observable } from 'rxjs/Rx';
 import { Logger } from "angular2-logger/core";
 import { RouterConfig } from '../../providers';
@@ -64,22 +65,23 @@ export class ListPage implements OnInit {
       this.model.list.inset = style.inset;
       this.model.list.nolines = style.nolines;
     }
+   
     if (this.router.segments && this.router.segments.length > 0) {
       this.model.segments = this.router.segments;
+      //设定默认选中的segment项
+      if (!this.model.segmentId) {
+        for (var i = 0, len = this.model.segments.length; i < len; i++) {
+          var segment = this.model.segments[i];
+          if (segment.selected) {
+            this.model.segmentId = segment.value;
+            break;
+          }
+        }
+      }
     }
     this.getList();
   }
 
-  /**
-   * api：
-   * 
-   * lists
-   * lists/parentId
-   * lists/segmentId/
-   * lists/segmentId/parentId
-   * lists/itemId
-   * 
-   */
   getList() {
     var url = this.router.api;
     if (this.model.segmentId) {
@@ -108,8 +110,8 @@ export class ListPage implements OnInit {
     }
   }
 
-  onSegmentSelected(segmentId: string) {
-    this.model.segmentId = segmentId;
+  segmentChanged(item: Segment) {
+    this.model.segmentId = item.value;
     this.getList();
   }
 

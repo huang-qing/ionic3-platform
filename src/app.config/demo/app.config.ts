@@ -51,13 +51,16 @@ var listDemo = {
     color: getColor(),
     segments: [{
         text: 'segment1',
-        value: ''
+        value: '',
+        selected: true
     }, {
         text: 'SEGMENT2',
-        value: 'segment2'
+        value: 'segment2',
+        selected: false
     }, {
         text: 'segment3',
-        value: 'segment3'
+        value: 'segment3',
+        selected: false
     }],
     style: {
         nolines: false,

@@ -39,18 +39,6 @@
  * Gradle:
  * https://gradle.org/install
  * 
- * ionic cli 2:
- * Build android:
- * ionic platform add android 
- * --- 
- * ionic platform rm android
- * ionic platform add android@latest
- * ionic resources
- * ---
- * ionic run android --prod --release
- * ionic build android --release --prod
- * http://www.jianshu.com/p/dfd98ad47af1
- * 
  * ionic cli 3:
  * https://github.com/ionic-team/ionic-cli/issues/2224
  * 

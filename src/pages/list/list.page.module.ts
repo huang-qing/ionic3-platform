@@ -16,6 +16,11 @@
  * http://stackoverflow.com/questions/43598311/component-is-part-of-the-declaration-of-2-modules
  * https://www.angular.cn/docs/ts/latest/guide/ngmodule.html
  * 
+ * 
+ * error:
+ * ERROR Error: Uncaught (in promise): nav controller was destroyed
+ * I also often get this error but strangely it disappears after I refresh / reload the webpage.
+ * https://github.com/ionic-team/ionic/issues/11454
  */
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
@@ -23,6 +28,16 @@ import { ListPage } from './list.page';
 import { IonpListComponent } from '../../components';
 import { SharedModule } from '../../modules/shared.module';
 
+/**
+ * api：
+ * 
+ * lists
+ * lists/parentId
+ * lists/segmentId/
+ * lists/segmentId/parentId
+ * lists/itemId
+ * 
+ */
 @NgModule({
     declarations: [
         ListPage,

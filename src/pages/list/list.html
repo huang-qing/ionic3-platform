@@ -10,14 +10,15 @@
   </ion-navbar>
 
   <ion-toolbar no-border-top *ngIf="model.segments&&model.segments.length>0">
-    <ion-segment>
+    <ion-segment [(ngModel)]="model.segmentId" (ionChange)="segmentChanged($event)">
       <ng-container *ngFor="let segment of model.segments">
-        <ion-segment-button value="{{segment.value}}" (click)='onSegmentSelected(segment.value);'>
+        <ion-segment-button value="{{segment.value}}">
           {{segment.text|translate}}
         </ion-segment-button>
       </ng-container>
     </ion-segment>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
