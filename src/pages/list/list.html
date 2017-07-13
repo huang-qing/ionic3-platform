@@ -13,7 +13,7 @@
     <ion-segment>
       <ng-container *ngFor="let segment of model.segments">
         <ion-segment-button value="{{segment.value}}" (click)='onSegmentSelected(segment.value);'>
-          {{segment.text}}
+          {{segment.text|translate}}
         </ion-segment-button>
       </ng-container>
     </ion-segment>

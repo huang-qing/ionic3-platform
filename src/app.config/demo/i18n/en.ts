@@ -6,7 +6,9 @@ var i18n = {
     "CHARTS_LIST": "Charts Page",
 
     "WELCOME_TO_THE_DOCS": "Welcome to the Docs!",
-    "GUIDE_CONTINUE": "Continue"
+    "GUIDE_CONTINUE": "Continue",
+
+    "SEGMENT2":"segment2"
 }
 
 export { i18n as en }

@@ -53,7 +53,7 @@ var listDemo = {
         text: 'segment1',
         value: ''
     }, {
-        text: 'segment2',
+        text: 'SEGMENT2',
         value: 'segment2'
     }, {
         text: 'segment3',

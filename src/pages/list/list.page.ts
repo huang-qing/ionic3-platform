@@ -101,7 +101,6 @@ export class ListPage implements OnInit {
       item = new IonpListItem();
     }
     return {
-      //segmentId: segmentId,
       parentId: item.id,
       parentTitle: item.title || item.subTitle || item.description,
       parentItem: item,
@@ -110,11 +109,8 @@ export class ListPage implements OnInit {
   }
 
   onSegmentSelected(segmentId: string) {
-    debugger;
     this.model.segmentId = segmentId;
     this.getList();
-
-    //this.nav.push(this.router.component, this.getNavPushParams(segmentId, null, this.router));
   }
 
   onItemSelected(item: IonpListItem) {

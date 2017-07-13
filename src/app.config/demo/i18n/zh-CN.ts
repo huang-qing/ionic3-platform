@@ -6,7 +6,9 @@ var i18n = {
   "CHARTS_LIST": "图表页面",
 
   "WELCOME_TO_THE_DOCS": "欢迎使用此文档！",
-  "GUIDE_CONTINUE": "继续"
+  "GUIDE_CONTINUE": "继续",
+
+  "SEGMENT2":"分段2"
 }
 
 export { i18n as zh_CN }
