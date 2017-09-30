@@ -5,7 +5,8 @@ import { ionpListGroupsMock } from '../components/ionp-list/ionp-list.mock';
 //chart
 import { IonpChart } from '../components/ionp-chart/ionp-chart'
 import { chartsMock } from '../components/ionp-chart/ionp-chart.mock';
-
+//detail
+import { detailMock } from '../pages/detail/detail.mock';
 
 /**
  * https://www.npmjs.com/package/angular2-in-memory-web-api
@@ -26,15 +27,19 @@ export class InMemoryDataService implements InMemoryDbService {
     var _items: IonpListItem[] = [];
     //items
     _lists.forEach(g => g.items.forEach(i => _items.push(i)));
-
+    //列表
     var lists = _lists;
     var items = _items;
-
+    //图表
     var charts: IonpChart[] = chartsMock;
+    //详细信息
+    var details = detailMock;
+
     return {
       lists,
       items,
-      charts
+      charts,
+      details
     };
   }
 }

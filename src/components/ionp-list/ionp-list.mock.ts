@@ -172,7 +172,7 @@ let getSliding = function (): IonpListSlidingOption[] {
         slidingOption.iconName = name;
         //slidingOption.color = COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)];
         slidingOption.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-        
+
         if (i % 2) {
             slidingOption.iconName = customName;
             slidingOption.iconSet = 'evil';
@@ -185,6 +185,7 @@ let getSliding = function (): IonpListSlidingOption[] {
     return sliding;
 };
 
+// 模拟的guid，in-memory-data模拟不出来，直接返回空做为演示吧
 let getGUID = (function () {
     //var i = 1;
     return function () {
@@ -298,7 +299,7 @@ let AvatarItems = (function () {
             icon: getAvatar(),
             input: null,
             sliding: null,
-            detail: true,
+            detail: i == 0 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -331,7 +332,7 @@ let ThumbnailItems = (function () {
             icon: getThumbnail(),
             input: null,
             sliding: null,
-            detail: true,
+            detail: i === 0 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -364,7 +365,7 @@ let IconItems = (function () {
             icon: i % 2 ? getCustomIcon() : getIcon(),
             input: null,
             sliding: null,
-            detail: true,
+            detail: i === 0 ? false : true,
             params: {},
             callback: function (item, params) { }
         });

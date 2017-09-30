@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Description
+    </ion-title>
+    <!-- <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button> 
+        </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='detail-page'>
+  <ion-list *ngIf="model">
+    <ion-item>
+      <ion-avatar item-start *ngIf="model?.icon?.type==='avatar'">
+        <img [src]="model.icon.src">
+      </ion-avatar>
+      <ion-thumbnail item-start *ngIf="model?.icon?.type==='thumbnail'">
+        <img [src]="model.icon.src">
+      </ion-thumbnail>
+      <ion-icon [name]="model.icon.iconName" item-start *ngIf="model?.icon?.type==='icon'&&!model?.icon?.iconSet" [color]="model.icon.color"
+        [style.color]="model.icon.color">
+      </ion-icon>
+      <custom-icon set="{{model.icon.iconSet}}" name="{{model.icon.iconName}}" item-start *ngIf="model?.icon?.type==='icon'&&model?.icon?.iconSet"
+        [style.color]="model.icon.color">
+      </custom-icon>
+      <h2>{{model.title}}</h2>
+    </ion-item>
+
+    <ion-item *ngFor="let item of model.info" class='ionp-item-property'>
+
+      <ion-label>{{item.name}}</ion-label>
+      <ion-note item-end *ngIf="item.type==='text'">
+        {{item.text}}
+      </ion-note>
+      <ion-note item-end *ngIf="item.type==='image'">
+        <ion-thumbnail>
+          <img [src]="item.text">
+        </ion-thumbnail>
+      </ion-note>
+      <ion-note item-end *ngIf="item.type==='base64'">
+        <ion-thumbnail>
+          <img [src]="item.text|safeHtml">
+        </ion-thumbnail>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

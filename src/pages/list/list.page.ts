@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { NavController, NavParams, IonicPage, ModalController, Platform, ViewController } from 'ionic-angular';
 import { IonpListItem, IonpListGroup, IonpListComponent } from '../../components';
 import { ListPageModel } from './list';
+import { PropertyPage } from '../property/property.page';
 import { ListService } from './list.service';
 import { Segment } from '../../models/segment';
 import { Observable } from 'rxjs/Rx';
@@ -34,11 +35,12 @@ export class ListPage implements OnInit {
     private nav: NavController,
     private routerConfig: RouterConfig,
     private navParams: NavParams,
-    private service: ListService) { }
+    private service: ListService,
+    public modalCtrl: ModalController) { }
 
   ngOnInit() {
 
-    var routerId = this.navParams.get('id'),
+    var routerId = this.navParams.get('routerId'),
       segmentId = this.navParams.get('segmentId');
 
     if (segmentId) {
@@ -49,7 +51,7 @@ export class ListPage implements OnInit {
 
     this.model.parentItem = this.navParams.get('parentItem') || '';
     this.model.title = this.navParams.get('parentTitle') || '';
-    this.router = this.routerConfig.getPageConfigById(routerId);
+    this.router = this.navParams.get('router') || this.routerConfig.getPageConfigById(routerId);
 
 
     if (!this.router) {
@@ -65,7 +67,7 @@ export class ListPage implements OnInit {
       this.model.list.inset = style.inset;
       this.model.list.nolines = style.nolines;
     }
-   
+
     if (this.router.segments && this.router.segments.length > 0) {
       this.model.segments = this.router.segments;
       //设定默认选中的segment项
@@ -106,7 +108,8 @@ export class ListPage implements OnInit {
       parentId: item.id,
       parentTitle: item.title || item.subTitle || item.description,
       parentItem: item,
-      id: router.id
+      routerId: router.id,
+      router: router
     }
   }
 
@@ -122,6 +125,7 @@ export class ListPage implements OnInit {
     if (!this.router) {
       this.logger.warn('list-page router is not exist!');
     }
+    //detail表示是否存在下级：存在加载下级列表，不存在显示当前项的详细信息
     if (item.detail) {
       router = this.router;
     }
@@ -132,7 +136,6 @@ export class ListPage implements OnInit {
     this.nav.push(router.component, this.getNavPushParams(item, router));
 
   }
-
 
   onInputChanged(item: IonpListItem) {
     this.logger.log('list-page onInputChanged');
@@ -181,6 +184,12 @@ export class ListPage implements OnInit {
         },
         complete: () => infiniteScroll.complete()
       });
+  }
+
+  openModal(characterNum) {
+
+    let modal = this.modalCtrl.create(PropertyPage);
+    modal.present();
   }
 
 }

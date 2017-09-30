@@ -81,7 +81,7 @@ var listDemo = {
     next: {
         title: 'DETAIL_PAGE',
         component: 'detail-page',
-        api: 'api/items',
+        api: 'api/details',
         style: null,
         next: null,
         actions: null

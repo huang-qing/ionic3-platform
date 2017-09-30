@@ -37,7 +37,7 @@ export class ChartListPage implements OnInit {
 
   ngOnInit() {
 
-    var routerId = this.navParams.get('id');
+    var routerId = this.navParams.get('routerId');
     this.model.pageIndex = 1;
     this.router = this.routerConfig.getPageConfigById(routerId);
 
