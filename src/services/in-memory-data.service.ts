@@ -6,7 +6,7 @@ import { ionpListGroupsMock } from '../components/ionp-list/ionp-list.mock';
 import { IonpChart } from '../components/ionp-chart/ionp-chart'
 import { chartsMock } from '../components/ionp-chart/ionp-chart.mock';
 //detail
-import { detailMock } from '../pages/detail/detail.mock';
+import { detailMock } from '../pages/list-detail/detail.mock';
 
 /**
  * https://www.npmjs.com/package/angular2-in-memory-web-api

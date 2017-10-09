@@ -71,8 +71,6 @@ var listDemo = {
             title: 'DETAIL_PAGE',
             component: 'detail-page',
             api: 'api/details',
-            style: null,
-            next: null
         },
         sliding: {
 

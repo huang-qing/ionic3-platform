@@ -8,7 +8,8 @@ var i18n = {
   "WELCOME_TO_THE_DOCS": "欢迎使用此文档！",
   "GUIDE_CONTINUE": "继续",
 
-  "SEGMENT2":"分段2"
+  "SEGMENT2": "分段2",
+  "IONP_LIST_DETAIL_TITLE": "详细信息"
 }
 
 export { i18n as zh_CN }

@@ -109,7 +109,8 @@ export class ListPage implements OnInit {
       parentTitle: item.title || item.subTitle || item.description,
       parentItem: item,
       routerId: router.id,
-      router: router
+      router: router,
+      modal: false
     }
   }
 
@@ -138,7 +139,7 @@ export class ListPage implements OnInit {
   }
 
   onInputChanged(item: IonpListItem) {
-   
+
     this.logger.log('list-page onInputChanged');
     this.service.inputUpdated(this.router.detail.api, item).subscribe(null,
       error => this.errorMessage = <any>error);
@@ -147,7 +148,15 @@ export class ListPage implements OnInit {
   onInputClick(item: IonpListItem) {
     this.logger.log('list-page onInputClick');
     var router = this.router.actions.button;
-    this.nav.push(router.component, this.getNavPushParams(item, router));
+    //this.nav.push(router.component, this.getNavPushParams(item, router));
+    this.presentModal(router.component, item, router);
+  }
+
+  presentModal(component: any, item: IonpListItem, router: any) {
+    let params = this.getNavPushParams(item, router);
+    params.modal = true;
+    let modal = this.modalCtrl.create(component, params);
+    modal.present();
   }
 
   doRefresh(refresher) {
@@ -187,10 +196,5 @@ export class ListPage implements OnInit {
       });
   }
 
-  openModal(characterNum) {
-
-    let modal = this.modalCtrl.create(PropertyPage);
-    modal.present();
-  }
 
 }

@@ -3,7 +3,7 @@ import { NavController, NavParams, IonicPage, ViewController } from 'ionic-angul
 import { DetailPageModel } from './detail';
 import { Settings } from '../../providers';
 import { Logger } from "angular2-logger/core";
-import { DetailService } from './detail.service'
+import { DetailService } from './detail.service';
 import { RouterConfig } from '../../providers';
 
 /**
@@ -24,6 +24,7 @@ export class DetailPage implements OnInit {
 
     router: any;
     errorMessage: string;
+    modal: boolean = false;
 
     model: DetailPageModel = new DetailPageModel();
 
@@ -36,14 +37,18 @@ export class DetailPage implements OnInit {
         private navParams: NavParams,
         private service: DetailService,
         public viewCtrl: ViewController) {
-
+debugger;
         var parent = this.navParams.get('parentItem') || '';
 
         if (parent) {
-            var model = this.model;
+            var model = this.model,
+                modal = this.navParams.get('modal') || false;
+
             model.id = parent.id;
             model.title = parent.title || parent.subTitle || parent.description;
             model.icon = parent.icon;
+
+            this.modal = modal;
         }
 
         this.router = this.navParams.get('router');
