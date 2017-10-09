@@ -211,8 +211,9 @@ let BasicItems = (function () {
             class: null,
             icon: null,
             input: null,
+            inputValue:'',
             sliding: null,
-            detail: i === 1 ? false : true,
+            arrow: i === 1 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -238,8 +239,9 @@ let BasicAItems = (function () {
             class: null,
             icon: null,
             input: null,
+            inputValue:'',
             sliding: null,
-            detail: i === 1 ? false : true,
+            arrow: i === 1 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -265,8 +267,9 @@ let BasicBItems = (function () {
             class: null,
             icon: null,
             input: null,
+            inputValue:'',
             sliding: null,
-            detail: i === 1 ? false : true,
+            arrow: i === 1 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -298,8 +301,9 @@ let AvatarItems = (function () {
             class: null,
             icon: getAvatar(),
             input: null,
+            inputValue:'',
             sliding: null,
-            detail: i == 0 ? false : true,
+            arrow: i == 0 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -325,6 +329,7 @@ let ThumbnailItems = (function () {
 
         items.push({
             id: getGUID(),
+            inputValue:'',
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -332,7 +337,7 @@ let ThumbnailItems = (function () {
             icon: getThumbnail(),
             input: null,
             sliding: null,
-            detail: i === 0 ? false : true,
+            arrow: i === 0 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -358,6 +363,7 @@ let IconItems = (function () {
 
         items.push({
             id: getGUID(),
+            inputValue:'',
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -365,7 +371,7 @@ let IconItems = (function () {
             icon: i % 2 ? getCustomIcon() : getIcon(),
             input: null,
             sliding: null,
-            detail: i === 0 ? false : true,
+            arrow: i === 0 ? false : true,
             params: {},
             callback: function (item, params) { }
         });
@@ -414,13 +420,14 @@ let InputItems = (function () {
         items.push({
             id: getGUID(),
             title: title,
+            inputValue:'',
             subTitle: subTitle,
             description: descriptioin,
             class: null,
             icon: icon,
             input: input,
             sliding: getSliding(),
-            detail: true,
+            arrow: true,
             params: {},
             callback: function (item, params) { }
         });
@@ -454,13 +461,14 @@ let SlidingItems = (function () {
 
         items.push({
             id: getGUID(),
+            inputValue: '',
             title: title,
             subTitle: subTitle,
             description: descriptioin,
             class: null,
             icon: icon,
             input: null,
-            detail: true,
+            arrow: true,
             sliding: getSliding(),
             params: {},
             callback: function (item, params) { }

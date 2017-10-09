@@ -69,10 +69,11 @@
 ### new pages
 
 + list √
++ detail √
 + slides
 + grid
 + search
-+ segment
++ segment √
 + tabs √
 + home
 + charts √

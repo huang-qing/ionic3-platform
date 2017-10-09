@@ -70,7 +70,7 @@ var listDemo = {
         button: {
             title: 'DETAIL_PAGE',
             component: 'detail-page',
-            api: 'api/items',
+            api: 'api/details',
             style: null,
             next: null
         },
@@ -78,13 +78,10 @@ var listDemo = {
 
         }
     },
-    next: {
+    detail: {
         title: 'DETAIL_PAGE',
         component: 'detail-page',
-        api: 'api/details',
-        style: null,
-        next: null,
-        actions: null
+        api: 'api/details'
     },
     isNav: true,
     isTabs: true

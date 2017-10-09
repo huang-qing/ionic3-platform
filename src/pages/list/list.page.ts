@@ -126,11 +126,11 @@ export class ListPage implements OnInit {
       this.logger.warn('list-page router is not exist!');
     }
     //detail表示是否存在下级：存在加载下级列表，不存在显示当前项的详细信息
-    if (item.detail) {
+    if (item.arrow) {
       router = this.router;
     }
     else {
-      router = this.router.next;
+      router = this.router.detail;
     }
 
     this.nav.push(router.component, this.getNavPushParams(item, router));
@@ -138,8 +138,9 @@ export class ListPage implements OnInit {
   }
 
   onInputChanged(item: IonpListItem) {
+   
     this.logger.log('list-page onInputChanged');
-    this.service.inputUpdated(this.router.next.api, item).subscribe(null,
+    this.service.inputUpdated(this.router.detail.api, item).subscribe(null,
       error => this.errorMessage = <any>error);
   }
 

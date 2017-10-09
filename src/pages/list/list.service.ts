@@ -25,6 +25,7 @@ export class ListService implements OnInit {
     }
 
     inputUpdated(url: string, item: IonpListItem): Observable<IonpListItem> {
+ 
         url = `${url}/${item.id}`;
         return this.api.put<IonpListItem>(url, item);
     }

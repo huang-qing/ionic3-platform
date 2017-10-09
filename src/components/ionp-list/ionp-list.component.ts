@@ -52,6 +52,7 @@ export class IonpListComponent {
    * @param item 
    */
   inputChanged($event, item: IonpListItem) {
+    
     let value;
     //ionChange事件中获取值
     if (typeof ($event.value) !== "undefined") {
@@ -59,8 +60,12 @@ export class IonpListComponent {
     } else if ($event.target) {//keyup.enter blur 事件中获取值
       value = $event.target.value;
     }
+    else {
+      value = $event;
+    }
     if (item.input.value !== value) {
       item.input.value = value;
+      item.inputValue = value;
       this.onInputChanged.emit(item);
       this.logger.log('emit list.component input change');
     }

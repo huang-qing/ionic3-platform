@@ -15,13 +15,14 @@ export class IonpListGroup {
 
 export class IonpListItem {
   id: string;
-  detail: boolean = true;
+  arrow: boolean = true;
   icon: IonpListIcon;
   title: string;
   subTitle: string;
   description: string;
   class: string;
   input: IonpListForm;
+  inputValue: string | boolean;
   sliding: IonpListSlidingOption[];
   params: any;
   callback: (item: IonpListItem, params: any) => any;

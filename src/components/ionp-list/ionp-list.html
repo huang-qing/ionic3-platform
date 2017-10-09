@@ -12,7 +12,7 @@
     <ng-container *ngIf="group.type==='sliding'">
       <ion-item-sliding *ngFor="let item of group.items">
         <!--item-->
-        <button ion-item (click)="itemSelected(item)" [attrs]="{'detail-none':!item.detail}">
+        <button ion-item (click)="itemSelected(item)" [attrs]="{'detail-none':!item.arrow}">
             <!--left-->
             <ion-avatar item-left *ngIf="item?.icon?.type==='avatar'">
                 <img [src]="item.icon.src">
@@ -126,7 +126,7 @@
     </ng-container>
     <!--item button-->
     <ng-container *ngIf="group.type==='button'">
-      <button ion-item (click)="itemSelected(item)" *ngFor="let item of group.items" [attrs]="{'detail-none':!item.detail}">
+      <button ion-item (click)="itemSelected(item)" *ngFor="let item of group.items" [attrs]="{'detail-none':!item.arrow}">
         <!--left-->
         <ion-avatar item-left *ngIf="item?.icon?.type==='avatar'">
           <img [src]="item.icon.src">
