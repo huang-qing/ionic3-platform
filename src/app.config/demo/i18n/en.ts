@@ -8,8 +8,9 @@ var i18n = {
     "WELCOME_TO_THE_DOCS": "Welcome to the Docs!",
     "GUIDE_CONTINUE": "Continue",
 
+    "IONP_LIST_DETAIL_TITLE":"Description",
     "SEGMENT2":"segment2",
-    "IONP_LIST_DETAIL_TITLE":"Description"
+
 }
 
 export { i18n as en }
