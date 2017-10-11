@@ -1,11 +1,21 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+/**
+ * 
+ * https://stackoverflow.com/questions/34588933/how-to-remove-replace-the-angular2-components-selector-tag-from-html
+ * As a workaround you can use an attribute selector in your component like
+ * selector: '[my-component]'
+ * and then use it like
+ * <div my-component>Hello My component</div>
+ * 
+ * 
+ */
+import { Component, EventEmitter, Input, Output, } from "@angular/core";
+import { AlertController } from 'ionic-angular';
 import { IonpList, IonpListItem, IonpListGroup } from './ionp-list';
 import { Logger } from "angular2-logger/core";
 
 @Component({
-  selector: 'ionp-list',
-  templateUrl: "ionp-list.html",
-  providers: []
+  selector: '[ionp-list]',
+  templateUrl: "ionp-list.html"
 })
 
 
@@ -29,13 +39,18 @@ export class IonpListComponent {
   items: IonpListItem[];
   params: IonpListItem;
 
-  constructor(private logger: Logger) { }
+  constructor(private logger: Logger, public alertCtrl: AlertController) { }
 
   /**
    * 父组件监听子组件的事件:Parent listens for child event
    * https://www.angular.cn/docs/ts/latest/cookbook/component-communication.html#!#parent-to-child-on-changes
    */
-  itemSelected(item: IonpListItem) {
+  itemSelected($event,type, item: IonpListItem) {
+    debugger;
+    if (type === 'text') {
+      $event.stopPropagation();
+      return;
+    }
     this.onItemSelected.emit(item);
     this.logger.log('emit list.component item selected');
   }
@@ -52,7 +67,7 @@ export class IonpListComponent {
    * @param item 
    */
   inputChanged($event, item: IonpListItem) {
-    
+    debugger;
     let value;
     //ionChange事件中获取值
     if (typeof ($event.value) !== "undefined") {
@@ -71,9 +86,37 @@ export class IonpListComponent {
     }
   }
 
-  inputClick(item: IonpListItem) {
+  inputClick($event, item: IonpListItem) {
     this.onInputClick.emit(item);
     this.logger.log('emit list.component input click');
+  }
+
+  showPrompt($event, item: IonpListItem) {
+    let prompt = this.alertCtrl.create({
+      title: 'Login',
+      message: "Enter a name for this new album you're so keen on adding",
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
 }

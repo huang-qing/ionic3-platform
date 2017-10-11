@@ -11,7 +11,7 @@
 
     <ion-item-sliding *ngFor="let item of group.items">
       <!--item-->
-      <button ion-item (click)="itemSelected($event,group.type,item)" [attrs]="{'detail-none':(group.type ==='text'||!item.arrow),'list-item-text':group.type ==='text'}">
+      <button ion-item (click)="itemSelected(item)" [attrs]="{'detail-none':!item.arrow}">
           <!--left-->
           <ion-avatar item-left *ngIf="item?.icon?.type==='avatar'">
               <img [src]="item.icon.src">
@@ -20,8 +20,8 @@
               <img [src]="item.icon.src">
           </ion-thumbnail>     
           <ion-icon [name]="item.icon.iconName" item-left 
-            *ngIf="item?.icon?.type==='icon'&&!item?.icon?.iconSet"
-            [color]="item.icon.color" [style.color]="item.icon.color">
+          *ngIf="item?.icon?.type==='icon'&&!item?.icon?.iconSet"
+          [color]="item.icon.color" [style.color]="item.icon.color">
           </ion-icon>
           <custom-icon set="{{item.icon.iconSet}}" name="{{item.icon.iconName}}" item-left  
           *ngIf="item?.icon?.type==='icon'&&item?.icon?.iconSet"
@@ -49,7 +49,7 @@
               [style.color]="item.icon.color" >
           </custom-icon>
           <button ion-button outline item-right *ngIf="item?.input?.type==='button'"
-              (click)="inputClick($event,item);$event.stopPropagation();"> 
+              (click)="inputClick(item);$event.stopPropagation();"> 
               {{item.input.text}}
           </button>
           <ion-toggle checked="{{item.input.value}}" *ngIf="item?.input?.type==='toggle'" (ionChange)="inputChanged($event,item)">

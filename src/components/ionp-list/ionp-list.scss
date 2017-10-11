@@ -4,4 +4,18 @@ ion-item-group {
       border: 0;
     }
   }
+  button[list-item-text].activated {
+    background-color: inherit !important;
+  }
+  ion-input {
+    margin: 0 !important;
+  }
+  .text-input {
+    margin-right: 0 !important;
+    padding-right: 20px !important;
+  }
+  .text-input-clear-icon {
+    right: 0 !important;
+    width: 22px !important;
+  }
 }

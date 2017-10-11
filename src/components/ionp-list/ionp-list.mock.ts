@@ -110,11 +110,11 @@ let SELECTOPTIONS = (function (): IonpListSelectOption[] {
 
 
 //get input
-let getForm = function (type): IonpListForm {
+let getForm = function (type, style): IonpListForm {
 
     var text = "view",
         value: boolean | string = true,
-        style: any = 'text',
+        style: any = style || 'text',
         name = ICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
         customName = CUSTOMICONSNAME[Math.floor(Math.random() * ICONSNAME.length)],
         color = COLORSNAME[Math.floor(Math.random() * COLORSNAME.length)],
@@ -128,13 +128,22 @@ let getForm = function (type): IonpListForm {
         case 'icon':
             break;
         case 'text':
-            text = "placeholder";
+            text = "text";
             value = "Hello";
             //style = 'number';
             break;
         case 'select':
             value = "n64";
             options = SELECTOPTIONS;
+            break;
+        default:
+            break;
+    }
+
+    switch (style) {
+        case 'number':
+            text = style;
+            value = "123";
             break;
         default:
             break;
@@ -211,7 +220,7 @@ let BasicItems = (function () {
             class: null,
             icon: null,
             input: null,
-            inputValue:'',
+            inputValue: '',
             sliding: null,
             arrow: i === 1 ? false : true,
             params: {},
@@ -239,7 +248,7 @@ let BasicAItems = (function () {
             class: null,
             icon: null,
             input: null,
-            inputValue:'',
+            inputValue: '',
             sliding: null,
             arrow: i === 1 ? false : true,
             params: {},
@@ -267,7 +276,7 @@ let BasicBItems = (function () {
             class: null,
             icon: null,
             input: null,
-            inputValue:'',
+            inputValue: '',
             sliding: null,
             arrow: i === 1 ? false : true,
             params: {},
@@ -301,7 +310,7 @@ let AvatarItems = (function () {
             class: null,
             icon: getAvatar(),
             input: null,
-            inputValue:'',
+            inputValue: '',
             sliding: null,
             arrow: i == 0 ? false : true,
             params: {},
@@ -329,7 +338,7 @@ let ThumbnailItems = (function () {
 
         items.push({
             id: getGUID(),
-            inputValue:'',
+            inputValue: '',
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -363,7 +372,7 @@ let IconItems = (function () {
 
         items.push({
             id: getGUID(),
-            inputValue:'',
+            inputValue: '',
             title: title,
             subTitle: subTitle,
             description: descriptioin,
@@ -383,7 +392,7 @@ let IconItems = (function () {
 //Input Items
 let InputItems = (function () {
     let items: Array<IonpListItem> = [],
-        titles = [null, 'Finn', 'Finn', 'Finn', 'Finn', 'Finn'],
+        titles = [null, 'Finn', 'Finn', 'Finn', 'Finn', 'Finn', 'number', 'prompt'],
         subTitles = [null, "Don't Know What To Do!", "Don't Know What To Do!", null, null, null],
         descriptioins = ['Pokémon Yellow', "I've had a pretty messed up day. If we just",
             null, "I've had a pretty messed up day. If we just", null, null],
@@ -393,15 +402,19 @@ let InputItems = (function () {
             getIcon(),
             getCustomIcon(),
             getIcon(),
+            getCustomIcon(),
+            getCustomIcon(),
             getCustomIcon()
         ],
         inputs = [
-            getForm('note'),
-            getForm('icon'),
-            getForm('button'),
-            getForm('toggle'),
-            getForm('text'),
-            getForm('select')
+            getForm('note', null),
+            getForm('icon', null),
+            getForm('button', null),
+            getForm('toggle', null),
+            getForm('select', null),
+            getForm('text', null),
+            getForm('text', 'number'),
+            getForm('prompt', null)
         ],
         icon,
         input,
@@ -420,7 +433,7 @@ let InputItems = (function () {
         items.push({
             id: getGUID(),
             title: title,
-            inputValue:'',
+            inputValue: '',
             subTitle: subTitle,
             description: descriptioin,
             class: null,

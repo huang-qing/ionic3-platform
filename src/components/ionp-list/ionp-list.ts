@@ -29,7 +29,7 @@ export class IonpListItem {
 }
 
 export class IonpListForm {
-  type: 'note' | 'button' | 'select' | 'icon' | 'toggle' | 'input' = 'note';
+  type: 'note' | 'button' | 'select' | 'icon' | 'toggle' | 'text' | 'prompt' = 'note';
   style: 'text' | 'email' | 'number' | 'tel' | 'url' = 'text';
   name: string;
   //icon

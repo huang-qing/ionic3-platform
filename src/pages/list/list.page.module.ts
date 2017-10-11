@@ -42,6 +42,7 @@ import { SharedModule } from '../../modules/shared.module';
     declarations: [
         ListPage,
         IonpListComponent
+
     ],
     imports: [
         SharedModule,
