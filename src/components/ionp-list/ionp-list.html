@@ -12,64 +12,68 @@
     <ion-item-sliding *ngFor="let item of group.items">
       <!--item-->
       <button ion-item (click)="itemSelected($event,group.type,item)" [attrs]="{'detail-none':(group.type ==='text'||!item.arrow),'list-item-text':group.type ==='text'}">
-          <!--left-->
-          <ion-avatar item-left *ngIf="item?.icon?.type==='avatar'">
-              <img [src]="item.icon.src">
-          </ion-avatar>
-          <ion-thumbnail item-left *ngIf="item?.icon?.type==='thumbnail'">
-              <img [src]="item.icon.src">
-          </ion-thumbnail>     
-          <ion-icon [name]="item.icon.iconName" item-left 
+        <!--left-->
+        <ion-avatar item-left *ngIf="item?.icon?.type==='avatar'">
+            <img [src]="item.icon.src">
+        </ion-avatar>
+        <ion-thumbnail item-left *ngIf="item?.icon?.type==='thumbnail'">
+            <img [src]="item.icon.src">
+        </ion-thumbnail>     
+        <ion-icon [name]="item.icon.iconName" item-left 
             *ngIf="item?.icon?.type==='icon'&&!item?.icon?.iconSet"
             [color]="item.icon.color" [style.color]="item.icon.color">
-          </ion-icon>
-          <custom-icon set="{{item.icon.iconSet}}" name="{{item.icon.iconName}}" item-left  
-          *ngIf="item?.icon?.type==='icon'&&item?.icon?.iconSet"
-          [style.color]="item.icon.color" >
-          </custom-icon>      
-          <!--center-->
-          <ion-label *ngIf="item.title||item.subTitle">
-              <h2 *ngIf="item.title">{{item.title}}</h2>
-              <h3 *ngIf="item.subTitle">{{item.subTitle}}</h3>
-              <p *ngIf="(item.title||item.subTitle)&&item.description">{{item.description}}</p>
-          </ion-label>
-          <ion-label *ngIf="(!item.title&&!item.subTitle)&&item.description">
-              {{item.description}}
-          </ion-label>          
-          <!--right--> 
-          <ion-note item-right *ngIf="item?.input?.type==='note'">
-              {{item.input.text}}
-          </ion-note>
-          <ion-icon [name]='item.input.iconName' [color]="item.input.color" item-right
-              *ngIf="item?.input?.type==='icon'&&!item?.input?.iconSet"
-              [style.color]="item.input.color">
-          </ion-icon>
-          <custom-icon set="{{item.input.iconSet}}" name="{{item.input.iconName}}" item-right
-              *ngIf="item?.input?.type==='icon'&&item?.input?.iconSet"
-              [style.color]="item.icon.color" >
-          </custom-icon>
-          <button ion-button outline item-right *ngIf="item?.input?.type==='button'"
-              (click)="inputClick($event,item);$event.stopPropagation();"> 
-              {{item.input.text}}
-          </button>
-          <ion-toggle checked="{{item.input.value}}" *ngIf="item?.input?.type==='toggle'" (ionChange)="inputChanged($event,item)">
-          </ion-toggle>
-          <ion-input type="{{item.input.style}}" item-right text-right value="{{item.input.value}}" placeholder="{{item.input.text}}"
+        </ion-icon>
+        <custom-icon set="{{item.icon.iconSet}}" name="{{item.icon.iconName}}" item-left  
+            *ngIf="item?.icon?.type==='icon'&&item?.icon?.iconSet"
+            [style.color]="item.icon.color" >
+        </custom-icon>      
+        <!--center-->
+        <ion-label *ngIf="item.title||item.subTitle">
+            <h2 *ngIf="item.title">{{item.title}}</h2>
+            <h3 *ngIf="item.subTitle">{{item.subTitle}}</h3>
+            <p *ngIf="(item.title||item.subTitle)&&item.description">{{item.description}}</p>
+        </ion-label>
+        <ion-label *ngIf="(!item.title&&!item.subTitle)&&item.description">
+            {{item.description}}
+        </ion-label>          
+        <!--right--> 
+        <ion-note item-right *ngIf="item?.input?.type==='note'">
+            {{item.input.text}}
+        </ion-note>
+        <ion-icon [name]='item.input.iconName' [color]="item.input.color" item-right
+            *ngIf="item?.input?.type==='icon'&&!item?.input?.iconSet"
+            [style.color]="item.input.color">
+        </ion-icon>
+        <custom-icon set="{{item.input.iconSet}}" name="{{item.input.iconName}}" item-right
+            *ngIf="item?.input?.type==='icon'&&item?.input?.iconSet"
+            [style.color]="item.icon.color" >
+        </custom-icon>
+        <button ion-button outline item-right *ngIf="item?.input?.type==='button'"
+            (click)="inputClick($event,item);$event.stopPropagation();"> 
+            {{item.input.text}}
+        </button>
+        <ion-toggle checked="{{item.input.value}}" *ngIf="item?.input?.type==='toggle'" (ionChange)="inputChanged($event,item)">
+        </ion-toggle>
+        <ion-input type="{{item.input.style}}" item-right text-right value="{{item.input.value}}" placeholder="{{item.input.text}}"
             clearInput (keyup.enter)="inputChanged($event,item);$event.stopPropagation();" (blur)="inputChanged($event,item);$event.stopPropagation();"
             *ngIf="item?.input?.type==='text'">
-          </ion-input>
-          <ion-select [ngModel]="item.input.value" *ngIf="item?.input?.type==='select'" (ionChange)="inputChanged($event,item)" okText="{{ 'IONP_LIST_SELECT_OK' | translate }}"
+        </ion-input>
+        <ion-input type="{{item.input.style}}" item-right text-right value="{{item.input.value}}"  readonly
+            (click)="showPrompt($event,item);$event.stopPropagation();"
+            *ngIf="item?.input?.type==='prompt'">
+        </ion-input>
+        <ion-select [ngModel]="item.input.value" *ngIf="item?.input?.type==='select'" (ionChange)="inputChanged($event,item)" okText="{{ 'IONP_LIST_SELECT_OK' | translate }}"
             cancelText="{{ 'IONP_LIST_SELECT_CANCEL' | translate }}">
-            <ion-option value="{{option.value}}" *ngFor="let option of item.input.options">{{option.text}}</ion-option>
-          </ion-select>
+        <ion-option value="{{option.value}}" *ngFor="let option of item.input.options">{{option.text}}</ion-option>
+        </ion-select>
       </button>
       <!--sliding options-->
       <ion-item-options side="right" *ngIf="item?.sliding?.length>0">
         <button ion-button [color]="option.color" [color]="option.color" [style.background-color]="option.color" *ngFor="let option of item.sliding">
-                  <ion-icon [name]="option.iconName" *ngIf="!option.iconSet"> </ion-icon>
-                  <custom-icon set="{{option.iconSet}}" name="{{option.iconName}}" *ngIf="option.iconSet"></custom-icon>
-                  {{option.text}}
-              </button>
+            <ion-icon [name]="option.iconName" *ngIf="!option.iconSet"> </ion-icon>
+            <custom-icon set="{{option.iconSet}}" name="{{option.iconName}}" *ngIf="option.iconSet"></custom-icon>
+            {{option.text}}
+        </button>
       </ion-item-options>
     </ion-item-sliding>
 

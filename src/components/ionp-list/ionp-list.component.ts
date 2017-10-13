@@ -11,6 +11,7 @@
 import { Component, EventEmitter, Input, Output, } from "@angular/core";
 import { AlertController } from 'ionic-angular';
 import { IonpList, IonpListItem, IonpListGroup } from './ionp-list';
+import { TranslateService } from '@ngx-translate/core';
 import { Logger } from "angular2-logger/core";
 
 @Component({
@@ -39,13 +40,16 @@ export class IonpListComponent {
   items: IonpListItem[];
   params: IonpListItem;
 
-  constructor(private logger: Logger, public alertCtrl: AlertController) { }
+  constructor(
+    private logger: Logger,
+    public alertCtrl: AlertController,
+    public translate: TranslateService) { }
 
   /**
    * 父组件监听子组件的事件:Parent listens for child event
    * https://www.angular.cn/docs/ts/latest/cookbook/component-communication.html#!#parent-to-child-on-changes
    */
-  itemSelected($event,type, item: IonpListItem) {
+  itemSelected($event, type, item: IonpListItem) {
     debugger;
     if (type === 'text') {
       $event.stopPropagation();
@@ -92,31 +96,41 @@ export class IonpListComponent {
   }
 
   showPrompt($event, item: IonpListItem) {
-    let prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
+    this.translate.get(['IONP_LIST_SELECT_OK', 'IONP_LIST_SELECT_CANCEL']).subscribe(values => {
+      debugger;
+      values;
+      let prompt = this.alertCtrl.create({
+        title: item.title || item.subTitle || item.description,
+        //message: "Enter a name for this new album you're so keen on adding",
+        inputs: [
+          {
+            //name: 'title',
+            //placeholder: 'Title',
+            type: item.input.style,
+            value: item.input.value.toString()
+          },
+        ],
+        buttons: [
+          {
+            text: values.IONP_LIST_SELECT_CANCEL,
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: values.IONP_LIST_SELECT_OK,
+            handler: data => {
+              debugger;
+              console.log('Saved clicked');
+              $event.value = data[0];
+              this.inputChanged($event, item);
+            }
           }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
+        ]
+      });
+      prompt.present();
     });
-    prompt.present();
+
   }
 
 }

@@ -59,7 +59,7 @@ export class MyApp {
       }
 
       //guidePage = true;//测试使用参数
-      
+
       // set our app's pages
       this.pages = router.getNavRouter();
       if (guidePage && APPSLIDESCONFIG && APPSLIDESCONFIG.slides && APPSLIDESCONFIG.slides.length > 0) {
@@ -92,7 +92,7 @@ export class MyApp {
 
     // Set the default language for translation strings, and the current language.
     translate.setDefaultLang(APPCONFIG.i18n.name);
-    translate.use(APPCONFIG.i18n.name).subscribe((aaa) => {
+    translate.use(APPCONFIG.i18n.name).subscribe(() => {
       //define translations manually with setTranslation
       //https://www.npmjs.com/package/@ngx-translate/core
       translate.setTranslation(APPCONFIG.i18n.name, APPCONFIG.i18n.content, true);
@@ -128,6 +128,7 @@ export class MyApp {
   }
 
   openPage(page) {
+  
     // close the menu when clicking a link from the menu
     this.menu.close();
     // navigate to the new page if it is not the current page

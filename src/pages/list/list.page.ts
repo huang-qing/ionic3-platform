@@ -8,6 +8,7 @@ import { Segment } from '../../models/segment';
 import { Observable } from 'rxjs/Rx';
 import { Logger } from "angular2-logger/core";
 import { RouterConfig } from '../../providers';
+import { Settings } from '../../providers';
 
 /**
  * http://ionicframework.com/docs/api/navigation/IonicPage/
@@ -31,12 +32,15 @@ export class ListPage implements OnInit {
 
   //通过private关键字在构建器中声明并传入
   constructor(
+    public settings: Settings,
     private logger: Logger,
     private nav: NavController,
     private routerConfig: RouterConfig,
     private navParams: NavParams,
     private service: ListService,
     public modalCtrl: ModalController) { }
+
+  // ngOnInit(){}
 
   ngOnInit() {
 
@@ -53,10 +57,16 @@ export class ListPage implements OnInit {
     this.model.title = this.navParams.get('parentTitle') || '';
     this.router = this.navParams.get('router') || this.routerConfig.getPageConfigById(routerId);
 
-
     if (!this.router) {
-      this.logger.error('list.page:please config the page router!');
+      debugger;
+      // this.settings.getValue('router').then(router => {
+      //   this.router = JSON.parse(router);
+      // });
+      this.logger.warn('router config is null, will load from settings');
       return;
+    }
+    else {
+      //this.settings.setValue('router', JSON.stringify(this.router));
     }
 
     if (!this.model.title) {

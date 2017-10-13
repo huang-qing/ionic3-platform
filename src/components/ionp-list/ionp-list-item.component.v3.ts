@@ -15,7 +15,7 @@ import { Logger } from "angular2-logger/core";
 
 @Component({
   selector: '[ionp-list-item]',
-  templateUrl: "ionp-list-item.html",
+  //templateUrl: "ionp-list-item.html",
   providers: []
 })
 

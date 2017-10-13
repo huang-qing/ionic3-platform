@@ -136,6 +136,9 @@ let getForm = function (type, style): IonpListForm {
             value = "n64";
             options = SELECTOPTIONS;
             break;
+        case 'prompt':
+            value = "prompt";
+            break;
         default:
             break;
     }
