@@ -58,7 +58,7 @@ export class ListPage implements OnInit {
     this.router = this.navParams.get('router') || this.routerConfig.getPageConfigById(routerId);
 
     if (!this.router) {
-      debugger;
+   
       // this.settings.getValue('router').then(router => {
       //   this.router = JSON.parse(router);
       // });

@@ -50,7 +50,7 @@ export class IonpListComponent {
    * https://www.angular.cn/docs/ts/latest/cookbook/component-communication.html#!#parent-to-child-on-changes
    */
   itemSelected($event, type, item: IonpListItem) {
-    debugger;
+
     if (type === 'text') {
       $event.stopPropagation();
       return;
@@ -71,7 +71,7 @@ export class IonpListComponent {
    * @param item 
    */
   inputChanged($event, item: IonpListItem) {
-    debugger;
+  
     let value;
     //ionChange事件中获取值
     if (typeof ($event.value) !== "undefined") {
@@ -97,7 +97,7 @@ export class IonpListComponent {
 
   showPrompt($event, item: IonpListItem) {
     this.translate.get(['IONP_LIST_SELECT_OK', 'IONP_LIST_SELECT_CANCEL']).subscribe(values => {
-      debugger;
+
       values;
       let prompt = this.alertCtrl.create({
         title: item.title || item.subTitle || item.description,
@@ -120,7 +120,7 @@ export class IonpListComponent {
           {
             text: values.IONP_LIST_SELECT_OK,
             handler: data => {
-              debugger;
+   
               console.log('Saved clicked');
               $event.value = data[0];
               this.inputChanged($event, item);

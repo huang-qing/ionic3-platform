@@ -37,7 +37,7 @@ export class DetailPage implements OnInit {
         private navParams: NavParams,
         private service: DetailService,
         public viewCtrl: ViewController) {
-debugger;
+
         var parent = this.navParams.get('parentItem') || '';
 
         if (parent) {
