@@ -55,7 +55,7 @@
         <ion-toggle checked="{{item.input.value}}" *ngIf="item?.input?.type==='toggle'" (ionChange)="inputChanged($event,item)">
         </ion-toggle>
         <ion-input type="{{item.input.style}}" item-right text-right value="{{item.input.value}}" placeholder="{{item.input.text}}"
-            clearInput (keyup.enter)="inputChanged($event,item);$event.stopPropagation();" (blur)="inputChanged($event,item);$event.stopPropagation();"
+            clearInput (keyup.enter)="inputChanged($event,item);" (ionBlur)="inputChanged($event,item);"
             *ngIf="item?.input?.type==='text'">
         </ion-input>
         <ion-input type="{{item.input.style}}" item-right text-right value="{{item.input.value}}"  readonly

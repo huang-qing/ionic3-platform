@@ -70,7 +70,8 @@ export class Api {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
+
+    this.logger.warn(errMsg);
 
     this.presentToast(error.statusText);
 

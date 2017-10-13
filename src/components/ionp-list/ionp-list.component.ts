@@ -114,14 +114,14 @@ export class IonpListComponent {
           {
             text: values.IONP_LIST_SELECT_CANCEL,
             handler: data => {
-              console.log('Cancel clicked');
+              this.logger.log('Cancel clicked');
             }
           },
           {
             text: values.IONP_LIST_SELECT_OK,
             handler: data => {
    
-              console.log('Saved clicked');
+              this.logger.log('Saved clicked');
               $event.value = data[0];
               this.inputChanged($event, item);
             }
