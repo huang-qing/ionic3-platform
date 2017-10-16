@@ -139,6 +139,12 @@ let getForm = function (type, style): IonpListForm {
         case 'prompt':
             value = "prompt";
             break;
+        case 'date':
+            value = "2017-10-10";
+            break;
+        case 'time':
+            value = "12:00:00";
+            break;
         default:
             break;
     }
@@ -395,16 +401,18 @@ let IconItems = (function () {
 //Input Items
 let InputItems = (function () {
     let items: Array<IonpListItem> = [],
-        titles = [null, 'Finn', 'Finn', 'Finn', 'Finn', 'Finn', 'number', 'prompt'],
-        subTitles = [null, "Don't Know What To Do!", "Don't Know What To Do!", null, null, null],
+        titles = [null, 'Finn', 'Finn', 'Finn', 'Finn', 'Finn', 'number', 'prompt', 'date', 'time'],
+        subTitles = [null, "Don't Know What To Do!", "Don't Know What To Do!", null, null, null, null, null],
         descriptioins = ['Pokémon Yellow', "I've had a pretty messed up day. If we just",
-            null, "I've had a pretty messed up day. If we just", null, null],
+            null, "I've had a pretty messed up day. If we just", null, null, null, null],
         icons = [
             getIcon(),
             getCustomIcon(),
             getIcon(),
             getCustomIcon(),
             getIcon(),
+            getCustomIcon(),
+            getCustomIcon(),
             getCustomIcon(),
             getCustomIcon(),
             getCustomIcon()
@@ -417,7 +425,9 @@ let InputItems = (function () {
             getForm('select', null),
             getForm('text', null),
             getForm('text', 'number'),
-            getForm('prompt', null)
+            getForm('prompt', null),
+            getForm('date', null),
+            getForm('time', null)
         ],
         icon,
         input,

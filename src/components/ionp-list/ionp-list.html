@@ -62,8 +62,17 @@
             (click)="showPrompt($event,item);$event.stopPropagation();"
             *ngIf="item?.input?.type==='prompt'">
         </ion-input>
-        <ion-select [ngModel]="item.input.value" *ngIf="item?.input?.type==='select'" (ionChange)="inputChanged($event,item)" okText="{{ 'IONP_LIST_SELECT_OK' | translate }}"
-            cancelText="{{ 'IONP_LIST_SELECT_CANCEL' | translate }}">
+        <ion-datetime displayFormat="YYYY-MM-DD" [ngModel]="item.input.value"  *ngIf="item?.input?.type==='date'" 
+            doneText="{{ 'IONP_LIST_SELECT_OK' | translate }}" cancelText="{{ 'IONP_LIST_SELECT_CANCEL' | translate }}" 
+            (ionChange)="inputChanged($event,item)">
+        </ion-datetime>
+        <ion-datetime displayFormat="HH:mm:ss" [ngModel]="item.input.value"  *ngIf="item?.input?.type==='time'" 
+            doneText="{{ 'IONP_LIST_SELECT_OK' | translate }}" cancelText="{{ 'IONP_LIST_SELECT_CANCEL' | translate }}" 
+            (ionChange)="inputChanged($event,item)">
+        </ion-datetime>
+        <ion-select [ngModel]="item.input.value" *ngIf="item?.input?.type==='select'" 
+            (ionChange)="inputChanged($event,item)" 
+            okText="{{ 'IONP_LIST_SELECT_OK' | translate }}" cancelText="{{ 'IONP_LIST_SELECT_CANCEL' | translate }}">
         <ion-option value="{{option.value}}" *ngFor="let option of item.input.options">{{option.text}}</ion-option>
         </ion-select>
       </button>

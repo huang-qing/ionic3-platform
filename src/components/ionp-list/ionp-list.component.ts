@@ -71,10 +71,13 @@ export class IonpListComponent {
    * @param item 
    */
   inputChanged($event, item: IonpListItem) {
-  
     let value;
     //ionChange事件中获取值
-    if (typeof ($event.value) !== "undefined") {
+    if (item.input.type === 'date') {
+      value = $event.year + '-' + this.numberFormat($event.month) + '-' + this.numberFormat($event.day);
+    } else if (item.input.type === 'time') {
+      value = this.numberFormat($event.hour) + ':' + this.numberFormat($event.minute) + ':' + this.numberFormat($event.second);
+    } else if (typeof ($event.value) !== "undefined") {
       value = $event.value;
     } else if ($event.target) {//keyup.enter blur 事件中获取值
       value = $event.target.value;
@@ -82,6 +85,7 @@ export class IonpListComponent {
     else {
       value = $event;
     }
+
     if (item.input.value !== value) {
       item.input.value = value;
       item.inputValue = value;
@@ -120,7 +124,7 @@ export class IonpListComponent {
           {
             text: values.IONP_LIST_SELECT_OK,
             handler: data => {
-   
+
               this.logger.log('Saved clicked');
               $event.value = data[0];
               this.inputChanged($event, item);
@@ -131,6 +135,13 @@ export class IonpListComponent {
       prompt.present();
     });
 
+  }
+
+  numberFormat(number) {
+    if (number < 10) {
+      return '0' + number;
+    }
+    return number;
   }
 
 }
